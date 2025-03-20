@@ -1,0 +1,62 @@
+		Especificaciones del juego
+1. TABLERO TRIDIMENSIONAL
+	- Se representara con matrices ortogonales.
+	- Debe permitir dimensiones minimas de 2x2x2 y ser escalable.
+	- Cada nodo del tablero podra contener diferentes elementos: jugador, tesoro, enemigos, trampas, pocimas o pistas.
+
+2. POSICIONAMIENTO ALEATORIO
+	- El tesoro se colocara aleatoriamente en uno de los nodos.
+	- Los enemigos, trampas y pócimas se distribuirán en los nodos restantes de manera aleatoria.
+	- Algunas casillas contendrán pistas sobre la ubicacion del tesoro.
+		* Si el nodo esta lejos del tesoro, mostrará "Frio".
+		* Si el nodo esta adyacente a los nodos adyacentes del tesoro: "Tibio".
+		* Si el nodo es adyacente al tesoro: "Caliente".
+
+3. ARBOL BINARIO PARA REGISTRO DE ENEMIGO
+	- Cada enemigo se almacenará en un BST.
+	- La ubicacion de los enemigos se representara como un numero concatenado a partir de sus coordenadas Ej:(1,5,3) -> 153.
+	- El BST se ordenara segun el nivel (tablero) de los enemigos:
+		* Enemigos de nivel bajo estarán en los nodos inferiores del arbol.
+		* Enemigos de nivel alto estarán en la raíz o cerca de ella.
+
+4. ARBOL BINARIO PARA REGISTRO DE TRAMPAS
+	- Cada trampa se almacenará en un BST.
+	- La ubicacion de las trampas se representara como un numero concatenado a partir de sus coordenadas invertidas Ej:(1,5,3) -> 351.
+	- El bst se ordenará segun el nivel (tablero) de las trampas:
+		* Trampas de nivel bajo estarán en la raiz o cerca de ella.
+		* Trampas de nivel alto estarán en los nodos inferiores del arbol.
+
+5. REGISTRO DE MOVIMIENTOS DEL JUGADOR
+	- Se llevará un seguimiento de cada movimiento realizado por el jugador.
+	- Se registrará si el jugador entra en una casilla con un enemigo o una trampa y el efecto que esto tenga en su vida.
+	- Se registrará cuando y como el jugador encuentra el tesoro.
+
+6. HISTORIAL DE PARTIDAS Y ORDENACION DE RESULTADOS
+	- Se almacenarán los datos de cada partida: jugador, puntuacion, tiempo empleado y movimientos realizados.
+	- Los resultados se ordenarán por:
+		* Puntuación.
+		* Nombre del jugador.
+	- Se mostrará una tabla de clasificación con los mejores desempeños.
+
+7. MECANICAS DEL JUEGO
+	- El jugador podrá moverse en las tres dimensiones del tablero (arriba, abajo, izquierda, derecha, adelante y atrás).
+	- Si el jugador encuentra un enemigo, perderá vida según el nivel del enemigo.
+	- Si el jugador cae en una trampa, tambien perderá vida.
+	- Si la vida del jugador llega a cero, pierde el juego.
+	- El jugador puede encontrar pocimas para recuperar vida.
+	- Si el jugador encuentra el tesoro, gana la partida.
+
+8. CARGA CSV 
+	- Se debe cargar un csv con los puntajes de los jugadores anteriores teniendo la siguiente estructura: nombre, puntos, movimientos
+						  Luis Cifuentes, 57, 18
+						  Nery Rodas, 26, 36
+						  Pablo Velasquez, 89, 25
+
+9. REPORTES
+	- Cuando el jugador encuentre el tesoro o pierda, se generará un reporte con:
+		* Nombre del jugador, tiempo total, movimientos y puntuacion.
+		* Ubicación del tesoro y trayectoria del jugador.
+		* Pistas encontradas y su distancia al tesoro.
+		* Enemigos enfrentados y trampas activadas.
+		* Tabla de posiciones con los mejores jugadores.
+		* Gráfico de los árboles de enemigos y trampas.

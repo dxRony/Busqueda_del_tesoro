@@ -1,0 +1,52 @@
+			Abstraccion de objetos
+1) Casilla
+	Atributos
+			- posicionX int
+			- posicionY int
+			- posicionZ int
+			- ubicacion int
+
+2) Jugador extends Casilla:
+	Atributos
+			- nombre string
+			- vida int = 200
+			- puntos int
+			- movimientos int
+			- tiempoJugado int
+			- registroMovimientos listaEnlazada string
+			- enemigosEncontrados int
+			- trampasActivadas int
+			- pocimasEncontradas int
+			- pistasEncontradas int
+
+3) Tesoro extends Casilla:
+	Atributos
+			- valor int
+
+4) Enemigo extends Casilla:
+	Atributos
+			- nivelAlto boolean 
+			- vida int 
+					si es alto random(26 y 50)
+					si es bajo random(15 y 25)			
+
+5) Trampa extends Casilla:
+	Atributos
+			- dano int random(15 y 35)			
+
+6) Pocima extends Casilla:
+	Atributos
+			- curacion int random(15 y 25)
+
+7) Pista extends Casilla:
+	Atributos
+			- distanciaTesoro int
+			- mensaje string
+
+8) Nodo
+
+9) MatrizOrtogonal
+
+10) ListaEnlazada
+
+11) BST

@@ -1,0 +1,3 @@
+/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/cmake-build-debug/CMakeFiles/Busqueda_del_tesoro.dir
+/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/cmake-build-debug/CMakeFiles/rebuild_cache.dir
