@@ -4,7 +4,6 @@
 			- posicionX int
 			- posicionY int
 			- posicionZ int
-			- ubicacion int
 
 2) Jugador extends Casilla:
 	Atributos
