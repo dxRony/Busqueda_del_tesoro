@@ -1,3 +1,21 @@
 # ninja log v6
-1	213	1742451665794640066	CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.o	9f9064425a7bdd18
 213	265	1742451666006638048	Busqueda_del_tesoro	3080dc0328155a3
+1	213	1742451665794640066	CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.o	9f9064425a7bdd18
+0	16	1742542265302618411	build.ninja	a62c550f77fa21d2
+2	202	1742542265309618315	CMakeFiles/Busqueda_del_tesoro.dir/src/Trampa.cpp.o	1dce7970fd814016
+1	202	1742542265308618329	CMakeFiles/Busqueda_del_tesoro.dir/src/Enemigo.cpp.o	48f15efbdffb3819
+1	202	1742542265308618329	CMakeFiles/Busqueda_del_tesoro.dir/src/Pocima.cpp.o	ff622fd0357ba068
+2	202	1742542265309618315	CMakeFiles/Busqueda_del_tesoro.dir/src/Tesoro.cpp.o	959b3ee26002037c
+1	209	1742542265308618329	CMakeFiles/Busqueda_del_tesoro.dir/src/Casilla.cpp.o	4df76bfe209db55d
+1	216	1742542265308618329	CMakeFiles/Busqueda_del_tesoro.dir/src/Pista.cpp.o	d431feb9c68dcd9
+1	219	1742542265308618329	CMakeFiles/Busqueda_del_tesoro.dir/src/Jugador.cpp.o	e69b923cf4f7d465
+1	278	1742542265308618329	CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.o	9f9064425a7bdd18
+278	350	1742542265585614547	Busqueda_del_tesoro	1610044d822c9fd8
+1	172	1742542312408984650	CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.o	9f9064425a7bdd18
+172	223	1742542312579982383	Busqueda_del_tesoro	1610044d822c9fd8
+0	182	1742542349365500028	CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.o	9f9064425a7bdd18
+182	229	1742542349547497668	Busqueda_del_tesoro	1610044d822c9fd8
+1	174	1742542402162825230	CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.o	9f9064425a7bdd18
+174	228	1742542402335823051	Busqueda_del_tesoro	1610044d822c9fd8
+0	175	1742542418523620037	CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.o	9f9064425a7bdd18
+175	223	1742542418698617852	Busqueda_del_tesoro	1610044d822c9fd8

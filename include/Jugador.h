@@ -6,6 +6,7 @@
 #define JUGADOR_H
 #include "Casilla.h"
 #include <string>
+#include "edd/LinkedList.h"
 using namespace std;
 
 class Jugador : public Casilla {
@@ -15,7 +16,7 @@ private:
     int puntos;
     int movimientos;
     int tiempoJugado;
-    //listaEnlazada registroMovimientos
+    LinkedList<string> registroMovimientos;
     int enemigosEncontrados;
     int trampasActivadas;
     int pocimasEncontradas;
@@ -44,6 +45,10 @@ public:
     int getTiempoJugado() const;
 
     void setTiempoJugado(int tiempoJugado);
+
+    LinkedList<string> getRegistroMovimientos() const;
+
+    void setRegistroMovimientos(LinkedList<string> registroMovimientos);
 
     int getEnemigosEncontrados() const;
 

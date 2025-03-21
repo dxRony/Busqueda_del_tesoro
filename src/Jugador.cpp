@@ -55,6 +55,14 @@ void Jugador::setTiempoJugado(int tiempo) {
     this->tiempoJugado = tiempo;
 }
 
+LinkedList<string> Jugador::getRegistroMovimientos() const {
+    return registroMovimientos;
+}
+
+void Jugador::setRegistroMovimientos(LinkedList<string> registroMovimientos) {
+    this->registroMovimientos = registroMovimientos;
+}
+
 int Jugador::getEnemigosEncontrados() const {
     return enemigosEncontrados;
 }

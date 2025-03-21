@@ -17,4 +17,6 @@ add_executable(Busqueda_del_tesoro main.cpp
         src/Pista.cpp
         src/Pocima.cpp
         src/Tesoro.cpp
-        src/Trampa.cpp)
+        src/Trampa.cpp
+        include/edd/Node.h
+        include/edd/LinkedList.h)

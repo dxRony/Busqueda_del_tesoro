@@ -109,7 +109,9 @@
 				4,
 				5,
 				6,
-				7
+				7,
+				15,
+				16
 			]
 		}
 	],
@@ -197,6 +199,16 @@
 			"compileGroupIndex" : 0,
 			"path" : "src/Trampa.cpp",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/edd/Node.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/edd/LinkedList.h",
+			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "EXECUTABLE"
