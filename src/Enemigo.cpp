@@ -1,6 +1,7 @@
 //
 // Created by ronyrojas on 20/03/25.
 //
+#include <ctime>
 #include "../include/Enemigo.h"
 using namespace std;
 
