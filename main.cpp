@@ -1,10 +1,12 @@
 #include <iostream>
 #include "include/edd/LinkedList.h"
+#include "include/edd/BST.h"
 using namespace std;
 
 int main() {
     cout << "Hello world " << "!\n";
 
+    /*
     cout << "probando lista" << endl;
     LinkedList<int> listaDePrueba;
 
@@ -27,6 +29,65 @@ int main() {
 
     cout << "imprimiendo lista final: " << endl;
     listaDePrueba.imprimir();
+    */
+    cout << "probando bst" << endl;
+    BST<int> bstPrueba;
+
+    cout << "Insertando valores" <<endl;
+    bstPrueba.insertar(50);
+    bstPrueba.insertar(30);
+    bstPrueba.insertar(70);
+    bstPrueba.insertar(20);
+    bstPrueba.insertar(40);
+    bstPrueba.insertar(60);
+    bstPrueba.insertar(80);
+
+    cout << "\narbol despues de las inserciones" << endl;
+    bstPrueba.mostrarDescendente();
+
+    cout << "\nbuscando valores:" << endl;
+    cout << "buscando 40 " << bstPrueba.buscar(40) << endl;
+    cout << "buscando 100 " << bstPrueba.buscar(100) << endl;
+
+    cout << "\neliminando valores" << endl;
+    bstPrueba.eliminar(20);
+    bstPrueba.eliminar(30);
+
+    cout << "\narbol después de eliminar" << endl;
+    bstPrueba.mostrarDescendente();
+
+    cout << "\neliminando nodo con dos hijos" << endl;
+    bstPrueba.eliminar(50);
+    cout << "\narbol despues de eliminar 50:" << endl;
+    bstPrueba.mostrarDescendente();
+
+    cout << "\ninsertando valores" << endl;
+    bstPrueba.insertar(10);
+    bstPrueba.insertar(90);
+    bstPrueba.insertar(55);
+
+    cout << "\narbol despues de insertar" << endl;
+    bstPrueba.mostrarDescendente();
+
+    cout << "\neliminando nodo con un hijo" << endl;
+    bstPrueba.eliminar(80);
+
+    cout << "\narbol despues de eliminar 80:" << endl;
+    bstPrueba.mostrarDescendente();
+
+    cout << "\nEliminando la raiz 60:" << endl;
+    bstPrueba.eliminar(60);
+
+    cout << "\narbol despues de eliminar la raiz (60):" << endl;
+    bstPrueba.mostrarDescendente();
+
+    // Mostrar el árbol en orden ascendente
+    cout << "arbol en orden ascendente:" << endl;
+    bstPrueba.mostrarAscendente();
+
+    // Mostrar el árbol en orden descendente
+    cout << "\narbol en orden descendente:" << endl;
+    bstPrueba.mostrarDescendente();
 
     return 0;
 }

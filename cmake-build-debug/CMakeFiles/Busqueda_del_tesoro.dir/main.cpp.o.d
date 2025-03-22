@@ -155,4 +155,5 @@ CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.o: \
  /usr/include/c++/14.2.0/bits/ostream.tcc /usr/include/c++/14.2.0/istream \
  /usr/include/c++/14.2.0/bits/istream.tcc \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/edd/LinkedList.h \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/edd/Node.h
+ /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/edd/Node.h \
+ /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/edd/BST.h

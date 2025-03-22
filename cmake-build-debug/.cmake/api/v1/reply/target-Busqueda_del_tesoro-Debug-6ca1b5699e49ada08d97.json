@@ -111,7 +111,8 @@
 				6,
 				7,
 				15,
-				16
+				16,
+				17
 			]
 		}
 	],
@@ -208,6 +209,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "include/edd/LinkedList.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/edd/BST.h",
 			"sourceGroupIndex" : 1
 		}
 	],
