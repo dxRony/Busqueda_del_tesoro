@@ -1,10 +1,12 @@
 #include <iostream>
 #include "include/edd/LinkedList.h"
 #include "include/edd/BST.h"
+#include "include/edd/ThreeDimensionalMatrix.h"
+#include <cassert>
 using namespace std;
 
 int main() {
-    cout << "Hello world " << "!\n";
+    cout << "Hello world!" << "!\n";
 
     /*
     cout << "probando lista" << endl;
@@ -30,6 +32,8 @@ int main() {
     cout << "imprimiendo lista final: " << endl;
     listaDePrueba.imprimir();
     */
+
+    /*
     cout << "probando bst" << endl;
     BST<int> bstPrueba;
 
@@ -88,6 +92,17 @@ int main() {
     // Mostrar el árbol en orden descendente
     cout << "\narbol en orden descendente:" << endl;
     bstPrueba.mostrarDescendente();
+    */
+    ThreeDimensionalMatrix<int> mat(2, 2, 2);
+    mat.insertar(0, 0, 0, 1);
+    mat.insertar(1, 0, 0, 2);
+    mat.insertar(0, 1, 0, 3);
+    mat.insertar(1, 1, 0, 4);
+    mat.insertar(0, 0, 1, 5);
+    mat.insertar(1, 0, 1, 6);
+    mat.insertar(0, 1, 1, 7);
+    mat.insertar(1, 1, 1, 8);
+    mat.imprimir();
 
     return 0;
 }

@@ -112,7 +112,8 @@
 				7,
 				15,
 				16,
-				17
+				17,
+				18
 			]
 		}
 	],
@@ -214,6 +215,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "include/edd/BST.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/edd/ThreeDimensionalMatrix.h",
 			"sourceGroupIndex" : 1
 		}
 	],
