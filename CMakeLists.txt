@@ -3,7 +3,7 @@ project(Busqueda_del_tesoro)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Busqueda_del_tesoro main.cpp
+add_executable(Busqueda_del_tesoro src/main.cpp
         include/Casilla.h
         include/Jugador.h
         include/Tesoro.h
@@ -21,4 +21,8 @@ add_executable(Busqueda_del_tesoro main.cpp
         include/edd/Node.h
         include/edd/LinkedList.h
         include/edd/BST.h
-        include/edd/ThreeDimensionalMatrix.h)
+        include/edd/ThreeDimensionalMatrix.h
+        include/MotorDeJuego.h
+        src/MotorDeJuego.cpp
+        include/Partida.h
+        src/Partida.cpp)

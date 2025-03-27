@@ -69,19 +69,19 @@ include CMakeFiles/Busqueda_del_tesoro.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Busqueda_del_tesoro.dir/flags.make
 
-CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.o: CMakeFiles/Busqueda_del_tesoro.dir/flags.make
-CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.o: /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/main.cpp
-CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.o: CMakeFiles/Busqueda_del_tesoro.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.o -MF CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.o.d -o CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.o -c /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/main.cpp
+CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o: CMakeFiles/Busqueda_del_tesoro.dir/flags.make
+CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o: /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/main.cpp
+CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o: CMakeFiles/Busqueda_del_tesoro.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o -MF CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o.d -o CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o -c /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/main.cpp
 
-CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/main.cpp > CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.i
+CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/main.cpp > CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.i
 
-CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/main.cpp -o CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.s
+CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/main.cpp -o CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.s
 
 CMakeFiles/Busqueda_del_tesoro.dir/src/Casilla.cpp.o: CMakeFiles/Busqueda_del_tesoro.dir/flags.make
 CMakeFiles/Busqueda_del_tesoro.dir/src/Casilla.cpp.o: /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Casilla.cpp
@@ -181,21 +181,51 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/Trampa.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Busqueda_del_tesoro.dir/src/Trampa.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Trampa.cpp -o CMakeFiles/Busqueda_del_tesoro.dir/src/Trampa.cpp.s
 
+CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o: CMakeFiles/Busqueda_del_tesoro.dir/flags.make
+CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o: /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/MotorDeJuego.cpp
+CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o: CMakeFiles/Busqueda_del_tesoro.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o -MF CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o.d -o CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o -c /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/MotorDeJuego.cpp
+
+CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/MotorDeJuego.cpp > CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.i
+
+CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/MotorDeJuego.cpp -o CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.s
+
+CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.o: CMakeFiles/Busqueda_del_tesoro.dir/flags.make
+CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.o: /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Partida.cpp
+CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.o: CMakeFiles/Busqueda_del_tesoro.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.o -MF CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.o.d -o CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.o -c /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Partida.cpp
+
+CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Partida.cpp > CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.i
+
+CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Partida.cpp -o CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.s
+
 # Object files for target Busqueda_del_tesoro
 Busqueda_del_tesoro_OBJECTS = \
-"CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.o" \
+"CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o" \
 "CMakeFiles/Busqueda_del_tesoro.dir/src/Casilla.cpp.o" \
 "CMakeFiles/Busqueda_del_tesoro.dir/src/Enemigo.cpp.o" \
 "CMakeFiles/Busqueda_del_tesoro.dir/src/Jugador.cpp.o" \
 "CMakeFiles/Busqueda_del_tesoro.dir/src/Pista.cpp.o" \
 "CMakeFiles/Busqueda_del_tesoro.dir/src/Pocima.cpp.o" \
 "CMakeFiles/Busqueda_del_tesoro.dir/src/Tesoro.cpp.o" \
-"CMakeFiles/Busqueda_del_tesoro.dir/src/Trampa.cpp.o"
+"CMakeFiles/Busqueda_del_tesoro.dir/src/Trampa.cpp.o" \
+"CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o" \
+"CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.o"
 
 # External object files for target Busqueda_del_tesoro
 Busqueda_del_tesoro_EXTERNAL_OBJECTS =
 
-Busqueda_del_tesoro: CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.o
+Busqueda_del_tesoro: CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o
 Busqueda_del_tesoro: CMakeFiles/Busqueda_del_tesoro.dir/src/Casilla.cpp.o
 Busqueda_del_tesoro: CMakeFiles/Busqueda_del_tesoro.dir/src/Enemigo.cpp.o
 Busqueda_del_tesoro: CMakeFiles/Busqueda_del_tesoro.dir/src/Jugador.cpp.o
@@ -203,9 +233,11 @@ Busqueda_del_tesoro: CMakeFiles/Busqueda_del_tesoro.dir/src/Pista.cpp.o
 Busqueda_del_tesoro: CMakeFiles/Busqueda_del_tesoro.dir/src/Pocima.cpp.o
 Busqueda_del_tesoro: CMakeFiles/Busqueda_del_tesoro.dir/src/Tesoro.cpp.o
 Busqueda_del_tesoro: CMakeFiles/Busqueda_del_tesoro.dir/src/Trampa.cpp.o
+Busqueda_del_tesoro: CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o
+Busqueda_del_tesoro: CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.o
 Busqueda_del_tesoro: CMakeFiles/Busqueda_del_tesoro.dir/build.make
 Busqueda_del_tesoro: CMakeFiles/Busqueda_del_tesoro.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable Busqueda_del_tesoro"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable Busqueda_del_tesoro"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Busqueda_del_tesoro.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

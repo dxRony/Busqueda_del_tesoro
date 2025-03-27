@@ -1,39 +1,42 @@
 #include <iostream>
-#include "include/edd/LinkedList.h"
-#include "include/edd/BST.h"
-#include "include/edd/ThreeDimensionalMatrix.h"
+#include "../include/edd/LinkedList.h"
+#include "../include/edd/BST.h"
+#include "../include/edd/ThreeDimensionalMatrix.h"
 #include <cassert>
+#include "../include/MotorDeJuego.h"
 using namespace std;
 
 int main() {
     cout << "Hello world!" << "!\n";
+    MotorDeJuego motorDeJuego;
+    motorDeJuego.mostrarMenu();
 
-    cout << "probando lista" << endl;
-    /*
-    LinkedList<int> listaDePrueba;
-    listaDePrueba.insertarInicio(10);
-    listaDePrueba.insertarInicio(5);
-    listaDePrueba.insertarFinal(20);
-    listaDePrueba.insertarFinal(30);
+    /*cout << "probando lista" << endl;
 
-    cout << "imprimiendo lista: " << endl;
-    listaDePrueba.imprimir();
+   LinkedList<int> listaDePrueba;
+   listaDePrueba.insertarInicio(10);
+   listaDePrueba.insertarInicio(5);
+   listaDePrueba.insertarFinal(20);
+   listaDePrueba.insertarFinal(30);
 
-    cout << "existe 10 en la lista... " << listaDePrueba.buscar(10) << endl;
+   cout << "imprimiendo lista: " << endl;
+   listaDePrueba.imprimir();
 
-    cout << "eliminando 10 en la lista..." << endl;
-    listaDePrueba.eliminar(10);
+   cout << "existe 10 en la lista... " << listaDePrueba.buscar(10) << endl;
 
-    cout << "tamano lista: " << listaDePrueba.obtenerTamano() << endl;
+   cout << "eliminando 10 en la lista..." << endl;
+   listaDePrueba.eliminar(10);
 
-    cout << "existe 10 en la lista... " << listaDePrueba.buscar(10) << endl;
+   cout << "tamano lista: " << listaDePrueba.obtenerTamano() << endl;
 
-    cout << "imprimiendo lista final: " << endl;
-    listaDePrueba.imprimir();
-    */
+   cout << "existe 10 en la lista... " << listaDePrueba.buscar(10) << endl;
 
-    cout << "probando bst" << endl;
-    /*
+   cout << "imprimiendo lista final: " << endl;
+   listaDePrueba.imprimir();
+   */
+
+    /*cout << "probando bst" << endl;
+
     BST<int> bstPrueba;
     cout << "Insertando valores" <<endl;
     bstPrueba.insertar(50);
@@ -92,8 +95,8 @@ int main() {
     bstPrueba.mostrarDescendente();
     */
 
-    cout << "probando threeDimensionalMatrix" << endl;
-    /*
+    /*cout << "probando threeDimensionalMatrix" << endl;
+
     ThreeDimensionalMatrix<int> mat(3, 3, 2);
     mat.insertar(0, 0, 0, 1);
     mat.insertar(1, 0, 0, 2);

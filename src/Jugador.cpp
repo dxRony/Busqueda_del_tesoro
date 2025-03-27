@@ -9,10 +9,6 @@ Jugador::Jugador() : Casilla() {
     puntos = 0;
     movimientos = 0;
     tiempoJugado = 0;
-    enemigosEncontrados = 0;
-    trampasActivadas = 0;
-    pocimasEncontradas = 0;
-    pistasEncontradas = 0;
 }
 
 string Jugador::getNombre() const {
@@ -53,44 +49,4 @@ int Jugador::getTiempoJugado() const {
 
 void Jugador::setTiempoJugado(int tiempo) {
     this->tiempoJugado = tiempo;
-}
-
-LinkedList<string> Jugador::getRegistroMovimientos() const {
-    return registroMovimientos;
-}
-
-void Jugador::setRegistroMovimientos(LinkedList<string> registroMovimientos) {
-    this->registroMovimientos = registroMovimientos;
-}
-
-int Jugador::getEnemigosEncontrados() const {
-    return enemigosEncontrados;
-}
-
-void Jugador::setEnemigosEncontrados(int enemigosEncontrado) {
-    this->enemigosEncontrados = enemigosEncontrado;
-}
-
-int Jugador::getTrampasActivadas() const {
-    return trampasActivadas;
-}
-
-void Jugador::setTrampasActivadas(int trampas) {
-    this->trampasActivadas = trampas;
-}
-
-int Jugador::getPocimasEncontrados() const {
-    return pocimasEncontradas;
-}
-
-void Jugador::setPocimasEncontrados(int pocimasEncontrado) {
-    this->pocimasEncontradas = pocimasEncontrado;
-}
-
-int Jugador::getPistasEncontrados() const {
-    return pistasEncontradas;
-}
-
-void Jugador::setPistasEncontrados(int pistas) {
-    this->pistasEncontradas = pistas;
 }

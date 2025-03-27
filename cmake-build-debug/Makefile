@@ -129,30 +129,6 @@ Busqueda_del_tesoro/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/build
 .PHONY : Busqueda_del_tesoro/fast
 
-main.o: main.cpp.o
-.PHONY : main.o
-
-# target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/main.cpp.s
-.PHONY : main.cpp.s
-
 src/Casilla.o: src/Casilla.cpp.o
 .PHONY : src/Casilla.o
 
@@ -224,6 +200,54 @@ src/Jugador.s: src/Jugador.cpp.s
 src/Jugador.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/src/Jugador.cpp.s
 .PHONY : src/Jugador.cpp.s
+
+src/MotorDeJuego.o: src/MotorDeJuego.cpp.o
+.PHONY : src/MotorDeJuego.o
+
+# target to build an object file
+src/MotorDeJuego.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o
+.PHONY : src/MotorDeJuego.cpp.o
+
+src/MotorDeJuego.i: src/MotorDeJuego.cpp.i
+.PHONY : src/MotorDeJuego.i
+
+# target to preprocess a source file
+src/MotorDeJuego.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.i
+.PHONY : src/MotorDeJuego.cpp.i
+
+src/MotorDeJuego.s: src/MotorDeJuego.cpp.s
+.PHONY : src/MotorDeJuego.s
+
+# target to generate assembly for a file
+src/MotorDeJuego.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.s
+.PHONY : src/MotorDeJuego.cpp.s
+
+src/Partida.o: src/Partida.cpp.o
+.PHONY : src/Partida.o
+
+# target to build an object file
+src/Partida.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.o
+.PHONY : src/Partida.cpp.o
+
+src/Partida.i: src/Partida.cpp.i
+.PHONY : src/Partida.i
+
+# target to preprocess a source file
+src/Partida.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.i
+.PHONY : src/Partida.cpp.i
+
+src/Partida.s: src/Partida.cpp.s
+.PHONY : src/Partida.s
+
+# target to generate assembly for a file
+src/Partida.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.s
+.PHONY : src/Partida.cpp.s
 
 src/Pista.o: src/Pista.cpp.o
 .PHONY : src/Pista.o
@@ -321,6 +345,30 @@ src/Trampa.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/src/Trampa.cpp.s
 .PHONY : src/Trampa.cpp.s
 
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -330,9 +378,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Busqueda_del_tesoro"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 	@echo "... src/Casilla.o"
 	@echo "... src/Casilla.i"
 	@echo "... src/Casilla.s"
@@ -342,6 +387,12 @@ help:
 	@echo "... src/Jugador.o"
 	@echo "... src/Jugador.i"
 	@echo "... src/Jugador.s"
+	@echo "... src/MotorDeJuego.o"
+	@echo "... src/MotorDeJuego.i"
+	@echo "... src/MotorDeJuego.s"
+	@echo "... src/Partida.o"
+	@echo "... src/Partida.i"
+	@echo "... src/Partida.s"
 	@echo "... src/Pista.o"
 	@echo "... src/Pista.i"
 	@echo "... src/Pista.s"
@@ -354,6 +405,9 @@ help:
 	@echo "... src/Trampa.o"
 	@echo "... src/Trampa.i"
 	@echo "... src/Trampa.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

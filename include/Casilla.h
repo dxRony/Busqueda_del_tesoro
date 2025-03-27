@@ -4,13 +4,15 @@
 
 #ifndef CASILLA_H
 #define CASILLA_H
-#include <string>
+#include <iostream>
+using namespace std;
 
 class Casilla {
 private:
     int posicionX;
     int posicionY;
     int posicionZ;
+    string ubicacion;
 
 public:
     Casilla();
@@ -27,5 +29,9 @@ public:
     int getPosicionZ() const;
 
     void setPosicionZ(int posicion_z);
+
+    string getUbicacion() const;
+
+    void setUbicacion(string ubicacion);
 };
 #endif //CASILLA_H

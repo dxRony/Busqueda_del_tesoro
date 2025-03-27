@@ -16,11 +16,6 @@ private:
     int puntos;
     int movimientos;
     int tiempoJugado;
-    LinkedList<string> registroMovimientos;
-    int enemigosEncontrados;
-    int trampasActivadas;
-    int pocimasEncontradas;
-    int pistasEncontradas;
 
 public:
     Jugador();
@@ -45,25 +40,5 @@ public:
     int getTiempoJugado() const;
 
     void setTiempoJugado(int tiempoJugado);
-
-    LinkedList<string> getRegistroMovimientos() const;
-
-    void setRegistroMovimientos(LinkedList<string> registroMovimientos);
-
-    int getEnemigosEncontrados() const;
-
-    void setEnemigosEncontrados(int enemigosEncontrado);
-
-    int getTrampasActivadas() const;
-
-    void setTrampasActivadas(int trampasActivadas);
-
-    int getPocimasEncontrados() const;
-
-    void setPocimasEncontrados(int pocimasEncontrado);
-
-    int getPistasEncontrados() const;
-
-    void setPistasEncontrados(int pistasEncontrado);
 };
 #endif //JUGADOR_H

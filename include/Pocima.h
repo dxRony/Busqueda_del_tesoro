@@ -5,6 +5,7 @@
 #ifndef POCIMA_H
 #define POCIMA_H
 #include "Casilla.h"
+
 class Pocima : public Casilla {
 private:
     int curacion;

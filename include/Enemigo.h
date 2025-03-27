@@ -22,6 +22,4 @@ public:
 
     void setVida(int vida);
 };
-
-
 #endif //ENEMIGO_H

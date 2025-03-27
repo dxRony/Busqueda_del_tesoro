@@ -1,10 +1,17 @@
 			Abstraccion de objetos
+0) Partida
+	Atributos
+			- registroTrayectoria listaEnlazada string
+			- registroEnemigosYTrampas listaEnlazada string
+			- registroPistas listaEnlazada string
+			- registroPocimas listaEnlazada string			
+
 1) Casilla
 	Atributos
 			- posicionX int
 			- posicionY int
 			- posicionZ int
-			-~ubicacion int~
+			- ubicacion string
 
 2) Jugador extends Casilla:
 	Atributos
@@ -12,12 +19,7 @@
 			- vida int = 200
 			- puntos int
 			- movimientos int
-			- tiempoJugado int
-			- registroMovimientos listaEnlazada string
-			- enemigosEncontrados int
-			- trampasActivadas int
-			- pocimasEncontradas int
-			- pistasEncontradas int
+			- tiempoJugado int			
 
 3) Tesoro extends Casilla:
 	Atributos
