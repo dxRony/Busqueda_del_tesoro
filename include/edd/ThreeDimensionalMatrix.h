@@ -17,49 +17,64 @@ private:
     int alto;
     int profundidad;
 
-    // Crea y enlaza todos los nodos recursivamente
-    //crea un nodo en la posicion indicada
-    Node<T> *crearNodo(int x, int y, int z) {
-        //evaluando que no se excedan las posiciones del array
-        if (x >= ancho || y >= alto || z >= profundidad) {
-            return nullptr;
-        }
-        //creando nodo
-        Node<T> *nuevoNodo = new Node<T>(0); // Valor inicial 0
-
-        //creando y registrando nodos a la par del nodo actual
-        nuevoNodo->setRight(crearNodo(x + 1, y, z));
-        nuevoNodo->setUp(crearNodo(x, y + 1, z));
-        nuevoNodo->setNext(crearNodo(x, y, z + 1));
-
-        //si el nodo actual tiene derecho, se le manda al derecho el actual como izquierdo
-        if (nuevoNodo->getRight()) {
-            nuevoNodo->getRight()->setLeft(nuevoNodo);
-        }
-        //si el nodo actual tiene nodo arriba, se le manda al de arriba el actual como el nodo de abajo
-        if (nuevoNodo->getUp()) {
-            nuevoNodo->getUp()->setDown(nuevoNodo);
-        }
-        //si el nodo actual tiene siguiente, se le manda al siguiente el actual como previo
-        if (nuevoNodo->getNext()) {
-            nuevoNodo->getNext()->setPrev(nuevoNodo);
-        }
-        //retornando el nodo creado en la posicion indicada
-        cout << "Creando nodo en (" << x << "," << y << "," << z << ")"<< endl;
-        return nuevoNodo;
-    }
-
 public:
     //constructor que recibe las dimensiones de la matriz
     ThreeDimensionalMatrix(int ancho, int alto, int profundidad) {
         if (ancho < 2 || alto < 2 || profundidad < 2) {
-            throw invalid_argument("Las dimensiones para crear el tablero son de 2x2x2");
+            throw invalid_argument("Las dimensiones deben ser al menos 2x2x2");
         }
+
         this->ancho = ancho;
         this->alto = alto;
         this->profundidad = profundidad;
-        //creando nodo en la posicion origen de la matriz
-        cabeza = crearNodo(0, 0, 0);
+
+        // creando nodo cabeza, esta en posicion (0, 0, 0)
+        cabeza = new Node<T>(0);
+        Node<T> *nodoActual = cabeza;
+
+        //recorriendo cada columna, de cada fila, de cada profundidad
+        for (int z = 0; z < profundidad; ++z) {
+            for (int y = 0; y < alto; ++y) {
+                for (int x = 0; x < ancho; ++x) {
+                    if (x == 0 && y == 0 && z == 0) {
+                        //saltando el nodo en la posicion (0, 0, 0), ya existe
+                        continue;
+                    }
+                    // creando nuevo nodo en la posicion actual
+                    Node<T> *nuevoNodo = new Node<T>(0);
+
+                    if (x > 0) {
+                        //si x >0, significa que hay un izquierdo
+                        //al nuevo nodo se le manda el actual como izquierdo
+                        nuevoNodo->setLeft(nodoActual);
+                        //al actual nodo se le manda el nuevoNodo como derecho
+                        nodoActual->setRight(nuevoNodo);
+                        //actualizando nodoActual, para llevar la secuencia de la fila
+                        nodoActual = nuevoNodo;
+                    } else {
+                        nodoActual = nuevoNodo;
+                    }
+
+                    if (y > 0) {
+                        //si y >0, significa que hay un nodo abajo, se obtiene
+                        Node<T> *nodoAbajo = obtenerNodo(x, y - 1, z);
+                        //al nuevo nodo se le conecta al de abajo
+                        nuevoNodo->setDown(nodoAbajo);
+                        //al de abajo se le conecta el arriba
+                        nodoAbajo->setUp(nuevoNodo);
+                    }
+
+                    if (z > 0) {
+                        //si z>0, significa que hay un nodo atras, se obtiene
+                        Node<T> *nodoAtras = obtenerNodo(x, y, z - 1);
+                        //al nuevo nodo se le conecta al de atras
+                        nuevoNodo->setPrev(nodoAtras);
+                        //al de atras se le conecta el de adelante
+                        nodoAtras->setNext(nuevoNodo);
+                    }
+                }
+            }
+        }
     }
 
     Node<T> *obtenerNodo(int x, int y, int z) {
@@ -93,9 +108,10 @@ public:
     }
 
     void imprimir() {
+        cout << "*******************" << endl;
         for (int z = 0; z < profundidad; ++z) {
-            cout << "Capa " << z << ":\n";
-            for (int y = alto -1 ; y >= 0; --y) {
+            cout << "Tablero en z = " << z << ":\n";
+            for (int y = alto - 1; y >= 0; --y) {
                 Node<T> *fila = obtenerNodo(0, y, z);
                 for (int x = 0; x < ancho && fila; ++x) {
                     cout << fila->getData() << " ";
@@ -104,6 +120,7 @@ public:
                 cout << "\n";
             }
             cout << "\n";
+            cout << "*******************" << endl;
         }
     }
 };

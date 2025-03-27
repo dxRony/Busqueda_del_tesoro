@@ -8,10 +8,9 @@ using namespace std;
 int main() {
     cout << "Hello world!" << "!\n";
 
-    /*
     cout << "probando lista" << endl;
+    /*
     LinkedList<int> listaDePrueba;
-
     listaDePrueba.insertarInicio(10);
     listaDePrueba.insertarInicio(5);
     listaDePrueba.insertarFinal(20);
@@ -33,10 +32,9 @@ int main() {
     listaDePrueba.imprimir();
     */
 
-    /*
     cout << "probando bst" << endl;
+    /*
     BST<int> bstPrueba;
-
     cout << "Insertando valores" <<endl;
     bstPrueba.insertar(50);
     bstPrueba.insertar(30);
@@ -93,7 +91,10 @@ int main() {
     cout << "\narbol en orden descendente:" << endl;
     bstPrueba.mostrarDescendente();
     */
-    ThreeDimensionalMatrix<int> mat(2, 2, 2);
+
+    cout << "probando threeDimensionalMatrix" << endl;
+    /*
+    ThreeDimensionalMatrix<int> mat(3, 3, 2);
     mat.insertar(0, 0, 0, 1);
     mat.insertar(1, 0, 0, 2);
     mat.insertar(0, 1, 0, 3);
@@ -102,7 +103,11 @@ int main() {
     mat.insertar(1, 0, 1, 6);
     mat.insertar(0, 1, 1, 7);
     mat.insertar(1, 1, 1, 8);
+    mat.insertar(2, 0, 0, 9);
     mat.imprimir();
 
+    cout << "Obteniendo el contenido del nodo en la posicion (1, 1, 1): " << endl;
+    cout << mat.obtenerNodo(1, 1, 1)->getData() << endl;
+*/
     return 0;
 }
