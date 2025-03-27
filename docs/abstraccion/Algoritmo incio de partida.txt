@@ -1,0 +1,12 @@
+			Algoritmo incio de partida
+1) ejecutar juego
+2) elegir opcion iniciar partida
+3) ingresar nombre de jugador
+4) ingresar dimensiones de tablero
+5) generar tablero
+6) generar nodos aleatorios
+7) mostrar opciones turno
+8) mover a jugador 
+
+10) ciclar hasta que el jugador muera o encuentre el tesoro
+11) actualizar reportes con la partida finalizada
