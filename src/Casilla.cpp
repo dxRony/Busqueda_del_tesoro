@@ -3,7 +3,7 @@
 //
 #include "../include/Casilla.h"
 
-Casilla::Casilla() {
+Casilla::Casilla(){
     posicionX = 0;
     posicionY = 0;
     posicionZ = 0;
@@ -39,4 +39,17 @@ string Casilla::getUbicacion() const {
 
 void Casilla::setUbicacion(string ubicacion) {
     this->ubicacion = ubicacion;
+}
+
+char Casilla::getRepresentacion() const {
+    return representacion;
+}
+
+void Casilla::setRepresentacion(char representacion) {
+    this->representacion = representacion;
+}
+
+ostream &operator<<(ostream &os, const Casilla &casilla) {
+    os << casilla.getRepresentacion();
+    return os;
 }

@@ -15,8 +15,9 @@ using namespace std;
 class Partida {
 private:
     Jugador jugador;
-    bool jugadorEliminado = false;
-    bool tesoroEncontrado = false;
+    bool jugadorEliminado;
+    bool tesoroEncontrado;
+    bool partidaAbandonada;
     ThreeDimensionalMatrix<Casilla> *tableroDeJuego;
     int ancho, alto, profundidad;
     BST<Enemigo> *enemigosPartida;
@@ -33,10 +34,6 @@ public:
 
     void generarTablero();
 
-    void moverJugador(int direccion);
 
-    void mostrarEstadoPartida();
-
-    void guardarReporte();
 };
 #endif //PARTIDA_H

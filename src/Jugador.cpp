@@ -3,12 +3,24 @@
 //
 #include "../include/Jugador.h"
 
-Jugador::Jugador(string nombre) : Casilla() {
+Jugador::Jugador(string nombre) {
     this->nombre = nombre;
+    this->setRepresentacion('J');
     vida = 200;
     puntos = 0;
     movimientos = 0;
     tiempoJugado = 0;
+}
+
+int Jugador::opcionesTurno() const {
+    int opcion;
+    cout << "*********** Selecciona Una Opcion ***********" << endl;
+    cout << "1. Moverme" << endl;
+    cout << "2. Ver estadisticas" << endl;
+    cout << "3. Terminar Partida" << endl;
+    cout << "Selecciona Una Opcion" << endl;
+    cin >> opcion;
+    return opcion;
 }
 
 string Jugador::getNombre() const {

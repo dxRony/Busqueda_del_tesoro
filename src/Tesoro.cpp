@@ -4,6 +4,7 @@
 #include "../include/Tesoro.h"
 
 Tesoro::Tesoro() {
+    this->setRepresentacion('$');
     valor = 1000;
 }
 

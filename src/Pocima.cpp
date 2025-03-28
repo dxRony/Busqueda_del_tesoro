@@ -6,6 +6,7 @@ using namespace std;
 
 
 Pocima::Pocima() {
+    this->setRepresentacion('P');
     curacion = 15 + rand() % 11;
 }
 

@@ -7,7 +7,7 @@ using namespace std;
 
 Enemigo::Enemigo() {
     nivelAlto = (rand() % 2) == 0;
-
+    this->setRepresentacion('E');
     if (nivelAlto) {
         vida = 26 + (rand() % 25);
     } else {

@@ -4,6 +4,7 @@
 #include "../include/Pista.h"
 
 Pista::Pista() {
+    this->setRepresentacion('C');
     distanciaTesoro = 0;
     mensaje = "";
 }

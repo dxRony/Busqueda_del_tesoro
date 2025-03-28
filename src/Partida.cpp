@@ -20,6 +20,7 @@ Partida::Partida(string nombreJugador, int ancho, int alto, int profundidad): ju
 
     jugadorEliminado = false;
     tesoroEncontrado = false;
+    partidaAbandonada = false;
 
     tableroDeJuego = new ThreeDimensionalMatrix<Casilla>(ancho, alto, profundidad);
     enemigosPartida = new BST<Enemigo>();
@@ -32,10 +33,13 @@ Partida::Partida(string nombreJugador, int ancho, int alto, int profundidad): ju
     cout << "Generando tablero..." << endl;
     this->generarTablero();
     cout << "Tablero generado" << endl;
+    tableroDeJuego->imprimir();
 }
 
 void Partida::iniciarPartida() {
-    while (!jugadorEliminado || !tesoroEncontrado) {
+    while (!jugadorEliminado && !tesoroEncontrado && !partidaAbandonada) {
+        int opcionTurno = jugador.opcionesTurno();
+
     }
 }
 
@@ -106,5 +110,4 @@ void Partida::generarTablero() {
     }
 }
 
-void Partida::moverJugador(int direccion) {
-}
+

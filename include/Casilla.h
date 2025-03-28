@@ -13,6 +13,7 @@ private:
     int posicionY;
     int posicionZ;
     string ubicacion;
+    char representacion;
 
 public:
     Casilla();
@@ -33,5 +34,12 @@ public:
     string getUbicacion() const;
 
     void setUbicacion(string ubicacion);
+
+    char getRepresentacion() const;
+
+    void setRepresentacion(char representacion);
 };
+
+// Sobrecarga del operador << para imprimir Casillas
+ostream &operator<<(ostream &os, const Casilla &casilla);
 #endif //CASILLA_H
