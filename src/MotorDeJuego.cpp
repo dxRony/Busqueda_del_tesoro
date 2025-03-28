@@ -4,6 +4,8 @@
 #include "../include/MotorDeJuego.h"
 #include <iostream>
 #include <limits>
+
+#include "../include/Partida.h"
 using namespace std;
 
 void MotorDeJuego::mostrarMenu() {
@@ -49,7 +51,20 @@ void MotorDeJuego::mostrarMenu() {
 }
 
 void MotorDeJuego::nuevaPartida() {
+    string nombreJugador;
+    int ancho, alto, profundidad;
     cout << "Iniciando nueva partida..." << endl;
+    cout << "Ingresa tu nombre jugador:";
+    cin >> nombreJugador;
+    cout << "Ingresa el ancho del tablero: ";
+    cin >> ancho;
+    cout << "Ingresa el alto del tablero: ";
+    cin >> alto;
+    cout << "Ingresa la profundidad del tablero: ";
+    cin >> profundidad;
+
+    Partida nuevaPartida(nombreJugador, ancho, alto, profundidad);
+    nuevaPartida.iniciarPartida();
 }
 
 void MotorDeJuego::verReportes() {

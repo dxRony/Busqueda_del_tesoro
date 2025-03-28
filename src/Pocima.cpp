@@ -1,13 +1,11 @@
 //
 // Created by ronyrojas on 20/03/25.
 //
-#include <ctime>
 #include "../include/Pocima.h"
 using namespace std;
 
 
 Pocima::Pocima() {
-    srand(time(0));
     curacion = 15 + rand() % 11;
 }
 

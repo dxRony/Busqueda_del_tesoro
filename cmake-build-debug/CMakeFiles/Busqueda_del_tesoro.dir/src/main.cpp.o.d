@@ -149,4 +149,5 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o: \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/BST.h \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/ThreeDimensionalMatrix.h \
  /usr/include/c++/11/cassert /usr/include/assert.h \
+ /usr/include/c++/11/ctime \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/MotorDeJuego.h

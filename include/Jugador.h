@@ -18,7 +18,7 @@ private:
     int tiempoJugado;
 
 public:
-    Jugador();
+    Jugador(string nombre);
 
     //getters y setters
     string getNombre() const;

@@ -7,6 +7,17 @@
 6) generar nodos aleatorios
 7) mostrar opciones turno
 8) mover a jugador 
-
-10) ciclar hasta que el jugador muera o encuentre el tesoro
-11) actualizar reportes con la partida finalizada
+9) mostrar mensaje si se encuentra a:
+		-enemigo: disminucion de vida
+		-trampa: disminucion de vida
+		-pocima: aumento de vida
+		-pista: pista hacia el tesoro
+		-tesoro: felicitacion
+10) agregar cada movimiento realizado a la LinkedList registroTrayectoria
+11) agregar cada enemigo y trampa encontrada a la linkedList registroEnemigosYTrampas
+12) agregar cada pista encontrada a la linkedList registroPistas
+13) agregar cada pocima encontrada a la linkedList registroPocimas
+14) cada enemigo generado se agrega al BST enemigosPartida
+15) cada trampa generada se agrega al BST trampasPartida
+16) ciclar hasta que el jugador muera o encuentre el tesoro
+17) actualizar reportes con la partida finalizada

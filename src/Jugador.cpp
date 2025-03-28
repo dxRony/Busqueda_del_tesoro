@@ -3,8 +3,8 @@
 //
 #include "../include/Jugador.h"
 
-Jugador::Jugador() : Casilla() {
-    nombre = "";
+Jugador::Jugador(string nombre) : Casilla() {
+    this->nombre = nombre;
     vida = 200;
     puntos = 0;
     movimientos = 0;

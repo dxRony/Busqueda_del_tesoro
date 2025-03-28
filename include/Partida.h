@@ -5,6 +5,7 @@
 #ifndef PARTIDA_H
 #define PARTIDA_H
 #include "Enemigo.h"
+#include "Jugador.h"
 #include "Trampa.h"
 #include "edd/BST.h"
 #include "edd/LinkedList.h"
@@ -13,7 +14,11 @@ using namespace std;
 
 class Partida {
 private:
+    Jugador jugador;
+    bool jugadorEliminado = false;
+    bool tesoroEncontrado = false;
     ThreeDimensionalMatrix<Casilla> *tableroDeJuego;
+    int ancho, alto, profundidad;
     BST<Enemigo> *enemigosPartida;
     BST<Trampa> *trampasPartida;
     LinkedList<string> *registroTrayectoria;
@@ -22,6 +27,16 @@ private:
     LinkedList<string> *registroPocimas;
 
 public:
-    Partida();
+    Partida(string nombreJugador, int ancho, int alto, int profundidad);
+
+    void iniciarPartida();
+
+    void generarTablero();
+
+    void moverJugador(int direccion);
+
+    void mostrarEstadoPartida();
+
+    void guardarReporte();
 };
 #endif //PARTIDA_H
