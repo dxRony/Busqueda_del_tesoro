@@ -21,5 +21,18 @@ public:
     int getVida() const;
 
     void setVida(int vida);
+
+    // usando sobrecarga para la comparacion de enemigos por vida
+    bool operator<(const Enemigo &enemigoACompararar) const {
+        return this->vida < enemigoACompararar.getVida();
+    }
+
+    bool operator>(const Enemigo &enemigoACompararar) const {
+        return this->vida > enemigoACompararar.getVida();
+    }
+
+    bool operator==(const Enemigo &enemigoACompararar) const {
+        return this->vida == enemigoACompararar.getVida();
+    }
 };
 #endif //ENEMIGO_H

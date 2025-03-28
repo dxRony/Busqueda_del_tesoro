@@ -64,7 +64,7 @@ void MotorDeJuego::nuevaPartida() {
     cin >> profundidad;
 
     Partida nuevaPartida(nombreJugador, ancho, alto, profundidad);
-    nuevaPartida.iniciarPartida();
+    //nuevaPartida.iniciarPartida();
 }
 
 void MotorDeJuego::verReportes() {

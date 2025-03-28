@@ -25,7 +25,7 @@ public:
 
         Node<T> *actual = raiz;
         while (true) {
-            if (data < actual->getData()) {
+            if (data < actual->getData()) {//
                 // si el valor es menor, se guarda en el subarbol izq
                 if (actual->getLeft() == nullptr) {
                     //si se llega al final del arbol se inserta

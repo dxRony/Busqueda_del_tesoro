@@ -16,6 +16,19 @@ public:
     int getDano() const;
 
     void setDano(int dano);
+
+    //sobrecarga para la comparacion de trampas por dano
+    bool operator<(const Trampa &trampaAComparar) const {
+        return this->dano < trampaAComparar.getDano();
+    }
+
+    bool operator>(const Trampa &trampaAComparar) const {
+        return this->dano > trampaAComparar.getDano();
+    }
+
+    bool operator==(const Trampa &trampaAComparar) const {
+        return this->dano == trampaAComparar.getDano();
+    }
 };
 
 #endif //TRAMPA_H

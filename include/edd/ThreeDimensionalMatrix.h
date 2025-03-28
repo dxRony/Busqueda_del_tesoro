@@ -19,8 +19,7 @@ private:
 
 public:
     //constructor que recibe las dimensiones de la matriz
-    //ThreeDimensionalMatrix(int ancho, int alto, int profundidad) {
-    ThreeDimensionalMatrix(int ancho, int alto, int profundidad, const T &data ) {
+    ThreeDimensionalMatrix(int ancho, int alto, int profundidad) {
         if (ancho < 2 || alto < 2 || profundidad < 2) {
             throw invalid_argument("Las dimensiones deben ser al menos 2x2x2");
         }
@@ -28,8 +27,7 @@ public:
         this->alto = alto;
         this->profundidad = profundidad;
         // creando nodo cabeza, esta en posicion (0, 0, 0)
-        //cabeza = new Node<T>(0);
-        cabeza = new Node<T>(data);
+        cabeza = new Node<T>(T());
         Node<T> *nodoActual = cabeza;
 
         //recorriendo cada columna, de cada fila, de cada profundidad
@@ -41,8 +39,7 @@ public:
                         continue;
                     }
                     // creando nuevo nodo en la posicion actual
-                    //Node<T> *nuevoNodo = new Node<T>(0);
-                    Node<T> *nuevoNodo = new Node<T>(data);
+                    Node<T> *nuevoNodo = new Node<T>(T());
 
                     if (x > 0) {
                         //si x >0, significa que hay un izquierdo

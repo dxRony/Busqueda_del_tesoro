@@ -8,6 +8,12 @@
 
 
 Partida::Partida(string nombreJugador, int ancho, int alto, int profundidad): jugador(nombreJugador) {
+    cout << "recibiendo parametros en constructor de partia:" << endl;
+    cout << "ancho: " << ancho << endl;
+    cout << "alto: " << alto << endl;
+    cout << "profundidad: " << profundidad << endl;
+    cout << "nombreJugador: " << nombreJugador << endl;
+
     this->ancho = ancho;
     this->alto = alto;
     this->profundidad = profundidad;
@@ -15,8 +21,7 @@ Partida::Partida(string nombreJugador, int ancho, int alto, int profundidad): ju
     jugadorEliminado = false;
     tesoroEncontrado = false;
 
-    //tableroDeJuego = new ThreeDimensionalMatrix<Casilla>(ancho, alto, profundidad);
-    tableroDeJuego = new ThreeDimensionalMatrix<Casilla>(ancho, alto, profundidad, Casilla());
+    tableroDeJuego = new ThreeDimensionalMatrix<Casilla>(ancho, alto, profundidad);
     enemigosPartida = new BST<Enemigo>();
     trampasPartida = new BST<Trampa>();
     registroTrayectoria = new LinkedList<string>();
@@ -24,12 +29,13 @@ Partida::Partida(string nombreJugador, int ancho, int alto, int profundidad): ju
     registroPistas = new LinkedList<string>();
     registroPocimas = new LinkedList<string>();
 
+    cout << "Generando tablero..." << endl;
     this->generarTablero();
+    cout << "Tablero generado" << endl;
 }
 
 void Partida::iniciarPartida() {
     while (!jugadorEliminado || !tesoroEncontrado) {
-
     }
 }
 
