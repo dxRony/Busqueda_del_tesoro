@@ -97,7 +97,8 @@ int main() {
     bstPrueba.mostrarDescendente();
     */
 
-    /*cout << "probando threeDimensionalMatrix" << endl;
+    /*
+    cout << "probando threeDimensionalMatrix" << endl;
 
     ThreeDimensionalMatrix<int> mat(3, 3, 2);
     mat.insertar(0, 0, 0, 1);
@@ -111,8 +112,15 @@ int main() {
     mat.insertar(2, 0, 0, 9);
     mat.imprimir();
 
+    Node<int> *nodo = mat.obtenerNodo(1, 1, 1);
     cout << "Obteniendo el contenido del nodo en la posicion (1, 1, 1): " << endl;
-    cout << mat.obtenerNodo(1, 1, 1)->getData() << endl;
-*/
+    cout << nodo->getData() << endl;
+    cout << "obteniendo nodo arriba: " << nodo->getUp()->getData() << endl;
+    cout << "obteniendo nodo abajo: " << nodo->getDown()->getData() << endl;
+    cout << "obteniendo nodo derecha: " << nodo->getRight()->getData() << endl;
+    cout << "obteniendo nodo izquierda: " << nodo->getLeft()->getData() << endl;
+    //cout << "obteniendo nodo adelante: "<< nodo->getNext()->getData() << endl;
+    cout << "obteniendo nodo atras: " << nodo->getPrev()->getData() << endl;
+    */
     return 0;
 }
