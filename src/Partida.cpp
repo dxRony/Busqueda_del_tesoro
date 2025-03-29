@@ -30,6 +30,17 @@ Partida::Partida(string nombreJugador, int ancho, int alto, int profundidad): ju
     tableroDeJuego->imprimir();
 }
 
+Partida::~Partida() {
+    delete tableroDeJuego;
+    delete enemigosPartida;
+    delete trampasPartida;
+    delete registroTrayectoria;
+    delete registroEnemigosYTrampas;
+    delete registroPistas;
+    delete registroPocimas;
+}
+
+
 void Partida::iniciarPartida() {
     while (!jugadorEliminado && !tesoroEncontrado && !partidaAbandonada) {
         realizarTurno(jugador.mostrarOpcionesTurno());
@@ -137,5 +148,74 @@ void Partida::realizarTurno(int opcionTurno) {
 }
 
 void Partida::moverJugador(int direccion) {
+    int nuevaX = jugador.getPosicionX();
+    int nuevaY = jugador.getPosicionY();
+    int nuevaZ = jugador.getPosicionZ();
 
+    switch (direccion) {
+        case 1: nuevaY -= 1;
+            break; // Arriba
+        case 2: nuevaY += 1;
+            break; // Abajo
+        case 3: nuevaX += 1;
+            break; // Derecha
+        case 4: nuevaX -= 1;
+            break; // Izquierda
+        case 5: nuevaZ += 1;
+            break; // Adelante
+        case 6: nuevaZ -= 1;
+            break; // Atrás
+        default: cout << "Dirección no válida." << endl;
+            return;
+    }
+
+    if (nuevaX < 0 || nuevaX >= ancho || nuevaY < 0 || nuevaY >= alto || nuevaZ < 0 || nuevaZ >= profundidad) {
+        cout << "Movimiento fuera de los limites del tablero" << endl;
+        return;
+    }
+
+    Node<Casilla> *nodoDestino = tableroDeJuego->obtenerNodo(nuevaX, nuevaY, nuevaZ);
+    if (!nodoDestino) {
+        cout << "Nodo no encontrado" << endl;
+        return;
+    }
+    Casilla *casillaDestino = &(nodoDestino->getData());
+    if (!casillaDestino) {
+        cout << "Error: casilla no encontrada." << endl;
+        return;
+    }
+
+    if (dynamic_cast<Enemigo *>(casillaDestino)) {
+        Enemigo *enemigo = dynamic_cast<Enemigo *>(casillaDestino);
+        jugador.setVida(jugador.getVida() - enemigo->getVida());
+        cout << "¡Has encontrado un enemigo! Pierdes " << enemigo->getVida() << " puntos de vida." << endl;
+    } else if (dynamic_cast<Trampa *>(casillaDestino)) {
+        Trampa *trampa = dynamic_cast<Trampa *>(casillaDestino);
+        jugador.setVida(jugador.getVida() - trampa->getDano());
+        cout << "¡Has caído en una trampa! Pierdes " << trampa->getDano() << " puntos de vida." << endl;
+    } else if (dynamic_cast<Pocima *>(casillaDestino)) {
+        Pocima *pocima = dynamic_cast<Pocima *>(casillaDestino);
+        jugador.setVida(jugador.getVida() + pocima->getCuracion());
+        cout << "¡Has encontrado una pócima! Recuperas " << pocima->getCuracion() << " puntos de vida." << endl;
+    } else if (dynamic_cast<Pista *>(casillaDestino)) {
+        int distancia = abs(nuevaX - tesoroX) + abs(nuevaY - tesoroY) + abs(nuevaZ - tesoroZ);
+        if (distancia > 3) cout << "Frío." << endl;
+        else if (distancia == 2 || distancia == 3) cout << "Tibio." << endl;
+        else cout << "Caliente." << endl;
+    } else if (dynamic_cast<Tesoro *>(casillaDestino)) {
+        tesoroEncontrado = true;
+        cout << "¡Has encontrado el tesoro! ¡Felicidades!" << endl;
+        return;
+    }
+    Casilla casillaVacia;
+    tableroDeJuego->insertar(jugador.getPosicionX(), jugador.getPosicionY(), jugador.getPosicionZ(), casillaVacia);
+    jugador.setPosicionX(nuevaX);
+    jugador.setPosicionY(nuevaY);
+    jugador.setPosicionZ(nuevaZ);
+    tableroDeJuego->insertar(nuevaX, nuevaY, nuevaZ, jugador);
+
+    if (jugador.getVida() <= 0) {
+        jugadorEliminado = true;
+        cout << "Tu vida ha llegado a 0. Has perdido la partida." << endl;
+    }
 }

@@ -4,6 +4,7 @@
 #include "../include/Casilla.h"
 
 Casilla::Casilla(){
+    this->setRepresentacion('~');
     posicionX = 0;
     posicionY = 0;
     posicionZ = 0;

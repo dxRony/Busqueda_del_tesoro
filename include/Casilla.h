@@ -18,6 +18,9 @@ private:
 public:
     Casilla();
 
+    virtual ~Casilla() {
+    }
+
     //getters y setters
     int getPosicionX() const;
 

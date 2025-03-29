@@ -549,6 +549,7 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o: /home/ronyrojas/Docum
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/MotorDeJuego.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Partida.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Pista.h \
+  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Pocima.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Trampa.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/edd/BST.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/edd/LinkedList.h \
@@ -1841,8 +1842,6 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o: /home/ronyrojas/Documentos/Pr
 
 /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Tesoro.h:
 
-/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Pocima.h:
-
 /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Partida.cpp:
 
 /usr/include/c++/11/limits:
@@ -1850,6 +1849,8 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o: /home/ronyrojas/Documentos/Pr
 /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/edd/ThreeDimensionalMatrix.h:
 
 /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Trampa.h:
+
+/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Pocima.h:
 
 /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Partida.h:
 
