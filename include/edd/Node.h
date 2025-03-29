@@ -30,7 +30,7 @@ public:
     }
 
     // Getters
-    T getData() const {
+    T& getData() {
         return data;
     }
 

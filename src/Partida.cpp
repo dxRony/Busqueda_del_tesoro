@@ -125,7 +125,7 @@ void Partida::realizarTurno(int opcionTurno) {
             cout << "3. Derecha" << endl;
             cout << "4. Izquierda" << endl;
             cout << "5. Adelante" << endl;
-            cout << "6. Atras";
+            cout << "6. Atras" << endl;
             int direccion;
             cin >> direccion;
             moverJugador(direccion);
@@ -153,9 +153,9 @@ void Partida::moverJugador(int direccion) {
     int nuevaZ = jugador.getPosicionZ();
 
     switch (direccion) {
-        case 1: nuevaY -= 1;
+        case 1: nuevaY += 1;
             break; // Arriba
-        case 2: nuevaY += 1;
+        case 2: nuevaY -= 1;
             break; // Abajo
         case 3: nuevaX += 1;
             break; // Derecha
@@ -179,33 +179,48 @@ void Partida::moverJugador(int direccion) {
         cout << "Nodo no encontrado" << endl;
         return;
     }
-    Casilla *casillaDestino = &(nodoDestino->getData());
-    if (!casillaDestino) {
-        cout << "Error: casilla no encontrada." << endl;
-        return;
-    }
+    Casilla &casillaDestino = nodoDestino->getData();
+    char tipoCasilla = casillaDestino.getRepresentacion();
 
-    if (dynamic_cast<Enemigo *>(casillaDestino)) {
-        Enemigo *enemigo = dynamic_cast<Enemigo *>(casillaDestino);
-        jugador.setVida(jugador.getVida() - enemigo->getVida());
-        cout << "¡Has encontrado un enemigo! Pierdes " << enemigo->getVida() << " puntos de vida." << endl;
-    } else if (dynamic_cast<Trampa *>(casillaDestino)) {
-        Trampa *trampa = dynamic_cast<Trampa *>(casillaDestino);
-        jugador.setVida(jugador.getVida() - trampa->getDano());
-        cout << "¡Has caído en una trampa! Pierdes " << trampa->getDano() << " puntos de vida." << endl;
-    } else if (dynamic_cast<Pocima *>(casillaDestino)) {
-        Pocima *pocima = dynamic_cast<Pocima *>(casillaDestino);
-        jugador.setVida(jugador.getVida() + pocima->getCuracion());
-        cout << "¡Has encontrado una pócima! Recuperas " << pocima->getCuracion() << " puntos de vida." << endl;
-    } else if (dynamic_cast<Pista *>(casillaDestino)) {
-        int distancia = abs(nuevaX - tesoroX) + abs(nuevaY - tesoroY) + abs(nuevaZ - tesoroZ);
-        if (distancia > 3) cout << "Frío." << endl;
-        else if (distancia == 2 || distancia == 3) cout << "Tibio." << endl;
-        else cout << "Caliente." << endl;
-    } else if (dynamic_cast<Tesoro *>(casillaDestino)) {
-        tesoroEncontrado = true;
-        cout << "¡Has encontrado el tesoro! ¡Felicidades!" << endl;
-        return;
+    switch (tipoCasilla) {
+        case 'E': { // Enemigo
+            Enemigo& enemigo = static_cast<Enemigo&>(casillaDestino);
+            jugador.setVida(jugador.getVida() - enemigo.getVida());
+            cout << "¡Has encontrado un enemigo! Pierdes " << enemigo.getVida() << " puntos de vida." << endl;
+            break;
+        }
+        case 'T': { // Trampa
+            Trampa& trampa = static_cast<Trampa&>(casillaDestino);
+            jugador.setVida(jugador.getVida() - trampa.getDano());
+            cout << "¡Has caído en una trampa! Pierdes " << trampa.getDano() << " puntos de vida." << endl;
+            break;
+        }
+        case 'P': { // Pócima
+            Pocima& pocima = static_cast<Pocima&>(casillaDestino);
+            jugador.setVida(jugador.getVida() + pocima.getCuracion());
+            cout << "¡Has encontrado una pócima! Recuperas " << pocima.getCuracion() << " puntos de vida." << endl;
+            break;
+        }
+        case 'C': { // Pista
+            int distancia = abs(nuevaX - tesoroX) + abs(nuevaY - tesoroY) + abs(nuevaZ - tesoroZ);
+            if (distancia > 3) cout << "Frío." << endl;
+            else if (distancia == 2 || distancia == 3) cout << "Tibio." << endl;
+            else cout << "Caliente." << endl;
+            break;
+        }
+        case '$': { // Tesoro
+            tesoroEncontrado = true;
+            cout << "¡Has encontrado el tesoro! ¡Felicidades!" << endl;
+            return;
+        }
+        case '~': { // Casilla vacía
+            cout << "No hay nada en esta casilla." << endl;
+            break;
+        }
+        default: {
+            cout << "¡Error! Tipo de casilla desconocido: " << tipoCasilla << endl;
+            break;
+        }
     }
     Casilla casillaVacia;
     tableroDeJuego->insertar(jugador.getPosicionX(), jugador.getPosicionY(), jugador.getPosicionZ(), casillaVacia);
