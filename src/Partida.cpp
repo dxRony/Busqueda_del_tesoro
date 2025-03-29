@@ -83,9 +83,11 @@ void Partida::generarTablero() {
                 if (random < 15) {
                     //15% de generacion para enemigos
                     Enemigo enemigoGenerado;
+                    cout << "vida enemigo generado: " << enemigoGenerado.getVida() << endl;
                     enemigoGenerado.setPosicionX(x);
                     enemigoGenerado.setPosicionY(y);
                     enemigoGenerado.setPosicionZ(z);
+                    enemigoGenerado.setEfecto(enemigoGenerado.getVida());
                     tableroDeJuego->insertar(x, y, z, enemigoGenerado);
                     enemigosPartida->insertar(enemigoGenerado);
                 } else if (random < 35) {
@@ -94,6 +96,7 @@ void Partida::generarTablero() {
                     trampaGenerada.setPosicionX(x);
                     trampaGenerada.setPosicionY(y);
                     trampaGenerada.setPosicionZ(z);
+                    trampaGenerada.setEfecto(trampaGenerada.getDano());
                     tableroDeJuego->insertar(x, y, z, trampaGenerada);
                     trampasPartida->insertar(trampaGenerada);
                 } else if (random < 60) {
@@ -102,6 +105,7 @@ void Partida::generarTablero() {
                     pocimaGenerada.setPosicionX(x);
                     pocimaGenerada.setPosicionY(y);
                     pocimaGenerada.setPosicionZ(z);
+                    pocimaGenerada.setEfecto(pocimaGenerada.getCuracion());
                     tableroDeJuego->insertar(x, y, z, pocimaGenerada);
                 } else {
                     //40% de generacion para pistas
@@ -180,40 +184,63 @@ void Partida::moverJugador(int direccion) {
         return;
     }
     Casilla &casillaDestino = nodoDestino->getData();
+
+    cout << "casilla destino: " << casillaDestino.getRepresentacion() << endl;
+    cout << "casilla destinoX: " << casillaDestino.getPosicionX() << endl;
+    cout << "casilla destinoY: " << casillaDestino.getPosicionY() << endl;
+    cout << "casilla destinoZ: " << casillaDestino.getPosicionZ() << endl;
     char tipoCasilla = casillaDestino.getRepresentacion();
 
     switch (tipoCasilla) {
-        case 'E': { // Enemigo
-            Enemigo& enemigo = static_cast<Enemigo&>(casillaDestino);
-            jugador.setVida(jugador.getVida() - enemigo.getVida());
-            cout << "¡Has encontrado un enemigo! Pierdes " << enemigo.getVida() << " puntos de vida." << endl;
+        case 'E': {
+            // Enemigo
+            Enemigo &enemigo = static_cast<Enemigo &>(casillaDestino);
+            cout << "vida del jugador (antes): " << jugador.getVida() << endl;
+            jugador.setVida(jugador.getVida() - enemigo.getEfecto());
+            cout << "vida del jugador (despues): " << jugador.getVida() << endl;
+            cout << "coordenadas objeto casteado:" << endl;
+            cout << "posicion x: " << enemigo.getPosicionX() << endl;
+            cout << "posicion y: " << enemigo.getPosicionY() << endl;
+            cout << "posicion z: " << enemigo.getPosicionZ() << endl;
+            cout << "vida enemigo: " << enemigo.getVida() << endl;
+            cout << "efecto enemigo: " << enemigo.getEfecto() << endl;
+            cout << "¡Has encontrado un enemigo! Pierdes " << enemigo.getEfecto() << " puntos de vida." << endl;
             break;
         }
-        case 'T': { // Trampa
-            Trampa& trampa = static_cast<Trampa&>(casillaDestino);
-            jugador.setVida(jugador.getVida() - trampa.getDano());
-            cout << "¡Has caído en una trampa! Pierdes " << trampa.getDano() << " puntos de vida." << endl;
+        case 'T': {
+            // Trampa
+            Trampa &trampa = static_cast<Trampa &>(casillaDestino);
+            cout << "vida del jugador (antes): " << jugador.getVida() << endl;
+            jugador.setVida(jugador.getVida() - trampa.getEfecto());
+            cout << "vida del jugador (despues): " << jugador.getVida() << endl;
+            cout << "¡Has caído en una trampa! Pierdes " << trampa.getEfecto() << " puntos de vida." << endl;
             break;
         }
-        case 'P': { // Pócima
-            Pocima& pocima = static_cast<Pocima&>(casillaDestino);
-            jugador.setVida(jugador.getVida() + pocima.getCuracion());
-            cout << "¡Has encontrado una pócima! Recuperas " << pocima.getCuracion() << " puntos de vida." << endl;
+        case 'P': {
+            // Pócima
+            Pocima &pocima = static_cast<Pocima &>(casillaDestino);
+            cout << "vida del jugador (antes): " << jugador.getVida() << endl;
+            jugador.setVida(jugador.getVida() + pocima.getEfecto());
+            cout << "vida del jugador (despues): " << jugador.getVida() << endl;
+            cout << "¡Has encontrado una pócima! Recuperas " << pocima.getEfecto() << " puntos de vida." << endl;
             break;
         }
-        case 'C': { // Pista
+        case 'C': {
+            // Pista
             int distancia = abs(nuevaX - tesoroX) + abs(nuevaY - tesoroY) + abs(nuevaZ - tesoroZ);
             if (distancia > 3) cout << "Frío." << endl;
             else if (distancia == 2 || distancia == 3) cout << "Tibio." << endl;
             else cout << "Caliente." << endl;
             break;
         }
-        case '$': { // Tesoro
+        case '$': {
+            // Tesoro
             tesoroEncontrado = true;
             cout << "¡Has encontrado el tesoro! ¡Felicidades!" << endl;
             return;
         }
-        case '~': { // Casilla vacía
+        case '~': {
+            // Casilla vacía
             cout << "No hay nada en esta casilla." << endl;
             break;
         }
@@ -232,5 +259,7 @@ void Partida::moverJugador(int direccion) {
     if (jugador.getVida() <= 0) {
         jugadorEliminado = true;
         cout << "Tu vida ha llegado a 0. Has perdido la partida." << endl;
+    } else {
+        cout<< "El jugador sigue vivo" << endl;
     }
 }

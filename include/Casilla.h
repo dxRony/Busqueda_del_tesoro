@@ -14,12 +14,10 @@ private:
     int posicionZ;
     string ubicacion;
     char representacion;
+    int efecto;
 
 public:
     Casilla();
-
-    virtual ~Casilla() {
-    }
 
     //getters y setters
     int getPosicionX() const;
@@ -41,6 +39,9 @@ public:
     char getRepresentacion() const;
 
     void setRepresentacion(char representacion);
+
+    void setEfecto(int efecto);
+    int getEfecto() const;
 };
 
 // Sobrecarga del operador << para imprimir Casillas
