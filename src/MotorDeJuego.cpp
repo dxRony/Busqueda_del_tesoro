@@ -54,7 +54,7 @@ void MotorDeJuego::nuevaPartida() {
     string nombreJugador;
     int ancho, alto, profundidad;
     cout << "Iniciando nueva partida..." << endl;
-    cout << "Ingresa tu nombre jugador:";
+    cout << "Ingresa tu nombre jugador: ";
     cin >> nombreJugador;
     cout << "Ingresa el ancho del tablero: ";
     cin >> ancho;

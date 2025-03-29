@@ -548,6 +548,7 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o: /home/ronyrojas/Docum
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Jugador.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/MotorDeJuego.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Partida.h \
+  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Pista.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Trampa.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/edd/BST.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/edd/LinkedList.h \

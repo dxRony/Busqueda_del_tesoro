@@ -7,6 +7,8 @@
 #include "Enemigo.h"
 #include "Jugador.h"
 #include "Trampa.h"
+#include "Pista.h"
+#include "Pocima.h"
 #include "edd/BST.h"
 #include "edd/LinkedList.h"
 #include "edd/ThreeDimensionalMatrix.h"
@@ -26,6 +28,7 @@ private:
     LinkedList<string> *registroEnemigosYTrampas;
     LinkedList<string> *registroPistas;
     LinkedList<string> *registroPocimas;
+    int tesoroX, tesoroY, tesoroZ;
 
 public:
     Partida(string nombreJugador, int ancho, int alto, int profundidad);
@@ -34,6 +37,9 @@ public:
 
     void generarTablero();
 
+    void realizarTurno(int opcionTurno);
+
+    void moverJugador(int direccion);
 
 };
 #endif //PARTIDA_H

@@ -20,7 +20,7 @@ private:
 public:
     Jugador(string nombre);
 
-    int opcionesTurno() const;
+    int mostrarOpcionesTurno() const;
 
     //getters y setters
     string getNombre() const;

@@ -12,9 +12,9 @@ Jugador::Jugador(string nombre) {
     tiempoJugado = 0;
 }
 
-int Jugador::opcionesTurno() const {
+int Jugador::mostrarOpcionesTurno() const {
     int opcion;
-    cout << "*********** Selecciona Una Opcion ***********" << endl;
+    cout << "\n*********** Selecciona Una Opcion ***********" << endl;
     cout << "1. Moverme" << endl;
     cout << "2. Ver estadisticas" << endl;
     cout << "3. Terminar Partida" << endl;

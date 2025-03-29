@@ -8,12 +8,6 @@
 
 
 Partida::Partida(string nombreJugador, int ancho, int alto, int profundidad): jugador(nombreJugador) {
-    cout << "recibiendo parametros en constructor de partia:" << endl;
-    cout << "ancho: " << ancho << endl;
-    cout << "alto: " << alto << endl;
-    cout << "profundidad: " << profundidad << endl;
-    cout << "nombreJugador: " << nombreJugador << endl;
-
     this->ancho = ancho;
     this->alto = alto;
     this->profundidad = profundidad;
@@ -38,15 +32,15 @@ Partida::Partida(string nombreJugador, int ancho, int alto, int profundidad): ju
 
 void Partida::iniciarPartida() {
     while (!jugadorEliminado && !tesoroEncontrado && !partidaAbandonada) {
-        int opcionTurno = jugador.opcionesTurno();
-
+        realizarTurno(jugador.mostrarOpcionesTurno());
+        tableroDeJuego->imprimir();
     }
 }
 
 void Partida::generarTablero() {
-    int tesoroX = rand() % ancho;
-    int tesoroY = rand() % alto;
-    int tesoroZ = rand() % profundidad;
+    tesoroX = rand() % ancho;
+    tesoroY = rand() % alto;
+    tesoroZ = rand() % profundidad;
     Tesoro tesoro;
     tesoro.setPosicionX(tesoroX);
     tesoro.setPosicionY(tesoroY);
@@ -56,6 +50,7 @@ void Partida::generarTablero() {
 
     int jugadorX, jugadorY, jugadorZ;
     do {
+        //evitando que se coloque al jugador en el mismo lugar que el tesoro
         jugadorX = rand() % ancho;
         jugadorY = rand() % alto;
         jugadorZ = rand() % profundidad;
@@ -110,4 +105,37 @@ void Partida::generarTablero() {
     }
 }
 
+void Partida::realizarTurno(int opcionTurno) {
+    switch (opcionTurno) {
+        case 1: {
+            cout << "Ingresa la direccion del movimiento:" << endl;
+            cout << "1. Arriba" << endl;
+            cout << "2. Abajo" << endl;
+            cout << "3. Derecha" << endl;
+            cout << "4. Izquierda" << endl;
+            cout << "5. Adelante" << endl;
+            cout << "6. Atras";
+            int direccion;
+            cin >> direccion;
+            moverJugador(direccion);
+            break;
+        }
+        case 2: {
+            cout << "Tus estadisticas son:" << endl;
+            break;
+        }
+        case 3: {
+            cout << "Abandonando la partida..." << endl;
+            partidaAbandonada = true;
+            break;
+        }
+        default: {
+            cout << "Ingresa una opcion valida";
+            break;
+        }
+    }
+}
 
+void Partida::moverJugador(int direccion) {
+
+}
