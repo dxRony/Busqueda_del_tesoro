@@ -27,8 +27,8 @@ private:
     LinkedList<string> *registroTrayectoria;
     LinkedList<string> *registroEnemigosYTrampas;
     LinkedList<string> *registroPistas;
-    LinkedList<string> *registroPocimas;
     int tesoroX, tesoroY, tesoroZ;
+    time_t tiempoPartida;
 
 public:
     Partida(string nombreJugador, int ancho, int alto, int profundidad);

@@ -15,6 +15,7 @@ Partida::Partida(string nombreJugador, int ancho, int alto, int profundidad): ju
     jugadorEliminado = false;
     tesoroEncontrado = false;
     partidaAbandonada = false;
+    tiempoPartida = time(nullptr);
 
     tableroDeJuego = new ThreeDimensionalMatrix<Casilla>(ancho, alto, profundidad);
     enemigosPartida = new BST<Enemigo>();
@@ -22,8 +23,6 @@ Partida::Partida(string nombreJugador, int ancho, int alto, int profundidad): ju
     registroTrayectoria = new LinkedList<string>();
     registroEnemigosYTrampas = new LinkedList<string>();
     registroPistas = new LinkedList<string>();
-    registroPocimas = new LinkedList<string>();
-
     cout << "Generando tablero..." << endl;
     this->generarTablero();
     cout << "Tablero generado." << endl;
@@ -36,18 +35,25 @@ Partida::~Partida() {
     delete registroTrayectoria;
     delete registroEnemigosYTrampas;
     delete registroPistas;
-    delete registroPocimas;
 }
 
 
 void Partida::iniciarPartida() {
+    tiempoPartida = time(nullptr);
     while (!jugadorEliminado && !tesoroEncontrado && !partidaAbandonada) {
         tableroDeJuego->imprimir();
         realizarTurno(jugador.mostrarOpcionesTurno());
     }
+    jugador.setTiempoJugado(time(nullptr) - tiempoPartida);
     cout << jugador.getNombre() << ", tus estadisticas finales fueron: " << endl;
     mostrarEstadisticas();
     cout << "Actualizando reportes de la partida..." << endl;
+    cout << "registroTrayectoria:" << endl;
+    registroTrayectoria->imprimir();
+    cout << "registro enemigosYTrampas:" << endl;
+    registroEnemigosYTrampas->imprimir();
+    cout << "registroPistas:" << endl;
+    registroPistas->imprimir();
 }
 
 void Partida::generarTablero() {
@@ -58,6 +64,9 @@ void Partida::generarTablero() {
     tesoro.setPosicionX(tesoroX);
     tesoro.setPosicionY(tesoroY);
     tesoro.setPosicionZ(tesoroZ);
+    string ubicacionTesoro = "Tesoro ubicado en: (" + to_string(tesoroX) + ", " + to_string(tesoroY) + ", " +
+                             to_string(tesoroZ) + ")";
+    registroTrayectoria->insertarFinal(ubicacionTesoro);
     //colocando aleatoriamente al tesoro
     tableroDeJuego->insertar(tesoroX, tesoroY, tesoroZ, tesoro);
 
@@ -158,30 +167,37 @@ void Partida::moverJugador(int direccion) {
     int nuevoY = jugador.getPosicionY();
     int nuevoZ = jugador.getPosicionZ();
 
+    string direccionMovimiento = "";
     switch (direccion) {
         case 1:
             //moviendo arriba
             nuevoY++;
+            direccionMovimiento = "arriba";
             break;
         case 2:
             //moviendo abajo
             nuevoY--;
+            direccionMovimiento = "abajo";
             break;
         case 3:
             //moviendo derecha
             nuevoX++;
+            direccionMovimiento = "derecha";
             break;
         case 4:
             //moviendo izquierda
             nuevoX--;
+            direccionMovimiento = "izquierda";
             break;
         case 5:
             //moviendo adelante
             nuevoZ++;
+            direccionMovimiento = "adelante";
             break;
         case 6:
             //moviendo atras
             nuevoZ--;
+            direccionMovimiento = "atras";
             break;
         default: cout << "Dirección no válida." << endl;
             return;
@@ -198,6 +214,7 @@ void Partida::moverJugador(int direccion) {
         return;
     }
     Casilla &casillaDestino = nodoDestino->getData();
+    string casillaEncontrada = "";
 
     switch (casillaDestino.getRepresentacion()) {
         case 'E': {
@@ -205,12 +222,24 @@ void Partida::moverJugador(int direccion) {
             jugador.setPuntos(jugador.getPuntos() + 15);
             cout << "Has encontrado un enemigo D:!! pierdes " << casillaDestino.getEfecto() << " puntos de vida." <<
                     endl;
+            string mensaje = "Se ha encontrado un enemigo y ha realizado: " + to_string(casillaDestino.getEfecto()) +
+                             " de dano al jugador, en la posicion: (" + to_string(casillaDestino.getPosicionX()) + ", "
+                             +
+                             to_string(casillaDestino.getPosicionY()) + ", " + to_string(
+                                 casillaDestino.getPosicionZ()) + ")";
+            registroEnemigosYTrampas->insertarFinal(mensaje);
             break;
         }
         case 'T': {
             jugador.setVida(jugador.getVida() - casillaDestino.getEfecto());
             jugador.setPuntos(jugador.getPuntos() + 10);
             cout << "Has caido en una trampa D:!! pierdes " << casillaDestino.getEfecto() << " puntos de vida." << endl;
+            string mensaje = "Se ha encontrado una trampa y ha realizado: " + to_string(casillaDestino.getEfecto()) +
+                             " de dano al jugador, en la posicion: (" + to_string(casillaDestino.getPosicionX()) + ", "
+                             +
+                             to_string(casillaDestino.getPosicionY()) + ", " + to_string(
+                                 casillaDestino.getPosicionZ()) + ")";
+            registroEnemigosYTrampas->insertarFinal(mensaje);
             break;
         }
         case 'P': {
@@ -244,6 +273,14 @@ void Partida::moverJugador(int direccion) {
             } else {
                 cout << "Caliente, da un paso mas y encontraras al tesoro." << endl;
             }
+            string mensaje = "Se ha encontrado una pista y ha indicado que el tesoro esta a : " + to_string(distancia) +
+                             " pasos de distancia del jugador, en la posicion: (" + to_string(
+                                 casillaDestino.getPosicionX()) +
+                             ", "
+                             +
+                             to_string(casillaDestino.getPosicionY()) + ", " + to_string(
+                                 casillaDestino.getPosicionZ()) + ")";
+            registroPistas->insertarFinal(mensaje);
             break;
         }
         case '$': {
@@ -251,6 +288,13 @@ void Partida::moverJugador(int direccion) {
             jugador.setPuntos(jugador.getPuntos() + 100);
             cout << "Has encontrado el tesoro, felicidades!!!" << endl;
             jugador.setMovimientos(jugador.getMovimientos() + 1);
+            casillaEncontrada = " (" + to_string(casillaDestino.getPosicionX()) + ", " +
+                                to_string(casillaDestino.getPosicionY()) + ", " + to_string(
+                                    casillaDestino.getPosicionZ()) + ")";
+            string movimientoFinal = "El tesoro fue encontrado con un movimiento hacia: " + direccionMovimiento +
+                                     ", en la posicion" +
+                                     casillaEncontrada + ", otorgandole al jugador: 100 pts!!!";
+            registroTrayectoria->insertarFinal(movimientoFinal);
             return;
         }
         case '~': {
@@ -262,6 +306,10 @@ void Partida::moverJugador(int direccion) {
             break;
         }
     }
+
+    casillaEncontrada += "(" + to_string(casillaDestino.getPosicionX()) + ", " +
+            to_string(casillaDestino.getPosicionY()) + ", " + to_string(
+                casillaDestino.getPosicionZ()) + ")";
     Casilla casillaVacia;
     tableroDeJuego->insertar(jugador.getPosicionX(), jugador.getPosicionY(), jugador.getPosicionZ(), casillaVacia);
     jugador.setPosicionX(nuevoX);
@@ -275,13 +323,19 @@ void Partida::moverJugador(int direccion) {
         cout << "Aun sigues con vida, continua explorando..." << endl;
     }
     jugador.setMovimientos(jugador.getMovimientos() + 1);
+
+    string trayectoria = "Movimiento en direccion hacia: " + direccionMovimiento + ", a la posicion: " + "(" +
+                         to_string(casillaDestino.getPosicionX()) + ", " +
+                         to_string(casillaDestino.getPosicionY()) + ", " + to_string(
+                             casillaDestino.getPosicionZ()) + ")";
+    registroTrayectoria->insertarFinal(trayectoria);
 }
 
 void Partida::mostrarEstadisticas() {
     cout << "Vida: " << jugador.getVida() << endl;
     cout << "Puntos: " << jugador.getPuntos() << endl;
     cout << "Movimientos: " << jugador.getMovimientos() << endl;
-    cout << "Tiempo Jugado: " << jugador.getTiempoJugado() << endl;
+    cout << "Tiempo Jugado: " << jugador.getTiempoJugado() << " s" << endl;
     cout << "Ubicacion: (" << jugador.getPosicionX() << ", " << jugador.getPosicionY() << ", " << jugador.getPosicionZ()
             << ")" << endl;
 }

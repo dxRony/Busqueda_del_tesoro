@@ -118,11 +118,11 @@ bool LinkedList<T>::buscar(const T &data) const {
 template<typename T>
 void LinkedList<T>::imprimir() const {
     Node<T> *actual = head;
+    cout << "->";
     while (actual) {
-        cout << actual->getData() << " ->";
+        cout << actual->getData() << " \n->";
         actual = actual->getNext();
     }
-    cout << "fin de la lista" << endl;
 }
 
 template<typename T>

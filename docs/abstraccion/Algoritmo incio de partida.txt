@@ -17,6 +17,9 @@
 		-pocima: aumento de vida
 		-pista: pista hacia el tesoro
 		-tesoro: felicitacion
+
+
+		
 11) agregar cada movimiento realizado a la LinkedList registroTrayectoria
 12) agregar cada enemigo y trampa encontrada a la linkedList registroEnemigosYTrampas
 13) agregar cada pista encontrada a la linkedList registroPistas
