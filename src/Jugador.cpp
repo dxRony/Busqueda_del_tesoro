@@ -6,7 +6,7 @@
 Jugador::Jugador(string nombre) {
     this->nombre = nombre;
     this->setRepresentacion('J');
-    vida = 200;
+    vida = 100;
     puntos = 0;
     movimientos = 0;
     tiempoJugado = 0;

@@ -43,5 +43,7 @@ public:
 
     void moverJugador(int direccion);
 
+    void mostrarEstadisticas();
+
 };
 #endif //PARTIDA_H
