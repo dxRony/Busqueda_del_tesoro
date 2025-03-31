@@ -53,7 +53,7 @@ void MotorDeJuego::mostrarMenu() {
 void MotorDeJuego::nuevaPartida() {
     string nombreJugador;
     int ancho, alto, profundidad;
-    cout << "Iniciando nueva partida..." << endl;
+    cout << "\nIniciando nueva partida..." << endl;
     cout << "Ingresa tu nombre jugador: ";
     cin >> nombreJugador;
     cout << "Ingresa el ancho del tablero: ";
@@ -68,5 +68,8 @@ void MotorDeJuego::nuevaPartida() {
 }
 
 void MotorDeJuego::verReportes() {
-    cout << "Mostrando reportes..." << endl;
+    cout << "\nSelecciona el reporte que quieres ver:" << endl;
+    cout << "1. Ver reportes de partidas completadas" << endl;
+    cout << "2. Ver tabla de posiciones" << endl;
+    cout << "3. Regresar al menu principal" << endl;
 }

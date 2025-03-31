@@ -81,12 +81,12 @@ clean: CMakeFiles/Busqueda_del_tesoro.dir/clean
 CMakeFiles/Busqueda_del_tesoro.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target Busqueda_del_tesoro"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target Busqueda_del_tesoro"
 .PHONY : CMakeFiles/Busqueda_del_tesoro.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Busqueda_del_tesoro.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/cmake-build-debug/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/cmake-build-debug/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Busqueda_del_tesoro.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/Busqueda_del_tesoro.dir/rule

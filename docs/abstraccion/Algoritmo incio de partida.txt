@@ -17,12 +17,20 @@
 		-pocima: aumento de vida
 		-pista: pista hacia el tesoro
 		-tesoro: felicitacion
+11) ciclar hasta que el jugador muera o encuentre el tesoro		
+12) agregar cada movimiento realizado a la LinkedList registroTrayectoria
+13) agregar cada enemigo y trampa encontrada a la linkedList registroEnemigosYTrampas
+14) agregar cada pista encontrada a la linkedList registroPistas
+15) actualizar reportes con la partida finalizada
 
 
-		
-11) agregar cada movimiento realizado a la LinkedList registroTrayectoria
-12) agregar cada enemigo y trampa encontrada a la linkedList registroEnemigosYTrampas
-13) agregar cada pista encontrada a la linkedList registroPistas
-14) agregar cada pocima encontrada a la linkedList registroPocimas
-15) ciclar hasta que el jugador muera o encuentre el tesoro
-16) actualizar reportes con la partida finalizada
+Mostrando reportes:
+	1. Ver reportes de partidas completadas (se muestra una lista de partidas completadas)	
+		* Selecciona la partida que quieres ver (selecciona el reporte que deseas ver de la partida seleccionada)
+			1.1 Estadisticas del jugador
+			1.2 Ubicacion del tesoro y trayectoria del jugador
+			1.3 Pistas encontradas y su distancia al tesoro
+			1.4 Enemigos enfrentados y trampas activadas
+			1.5 Grafico de los arboles de enemigos y trampas
+	2. Tabla de posiciones con los mejores jugadores
+

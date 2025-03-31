@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Partida.cpp" "CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.o" "gcc" "CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.o.d"
   "/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Pista.cpp" "CMakeFiles/Busqueda_del_tesoro.dir/src/Pista.cpp.o" "gcc" "CMakeFiles/Busqueda_del_tesoro.dir/src/Pista.cpp.o.d"
   "/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Pocima.cpp" "CMakeFiles/Busqueda_del_tesoro.dir/src/Pocima.cpp.o" "gcc" "CMakeFiles/Busqueda_del_tesoro.dir/src/Pocima.cpp.o.d"
+  "/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Reporte.cpp" "CMakeFiles/Busqueda_del_tesoro.dir/src/Reporte.cpp.o" "gcc" "CMakeFiles/Busqueda_del_tesoro.dir/src/Reporte.cpp.o.d"
   "/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Tesoro.cpp" "CMakeFiles/Busqueda_del_tesoro.dir/src/Tesoro.cpp.o" "gcc" "CMakeFiles/Busqueda_del_tesoro.dir/src/Tesoro.cpp.o.d"
   "/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Trampa.cpp" "CMakeFiles/Busqueda_del_tesoro.dir/src/Trampa.cpp.o" "gcc" "CMakeFiles/Busqueda_del_tesoro.dir/src/Trampa.cpp.o.d"
   "/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/main.cpp" "CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o" "gcc" "CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o.d"

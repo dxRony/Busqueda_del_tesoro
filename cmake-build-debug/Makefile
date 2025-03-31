@@ -297,6 +297,30 @@ src/Pocima.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/src/Pocima.cpp.s
 .PHONY : src/Pocima.cpp.s
 
+src/Reporte.o: src/Reporte.cpp.o
+.PHONY : src/Reporte.o
+
+# target to build an object file
+src/Reporte.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/src/Reporte.cpp.o
+.PHONY : src/Reporte.cpp.o
+
+src/Reporte.i: src/Reporte.cpp.i
+.PHONY : src/Reporte.i
+
+# target to preprocess a source file
+src/Reporte.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/src/Reporte.cpp.i
+.PHONY : src/Reporte.cpp.i
+
+src/Reporte.s: src/Reporte.cpp.s
+.PHONY : src/Reporte.s
+
+# target to generate assembly for a file
+src/Reporte.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Busqueda_del_tesoro.dir/build.make CMakeFiles/Busqueda_del_tesoro.dir/src/Reporte.cpp.s
+.PHONY : src/Reporte.cpp.s
+
 src/Tesoro.o: src/Tesoro.cpp.o
 .PHONY : src/Tesoro.o
 
@@ -399,6 +423,9 @@ help:
 	@echo "... src/Pocima.o"
 	@echo "... src/Pocima.i"
 	@echo "... src/Pocima.s"
+	@echo "... src/Reporte.o"
+	@echo "... src/Reporte.i"
+	@echo "... src/Reporte.s"
 	@echo "... src/Tesoro.o"
 	@echo "... src/Tesoro.i"
 	@echo "... src/Tesoro.s"

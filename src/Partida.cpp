@@ -47,13 +47,7 @@ void Partida::iniciarPartida() {
     jugador.setTiempoJugado(time(nullptr) - tiempoPartida);
     cout << jugador.getNombre() << ", tus estadisticas finales fueron: " << endl;
     mostrarEstadisticas();
-    cout << "Actualizando reportes de la partida..." << endl;
-    cout << "registroTrayectoria:" << endl;
-    registroTrayectoria->imprimir();
-    cout << "registro enemigosYTrampas:" << endl;
-    registroEnemigosYTrampas->imprimir();
-    cout << "registroPistas:" << endl;
-    registroPistas->imprimir();
+    cout << "Actualizando reportes..." << endl;
 }
 
 void Partida::generarTablero() {

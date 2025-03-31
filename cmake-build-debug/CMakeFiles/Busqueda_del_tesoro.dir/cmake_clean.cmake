@@ -15,6 +15,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Busqueda_del_tesoro.dir/src/Pista.cpp.o.d"
   "CMakeFiles/Busqueda_del_tesoro.dir/src/Pocima.cpp.o"
   "CMakeFiles/Busqueda_del_tesoro.dir/src/Pocima.cpp.o.d"
+  "CMakeFiles/Busqueda_del_tesoro.dir/src/Reporte.cpp.o"
+  "CMakeFiles/Busqueda_del_tesoro.dir/src/Reporte.cpp.o.d"
   "CMakeFiles/Busqueda_del_tesoro.dir/src/Tesoro.cpp.o"
   "CMakeFiles/Busqueda_del_tesoro.dir/src/Tesoro.cpp.o.d"
   "CMakeFiles/Busqueda_del_tesoro.dir/src/Trampa.cpp.o"
