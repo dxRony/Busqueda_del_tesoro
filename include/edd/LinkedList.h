@@ -34,10 +34,13 @@ public:
 
     int obtenerTamano() const;
 
+    Node<T> *getCabeza() const;
+
     bool isEmpty() const;
 };
 
 //constructor
+
 template<typename T>
 LinkedList<T>::LinkedList() {
     head = nullptr;
@@ -128,6 +131,11 @@ void LinkedList<T>::imprimir() const {
 template<typename T>
 int LinkedList<T>::obtenerTamano() const {
     return size;
+}
+
+template<typename T>
+Node<T> *LinkedList<T>::getCabeza() const {
+    return head;
 }
 
 template<typename T>

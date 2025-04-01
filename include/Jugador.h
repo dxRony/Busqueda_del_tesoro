@@ -18,6 +18,8 @@ private:
     int tiempoJugado;
 
 public:
+    Jugador();
+
     Jugador(string nombre);
 
     int mostrarOpcionesTurno() const;

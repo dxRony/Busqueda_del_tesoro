@@ -1,6 +1,11 @@
-CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o: \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/main.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
+CMakeFiles/Busqueda_del_tesoro.dir/src/Reporte.cpp.o: \
+ /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Reporte.cpp \
+ /usr/include/stdc-predef.h \
+ /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Reporte.h \
+ /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Partida.h \
+ /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Enemigo.h \
+ /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Casilla.h \
+ /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -144,19 +149,9 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/LinkedList.h \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/Node.h \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/BST.h \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/ThreeDimensionalMatrix.h \
- /usr/include/c++/11/cassert /usr/include/assert.h \
- /usr/include/c++/11/ctime \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/MotorDeJuego.h \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Reporte.h \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Partida.h \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Enemigo.h \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Casilla.h \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Jugador.h \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/LinkedList.h \
+ /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/Node.h \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Trampa.h \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Pista.h \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Pocima.h \

@@ -158,4 +158,6 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.o: \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/ThreeDimensionalMatrix.h \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Pista.h \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Pocima.h \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Tesoro.h
+ /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Tesoro.h \
+ /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Reporte.h \
+ /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Partida.h

@@ -5,7 +5,22 @@
 #include "../include/Pista.h"
 #include "../include/Pocima.h"
 #include "../include/Tesoro.h"
+#include "../include/Reporte.h"
 
+Partida::Partida() : jugador("jugador en partida sin parametros") {
+    ancho = alto = profundidad = 0;
+    jugadorEliminado = false;
+    tesoroEncontrado = false;
+    partidaAbandonada = false;
+    tiempoPartida = time(nullptr);
+
+    tableroDeJuego = nullptr;
+    enemigosPartida = new BST<Enemigo>();
+    trampasPartida = new BST<Trampa>();
+    registroTrayectoria = new LinkedList<string>();
+    registroEnemigosYTrampas = new LinkedList<string>();
+    registroPistas = new LinkedList<string>();
+}
 
 Partida::Partida(string nombreJugador, int ancho, int alto, int profundidad): jugador(nombreJugador) {
     this->ancho = ancho;
@@ -27,16 +42,6 @@ Partida::Partida(string nombreJugador, int ancho, int alto, int profundidad): ju
     this->generarTablero();
     cout << "Tablero generado." << endl;
 }
-
-Partida::~Partida() {
-    delete tableroDeJuego;
-    delete enemigosPartida;
-    delete trampasPartida;
-    delete registroTrayectoria;
-    delete registroEnemigosYTrampas;
-    delete registroPistas;
-}
-
 
 void Partida::iniciarPartida() {
     tiempoPartida = time(nullptr);
@@ -332,4 +337,24 @@ void Partida::mostrarEstadisticas() {
     cout << "Tiempo Jugado: " << jugador.getTiempoJugado() << " s" << endl;
     cout << "Ubicacion: (" << jugador.getPosicionX() << ", " << jugador.getPosicionY() << ", " << jugador.getPosicionZ()
             << ")" << endl;
+}
+
+int Partida::getAncho() {
+    return ancho;
+}
+
+int Partida::getAlto() {
+    return alto;
+}
+
+int Partida::getProfundidad() {
+    return profundidad;
+}
+
+Jugador Partida::getJugador() {
+    return jugador;
+}
+
+Partida *Partida::getPartida() {
+    return this;
 }

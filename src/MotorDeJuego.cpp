@@ -6,6 +6,7 @@
 #include <limits>
 
 #include "../include/Partida.h"
+#include "../include/Reporte.h"
 using namespace std;
 
 void MotorDeJuego::mostrarMenu() {
@@ -65,11 +66,32 @@ void MotorDeJuego::nuevaPartida() {
 
     Partida nuevaPartida(nombreJugador, ancho, alto, profundidad);
     nuevaPartida.iniciarPartida();
+    reporte.agregarPartida(nuevaPartida);
+    reporte.agregarJugador(nuevaPartida.getJugador());
 }
 
 void MotorDeJuego::verReportes() {
-    cout << "\nSelecciona el reporte que quieres ver:" << endl;
-    cout << "1. Ver reportes de partidas completadas" << endl;
-    cout << "2. Ver tabla de posiciones" << endl;
-    cout << "3. Regresar al menu principal" << endl;
+    int opcionReporte;
+    do {
+        cout << "\nSelecciona el reporte que quieres ver:" << endl;
+        cout << "1. Ver reportes de partidas completadas" << endl;
+        cout << "2. Ver tabla de jugadores" << endl;
+        cout << "3. Regresar al menu principal" << endl;
+        cout << "Selecciona una opcion: ";
+        cin >> opcionReporte;
+
+        switch (opcionReporte) {
+            case 1:
+                reporte.mostrarReportesPartidas();
+            break;
+            case 2:
+                reporte.mostrarTablaJugadores();
+            break;
+            case 3:
+                return;
+            default:
+                cout << "Opción no válida, intenta de nuevo." << endl;
+            break;
+        }
+    } while (opcionReporte != 3);
 }

@@ -31,9 +31,12 @@ private:
     time_t tiempoPartida;
 
 public:
+    //constructor sin parametros
+    Partida();
+
     Partida(string nombreJugador, int ancho, int alto, int profundidad);
 
-    ~Partida();
+   // ~Partida();
 
     void iniciarPartida();
 
@@ -45,5 +48,14 @@ public:
 
     void mostrarEstadisticas();
 
+    int getAncho();
+
+    int getAlto();
+
+    int getProfundidad();
+
+    Jugador getJugador();
+
+    Partida *getPartida();
 };
 #endif //PARTIDA_H

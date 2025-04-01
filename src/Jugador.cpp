@@ -3,6 +3,11 @@
 //
 #include "../include/Jugador.h"
 
+//constructor que no recibe parametros
+Jugador::Jugador() {
+    nombre = "JugadorPredeterminado";
+}
+
 Jugador::Jugador(string nombre) {
     this->nombre = nombre;
     this->setRepresentacion('J');

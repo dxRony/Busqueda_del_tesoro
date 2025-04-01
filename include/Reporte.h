@@ -9,11 +9,16 @@
 
 class Reporte {
 private:
-    LinkedList<Partida> *partidas;
-    LinkedList<Jugador> *jugadores;
-public:
-    Reporte();
+    LinkedList<Partida> partidas;
+    LinkedList<Jugador> tablaJugadores;
 
-    ~Reporte();
+public:
+    void agregarPartida(const Partida &partida);
+
+    void agregarJugador(const Jugador &jugador);
+
+    void mostrarReportesPartidas();
+
+    void mostrarTablaJugadores();
 };
 #endif //REPORTE_H
