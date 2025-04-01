@@ -34,3 +34,8 @@ Mostrando reportes:
 			1.5 Grafico de los arboles de enemigos y trampas
 	2. Tabla de posiciones con los mejores jugadores
 
+queda pendiente:
+-cargar jugadores mediante archivos csv
+-mostrar grafico de arboles
+-hacer documentacion
+-agregar colaboradores a repositorio

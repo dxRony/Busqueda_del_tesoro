@@ -24,5 +24,7 @@ public:
     void mostrarMenuReportesPartidas(int indiceJugador);
 
     LinkedList<Partida> &getPartidas();
+
+    void ordenarTablaJugadores();
 };
 #endif //REPORTE_H

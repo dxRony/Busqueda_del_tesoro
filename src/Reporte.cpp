@@ -19,7 +19,8 @@ void Reporte::mostrarMenuReportesPartidas(int indiceJugador) {
     }
     int opcionPartida = 0;
     do {
-        cout << "\nSelecciona el reporte que quieres ver del jugador: "<<actual->getData().getJugador().getNombre() << endl;
+        cout << "\nSelecciona el reporte que quieres ver del jugador: " << actual->getData().getJugador().getNombre() <<
+                endl;
         cout << "1. Nombre del jugador, tiempo total, movimientos y puntuacion." << endl;
         cout << "2. Ubicacion del tesoro y trayectora del jugador." << endl;
         cout << "3. Pistas encontradas y su distancia al tesoro." << endl;
@@ -68,20 +69,47 @@ void Reporte::mostrarMenuReportesPartidas(int indiceJugador) {
 }
 
 void Reporte::mostrarTablaJugadores() {
-    Node<Jugador> *actual = tablaJugadores.getCabeza();
-    if (!actual) {
-        cout << "No hay jugadores registrados." << endl;
+    if (!tablaJugadores.getCabeza()) {
+        cout << "No hay jugadores existentes" << endl;
         return;
     }
+    ordenarTablaJugadores();
+    Node<Jugador> *actual = tablaJugadores.getCabeza();
     cout << "\n--- Tabla de Jugadores ---\n";
+    int indice = 0;
     while (actual) {
-        cout << "Nombre: " << actual->getData().getNombre() << endl;
-        cout << "Puntos Totales: " << actual->getData().getPuntos() << endl;
+        indice++;
+        cout << indice << ") Nombre: " << actual->getData().getNombre() << endl;
+        cout << "   Puntuacion: " << actual->getData().getPuntos() << endl;
+        cout << "   Vida: " << actual->getData().getVida() << endl;
+        cout << "   Movimientos: " << actual->getData().getMovimientos() << endl;
+        cout << "   Tiempo jugado: " << actual->getData().getTiempoJugado() << endl;
         cout << "-------------------------\n";
         actual = actual->getNext();
     }
 }
 
+void Reporte::ordenarTablaJugadores() {
+    if (!tablaJugadores.getCabeza()) {
+        return;
+    }
+    bool intercambio;
+    do {
+        intercambio = false;
+        Node<Jugador> *actual = tablaJugadores.getCabeza();
+
+        while (actual->getNext() != nullptr) {
+            if (actual->getData().getPuntos() < actual->getNext()->getData().getPuntos()) {
+                // Intercambiar los datos de los nodos
+                Jugador temp = actual->getData();
+                actual->setData(actual->getNext()->getData());
+                actual->getNext()->setData(temp);
+                intercambio = true;
+            }
+            actual = actual->getNext();
+        }
+    } while (intercambio);
+}
 
 LinkedList<Partida> &Reporte::getPartidas() {
     return partidas;
