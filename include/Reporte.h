@@ -23,7 +23,6 @@ public:
 
     void mostrarMenuReportesPartidas(int indiceJugador);
 
-    LinkedList<Partida> getPartidas();
-
+    LinkedList<Partida> &getPartidas();
 };
 #endif //REPORTE_H

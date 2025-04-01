@@ -272,7 +272,7 @@ void Partida::moverJugador(int direccion) {
             } else {
                 cout << "Caliente, da un paso mas y encontraras al tesoro." << endl;
             }
-            string mensaje = "Se ha encontrado una pista y ha indicado que el tesoro esta a : " + to_string(distancia) +
+            string mensaje = "Se ha encontrado una pista y ha indicado que el tesoro esta a: " + to_string(distancia) +
                              " pasos de distancia del jugador, en la posicion: (" + to_string(
                                  casillaDestino.getPosicionX()) +
                              ", "
@@ -305,10 +305,10 @@ void Partida::moverJugador(int direccion) {
             break;
         }
     }
-
+    /*
     casillaEncontrada += "(" + to_string(casillaDestino.getPosicionX()) + ", " +
             to_string(casillaDestino.getPosicionY()) + ", " + to_string(
-                casillaDestino.getPosicionZ()) + ")";
+                casillaDestino.getPosicionZ()) + ")";*/
     Casilla casillaVacia;
     tableroDeJuego->insertar(jugador.getPosicionX(), jugador.getPosicionY(), jugador.getPosicionZ(), casillaVacia);
     jugador.setPosicionX(nuevoX);

@@ -83,7 +83,7 @@ void MotorDeJuego::verReportes() {
         switch (opcionReporte) {
             case 1:
                 int indiceJugador;
-                cout << "Selecciona la partida del jugador que deseas ver: " << endl;
+                cout << "\nSelecciona la partida del jugador que deseas ver: " << endl;
                 reporte.getPartidas().imprimir();
                 cin >> indiceJugador;
                 reporte.mostrarMenuReportesPartidas(indiceJugador);

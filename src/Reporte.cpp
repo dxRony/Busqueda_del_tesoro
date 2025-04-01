@@ -19,7 +19,7 @@ void Reporte::mostrarMenuReportesPartidas(int indiceJugador) {
     }
     int opcionPartida = 0;
     do {
-        cout << "\nSelecciona el reporte que quieres ver:" << endl;
+        cout << "\nSelecciona el reporte que quieres ver del jugador: "<<actual->getData().getJugador().getNombre() << endl;
         cout << "1. Nombre del jugador, tiempo total, movimientos y puntuacion." << endl;
         cout << "2. Ubicacion del tesoro y trayectora del jugador." << endl;
         cout << "3. Pistas encontradas y su distancia al tesoro." << endl;
@@ -30,30 +30,31 @@ void Reporte::mostrarMenuReportesPartidas(int indiceJugador) {
         cin >> opcionPartida;
 
         switch (opcionPartida) {
-            case 1 : {
-                cout << "Nombre del jugador: " << actual->getData().getJugador().getNombre() << endl;
-                cout << "Tiempo total: " << actual->getData().getJugador().getTiempoJugado() << endl;
+            case 1: {
+                cout << "\nNombre del jugador: " << actual->getData().getJugador().getNombre() << endl;
+                cout << "Tiempo total: " << actual->getData().getJugador().getTiempoJugado() << " s" << endl;
                 cout << "Movimientos: " << actual->getData().getJugador().getMovimientos() << endl;
                 cout << "Puntuacion: " << actual->getData().getJugador().getPuntos() << endl;
                 break;
             }
             case 2: {
-                cout << "Ubicacion del tesoro y trayectoria del jugador:" << endl;
-                cout << actual->getData().getRegistroTrayectoria() << endl;
+                cout << "\nUbicacion del tesoro y trayectoria del jugador:" << endl;
+                actual->getData().getRegistroTrayectoria()->imprimir();
                 break;
             }
             case 3: {
-                cout << "Pistas encontradas y distancia al tesoro:" << endl;
-                cout << actual->getData().getRegistroPistas() << endl;
+                cout << "\nPistas encontradas y distancia al tesoro:" << endl;
+                actual->getData().getRegistroPistas()->imprimir();
                 break;
             }
             case 4: {
-                cout << "Enemigos enfrentados y trampas activadas: " << endl;
-                cout << actual->getData().getRegistroEnemigosYTrampas()<< endl;
+                cout << "\nEnemigos enfrentados y trampas activadas: " << endl;
+                actual->getData().getRegistroEnemigosYTrampas()->imprimir();
                 break;
             }
             case 5: {
-                cout << "Grafico de los arboles de enemigos y trampas:" << endl;
+                cout << "\nGrafico de los arboles de enemigos y trampas:" << endl;
+                break;
             }
             case 6: {
                 return;
@@ -62,7 +63,6 @@ void Reporte::mostrarMenuReportesPartidas(int indiceJugador) {
                 cout << "Opcion no valida." << endl;
                 break;
             }
-
         }
     } while (opcionPartida != 6);
 }
@@ -83,6 +83,6 @@ void Reporte::mostrarTablaJugadores() {
 }
 
 
-LinkedList<Partida> Reporte::getPartidas() {
+LinkedList<Partida> &Reporte::getPartidas() {
     return partidas;
 }

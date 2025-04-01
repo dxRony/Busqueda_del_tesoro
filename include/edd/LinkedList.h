@@ -52,10 +52,9 @@ LinkedList<T>::LinkedList() {
 // destructor
 template<typename T>
 LinkedList<T>::~LinkedList() {
-    Node<T> *actual = head;
-    while (actual) {
-        Node<T> *temp = actual;
-        actual = actual->getNext();
+    while (head) {
+        Node<T> *temp = head;
+        head = head->getNext();
         delete temp;
     }
 }
@@ -124,7 +123,6 @@ template<typename T>
 void LinkedList<T>::imprimir() const {
     Node<T> *actual = head;
     int i = 0;
-    //cout << "->";
     while (actual) {
         cout << i << ") " << actual->getData() << " \n";
         i++;
@@ -153,7 +151,7 @@ Node<T> *LinkedList<T>::obtenerPorIndice(int indice) {
         throw out_of_range("indice invalido");
     }
 
-    Node<T>* actual = head;
+    Node<T> *actual = head;
     int contador = 0;
 
     while (actual != nullptr) {
