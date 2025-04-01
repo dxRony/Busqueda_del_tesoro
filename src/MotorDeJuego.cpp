@@ -82,16 +82,32 @@ void MotorDeJuego::verReportes() {
 
         switch (opcionReporte) {
             case 1:
-                reporte.mostrarReportesPartidas();
-            break;
+                int indiceJugador;
+                cout << "Selecciona la partida del jugador que deseas ver: " << endl;
+                reporte.getPartidas().imprimir();
+                cin >> indiceJugador;
+                reporte.mostrarMenuReportesPartidas(indiceJugador);
+                break;
             case 2:
                 reporte.mostrarTablaJugadores();
-            break;
+                break;
             case 3:
                 return;
             default:
                 cout << "Opción no válida, intenta de nuevo." << endl;
-            break;
+                break;
         }
+    } while (opcionReporte != 3);
+}
+
+void MotorDeJuego::mostrarMenuReportesPartias() {
+    int opcionReporte;
+
+    do {
+        cout << "\nSelecciona el reporte que quieres ver:" << endl;
+        cout << "1. Ver reportes de partidas completadas" << endl;
+        cout << "2. Ver tabla de jugadores" << endl;
+        cout << "3. Regresar al menu principal" << endl;
+        cout << "Selecciona una opcion: ";
     } while (opcionReporte != 3);
 }

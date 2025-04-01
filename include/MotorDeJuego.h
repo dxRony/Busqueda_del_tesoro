@@ -18,5 +18,7 @@ private:
     bool finalizarEjecucion = false;
 
     Reporte reporte;
+
+    void mostrarMenuReportesPartias();
 };
 #endif //MOTORDEJUEGO_H

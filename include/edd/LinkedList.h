@@ -37,6 +37,8 @@ public:
     Node<T> *getCabeza() const;
 
     bool isEmpty() const;
+
+    Node<T> *obtenerPorIndice(int indice);
 };
 
 //constructor
@@ -121,9 +123,11 @@ bool LinkedList<T>::buscar(const T &data) const {
 template<typename T>
 void LinkedList<T>::imprimir() const {
     Node<T> *actual = head;
-    cout << "->";
+    int i = 0;
+    //cout << "->";
     while (actual) {
-        cout << actual->getData() << " \n->";
+        cout << i << ") " << actual->getData() << " \n";
+        i++;
         actual = actual->getNext();
     }
 }
@@ -142,4 +146,25 @@ template<typename T>
 bool LinkedList<T>::isEmpty() const {
     return size == 0;
 }
+
+template<typename T>
+Node<T> *LinkedList<T>::obtenerPorIndice(int indice) {
+    if (indice < 0) {
+        throw out_of_range("indice invalido");
+    }
+
+    Node<T>* actual = head;
+    int contador = 0;
+
+    while (actual != nullptr) {
+        if (contador == indice) {
+            return actual;
+        }
+        actual = actual->getNext();
+        contador++;
+    }
+
+    throw out_of_range("Índice fuera de rango");
+}
+
 #endif //LINKEDLIST_H

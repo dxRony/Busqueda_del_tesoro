@@ -36,7 +36,7 @@ public:
 
     Partida(string nombreJugador, int ancho, int alto, int profundidad);
 
-   // ~Partida();
+    // ~Partida();
 
     void iniciarPartida();
 
@@ -57,5 +57,13 @@ public:
     Jugador getJugador();
 
     Partida *getPartida();
+
+    LinkedList<string> *getRegistroTrayectoria();
+
+    LinkedList<string> *getRegistroEnemigosYTrampas();
+
+    LinkedList<string> *getRegistroPistas();
+
+    friend ostream &operator<<(ostream &os, Partida &partida);
 };
 #endif //PARTIDA_H

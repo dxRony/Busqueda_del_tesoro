@@ -358,3 +358,20 @@ Jugador Partida::getJugador() {
 Partida *Partida::getPartida() {
     return this;
 }
+
+LinkedList<string> *Partida::getRegistroTrayectoria() {
+    return registroTrayectoria;
+}
+
+LinkedList<string> *Partida::getRegistroEnemigosYTrampas() {
+    return registroEnemigosYTrampas;
+}
+
+LinkedList<string> *Partida::getRegistroPistas() {
+    return registroPistas;
+}
+
+ostream &operator<<(ostream &os, Partida &partida) {
+    os << "Jugador de la partida: " << partida.getJugador().getNombre();
+    return os;
+}
