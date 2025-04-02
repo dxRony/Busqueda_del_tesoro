@@ -30,5 +30,4 @@ public:
         return this->dano == trampaAComparar.getDano();
     }
 };
-
 #endif //TRAMPA_H

@@ -41,9 +41,10 @@ public:
     void setRepresentacion(char representacion);
 
     void setEfecto(int efecto);
+
     int getEfecto() const;
 };
 
-// Sobrecarga del operador << para imprimir Casillas
+// sobrecarga de operador "<<" para imprimir en consola
 ostream &operator<<(ostream &os, const Casilla &casilla);
 #endif //CASILLA_H

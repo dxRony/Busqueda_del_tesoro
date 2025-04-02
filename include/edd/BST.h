@@ -25,7 +25,7 @@ public:
 
         Node<T> *actual = raiz;
         while (true) {
-            if (data < actual->getData()) {//
+            if (data < actual->getData()) {
                 // si el valor es menor, se guarda en el subarbol izq
                 if (actual->getLeft() == nullptr) {
                     //si se llega al final del arbol se inserta
@@ -49,12 +49,12 @@ public:
         }
     }
 
-    // Mostrar el árbol en orden ascendente (izquierda, raíz, derecha)
+    //imprimiendo el arbol de manera ascendente (izquierda, raiz, derecha)
     void mostrarAscendente() const {
         mostrarAscendentePrivado(raiz, 0);
     }
 
-    // Mostrar el árbol en orden descendente (derecha, raíz, izquierda)
+    // imprimiendo el arbol de manera descendente (derecha, raiz, izquierda)
     void mostrarDescendente() const {
         mostrarDescendentePrivado(raiz, 0);
     }
@@ -74,7 +74,7 @@ public:
                 arbol = arbol->getRight();
             }
         }
-        // si se recorre todo el BST y no se encuentra el valor, se devuelve false
+        // si se recorre el BST y no se encuentra el valor, se devuelve false
         return false;
     }
 
@@ -170,5 +170,4 @@ private:
         return arbol;
     }
 };
-
 #endif // BST_H

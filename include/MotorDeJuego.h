@@ -15,10 +15,10 @@ private:
 
     void verReportes();
 
+    void mostrarMenuReportesPartidas();
+
     bool finalizarEjecucion = false;
 
     Reporte reporte;
-
-    void mostrarMenuReportesPartias();
 };
 #endif //MOTORDEJUEGO_H

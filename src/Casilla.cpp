@@ -3,7 +3,7 @@
 //
 #include "../include/Casilla.h"
 
-Casilla::Casilla(){
+Casilla::Casilla() {
     this->setRepresentacion('~');
     posicionX = 0;
     posicionY = 0;
@@ -54,7 +54,6 @@ void Casilla::setRepresentacion(char representacion) {
 int Casilla::getEfecto() const {
     return efecto;
 }
-
 
 void Casilla::setEfecto(int efecto) {
     this->efecto = efecto;

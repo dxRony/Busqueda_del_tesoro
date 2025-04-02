@@ -37,5 +37,6 @@ Mostrando reportes:
 queda pendiente:
 -cargar jugadores mediante archivos csv
 -mostrar grafico de arboles
+-mostrar en reporte si se encontro o no el tesoro
 -hacer documentacion
 -agregar colaboradores a repositorio

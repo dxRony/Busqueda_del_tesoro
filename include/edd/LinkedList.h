@@ -11,8 +11,8 @@ using namespace std;
 template<typename T>
 class LinkedList {
 private:
-    Node<T> *head; // puntero a la cabeza de la lista
-    int size; // tamano de la lista
+    Node<T> *head; //puntero a la cabeza de la lista
+    int size; //tamano de la lista
 
 public:
     // constructor
@@ -21,7 +21,6 @@ public:
     // destructor
     ~LinkedList();
 
-    // Métodos básicos
     void insertarInicio(const T &data);
 
     void insertarFinal(const T &data);
@@ -42,7 +41,6 @@ public:
 };
 
 //constructor
-
 template<typename T>
 LinkedList<T>::LinkedList() {
     head = nullptr;
@@ -162,7 +160,6 @@ Node<T> *LinkedList<T>::obtenerPorIndice(int indice) {
         contador++;
     }
 
-    throw out_of_range("Índice fuera de rango");
+    throw out_of_range("indice fuera de rango");
 }
-
 #endif //LINKEDLIST_H

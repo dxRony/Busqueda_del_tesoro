@@ -3,7 +3,7 @@
 //
 #include "../include/Jugador.h"
 
-//constructor que no recibe parametros
+//constructor vacio
 Jugador::Jugador() {
     nombre = "JugadorPredeterminado";
 }

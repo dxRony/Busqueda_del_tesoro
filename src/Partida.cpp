@@ -5,21 +5,8 @@
 #include "../include/Pista.h"
 #include "../include/Pocima.h"
 #include "../include/Tesoro.h"
-#include "../include/Reporte.h"
 
-Partida::Partida() : jugador("jugador en partida sin parametros") {
-    ancho = alto = profundidad = 0;
-    jugadorEliminado = false;
-    tesoroEncontrado = false;
-    partidaAbandonada = false;
-    tiempoPartida = time(nullptr);
-
-    tableroDeJuego = nullptr;
-    enemigosPartida = new BST<Enemigo>();
-    trampasPartida = new BST<Trampa>();
-    registroTrayectoria = new LinkedList<string>();
-    registroEnemigosYTrampas = new LinkedList<string>();
-    registroPistas = new LinkedList<string>();
+Partida::Partida() : jugador("constructor de partida sin parametros") {
 }
 
 Partida::Partida(string nombreJugador, int ancho, int alto, int profundidad): jugador(nombreJugador) {
@@ -66,7 +53,6 @@ void Partida::generarTablero() {
     string ubicacionTesoro = "Tesoro ubicado en: (" + to_string(tesoroX) + ", " + to_string(tesoroY) + ", " +
                              to_string(tesoroZ) + ")";
     registroTrayectoria->insertarFinal(ubicacionTesoro);
-    //colocando aleatoriamente al tesoro
     tableroDeJuego->insertar(tesoroX, tesoroY, tesoroZ, tesoro);
 
     int jugadorX, jugadorY, jugadorZ;
@@ -198,7 +184,7 @@ void Partida::moverJugador(int direccion) {
             nuevoZ--;
             direccionMovimiento = "atras";
             break;
-        default: cout << "Dirección no válida." << endl;
+        default: cout << "direccion incorrecta" << endl;
             return;
     }
 
@@ -219,12 +205,10 @@ void Partida::moverJugador(int direccion) {
         case 'E': {
             jugador.setVida(jugador.getVida() - casillaDestino.getEfecto());
             jugador.setPuntos(jugador.getPuntos() + 15);
-            cout << "Has encontrado un enemigo D:!! pierdes " << casillaDestino.getEfecto() << " puntos de vida." <<
-                    endl;
+            cout << "Encontraste un enemigo D:!! pierdes " << casillaDestino.getEfecto() << " puntos de vida." << endl;
             string mensaje = "Se ha encontrado un enemigo y ha realizado: " + to_string(casillaDestino.getEfecto()) +
                              " de dano al jugador, en la posicion: (" + to_string(casillaDestino.getPosicionX()) + ", "
-                             +
-                             to_string(casillaDestino.getPosicionY()) + ", " + to_string(
+                             + to_string(casillaDestino.getPosicionY()) + ", " + to_string(
                                  casillaDestino.getPosicionZ()) + ")";
             registroEnemigosYTrampas->insertarFinal(mensaje);
             break;
@@ -232,37 +216,36 @@ void Partida::moverJugador(int direccion) {
         case 'T': {
             jugador.setVida(jugador.getVida() - casillaDestino.getEfecto());
             jugador.setPuntos(jugador.getPuntos() + 10);
-            cout << "Has caido en una trampa D:!! pierdes " << casillaDestino.getEfecto() << " puntos de vida." << endl;
+            cout << "Caiste en una trampa D:!! pierdes " << casillaDestino.getEfecto() << " puntos de vida." << endl;
             string mensaje = "Se ha encontrado una trampa y ha realizado: " + to_string(casillaDestino.getEfecto()) +
                              " de dano al jugador, en la posicion: (" + to_string(casillaDestino.getPosicionX()) + ", "
-                             +
-                             to_string(casillaDestino.getPosicionY()) + ", " + to_string(
+                             + to_string(casillaDestino.getPosicionY()) + ", " + to_string(
                                  casillaDestino.getPosicionZ()) + ")";
             registroEnemigosYTrampas->insertarFinal(mensaje);
             break;
         }
         case 'P': {
             jugador.setVida(jugador.getVida() + casillaDestino.getEfecto());
-            cout << "has encontrado una pocima :D!! recuperas " << casillaDestino.getEfecto() << " puntos de vida." <<
+            cout << "Encontraste una pocima :D!! recuperas " << casillaDestino.getEfecto() << " puntos de vida." <<
                     endl;
             break;
         }
         case 'C': {
-            int diffX = nuevoX - tesoroX;
-            int diffY = nuevoY - tesoroY;
-            int diffZ = nuevoZ - tesoroZ;
-
-            if (diffX < 0) {
-                diffX *= -1;
+            int distanciaX = nuevoX - tesoroX;
+            int distanciaY = nuevoY - tesoroY;
+            int distanciaZ = nuevoZ - tesoroZ;
+            //convirtiendo distancia a valores positivos
+            if (distanciaX < 0) {
+                distanciaX *= -1;
             }
-            if (diffY < 0) {
-                diffY *= -1;
+            if (distanciaY < 0) {
+                distanciaY *= -1;
             }
-            if (diffZ < 0) {
-                diffZ *= -1;
+            if (distanciaZ < 0) {
+                distanciaZ *= -1;
             }
-            //calculando distancia de poscion actual a la del tesoro
-            int distancia = diffX + diffY + diffZ;
+            //calculando distancia de posicion actual a la del tesoro
+            int distancia = distanciaX + distanciaY + distanciaZ;
 
             if (distancia > 3) {
                 cout << "Frio, sigue buscando." << endl;
@@ -273,12 +256,9 @@ void Partida::moverJugador(int direccion) {
                 cout << "Caliente, da un paso mas y encontraras al tesoro." << endl;
             }
             string mensaje = "Se ha encontrado una pista y ha indicado que el tesoro esta a: " + to_string(distancia) +
-                             " pasos de distancia del jugador, en la posicion: (" + to_string(
-                                 casillaDestino.getPosicionX()) +
-                             ", "
-                             +
-                             to_string(casillaDestino.getPosicionY()) + ", " + to_string(
-                                 casillaDestino.getPosicionZ()) + ")";
+                             " pasos de distancia del jugador, en la posicion: (" +
+                             to_string(casillaDestino.getPosicionX()) + ", " + to_string(casillaDestino.getPosicionY())
+                             + ", " + to_string(casillaDestino.getPosicionZ()) + ")";
             registroPistas->insertarFinal(mensaje);
             break;
         }
@@ -305,10 +285,6 @@ void Partida::moverJugador(int direccion) {
             break;
         }
     }
-    /*
-    casillaEncontrada += "(" + to_string(casillaDestino.getPosicionX()) + ", " +
-            to_string(casillaDestino.getPosicionY()) + ", " + to_string(
-                casillaDestino.getPosicionZ()) + ")";*/
     Casilla casillaVacia;
     tableroDeJuego->insertar(jugador.getPosicionX(), jugador.getPosicionY(), jugador.getPosicionZ(), casillaVacia);
     jugador.setPosicionX(nuevoX);
@@ -316,6 +292,7 @@ void Partida::moverJugador(int direccion) {
     jugador.setPosicionZ(nuevoZ);
     tableroDeJuego->insertar(nuevoX, nuevoY, nuevoZ, jugador);
     if (jugador.getVida() <= 0) {
+        jugador.setVida(0);
         jugadorEliminado = true;
         cout << "Tu vida ha llegado a 0, has perdido la partida :(" << endl;
     } else {

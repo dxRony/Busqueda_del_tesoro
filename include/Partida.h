@@ -7,8 +7,6 @@
 #include "Enemigo.h"
 #include "Jugador.h"
 #include "Trampa.h"
-#include "Pista.h"
-#include "Pocima.h"
 #include "edd/BST.h"
 #include "edd/LinkedList.h"
 #include "edd/ThreeDimensionalMatrix.h"
@@ -31,12 +29,9 @@ private:
     time_t tiempoPartida;
 
 public:
-    //constructor sin parametros
     Partida();
 
     Partida(string nombreJugador, int ancho, int alto, int profundidad);
-
-    // ~Partida();
 
     void iniciarPartida();
 
@@ -48,6 +43,7 @@ public:
 
     void mostrarEstadisticas();
 
+    //getters
     int getAncho();
 
     int getAlto();

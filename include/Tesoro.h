@@ -17,6 +17,4 @@ public:
 
     void setValor(int valor);
 };
-
-
 #endif //TESORO_H

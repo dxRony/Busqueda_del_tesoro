@@ -55,6 +55,8 @@ void Reporte::mostrarMenuReportesPartidas(int indiceJugador) {
             }
             case 5: {
                 cout << "\nGrafico de los arboles de enemigos y trampas:" << endl;
+                cout << "Grafico de arboles de enemigos (nivel alto a nivel bajo)" << endl;
+                cout << "Grafico de arboles de trampas (nivel bajo a nivel alto)" << endl;
                 break;
             }
             case 6: {
@@ -83,7 +85,7 @@ void Reporte::mostrarTablaJugadores() {
         cout << "   Puntuacion: " << actual->getData().getPuntos() << endl;
         cout << "   Vida: " << actual->getData().getVida() << endl;
         cout << "   Movimientos: " << actual->getData().getMovimientos() << endl;
-        cout << "   Tiempo jugado: " << actual->getData().getTiempoJugado() << endl;
+        cout << "   Tiempo jugado: " << actual->getData().getTiempoJugado() << " s" << endl;
         cout << "-------------------------\n";
         actual = actual->getNext();
     }
@@ -100,7 +102,6 @@ void Reporte::ordenarTablaJugadores() {
 
         while (actual->getNext() != nullptr) {
             if (actual->getData().getPuntos() < actual->getNext()->getData().getPuntos()) {
-                // Intercambiar los datos de los nodos
                 Jugador temp = actual->getData();
                 actual->setData(actual->getNext()->getData());
                 actual->getNext()->setData(temp);

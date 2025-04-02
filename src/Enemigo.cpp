@@ -4,7 +4,6 @@
 #include "../include/Enemigo.h"
 using namespace std;
 
-
 Enemigo::Enemigo() {
     nivelAlto = (rand() % 2) == 0;
     this->setRepresentacion('E');

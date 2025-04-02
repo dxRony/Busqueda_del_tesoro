@@ -3,8 +3,6 @@
 //
 #include "../include/MotorDeJuego.h"
 #include <iostream>
-#include <limits>
-
 #include "../include/Partida.h"
 #include "../include/Reporte.h"
 using namespace std;
@@ -21,11 +19,9 @@ void MotorDeJuego::mostrarMenu() {
 
         try {
             cin >> opcion;
-            //viendo si la entrada es un numero
             if (cin.fail()) {
                 throw runtime_error("Entrada invalida, debes ingresar un numero entre 1 y 3");
             }
-            //viendo si la entrada es un numero en el rango permitido
             if (opcion < 1 || opcion > 3) {
                 throw out_of_range("Opcion fuera de rango, debes ingresar un numero entre 1 y 3");
             }
@@ -45,8 +41,7 @@ void MotorDeJuego::mostrarMenu() {
             }
         } catch (const exception &e) {
             cout << "Error: " << e.what() << endl;
-            cin.clear(); // limpiando entrada en consola
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // ignorando entrada incorrecta
+            cin.clear();
         }
     } while (!finalizarEjecucion);
 }
@@ -54,6 +49,7 @@ void MotorDeJuego::mostrarMenu() {
 void MotorDeJuego::nuevaPartida() {
     string nombreJugador;
     int ancho, alto, profundidad;
+
     cout << "\nIniciando nueva partida..." << endl;
     cout << "Ingresa tu nombre jugador: ";
     cin >> nombreJugador;
@@ -77,7 +73,7 @@ void MotorDeJuego::verReportes() {
         cout << "1. Ver reportes de partidas completadas" << endl;
         cout << "2. Ver tabla de jugadores" << endl;
         cout << "3. Regresar al menu principal" << endl;
-        cout << "Selecciona una opcion: ";
+        cout << "Selecciona una opcion... ";
         cin >> opcionReporte;
 
         switch (opcionReporte) {
@@ -94,15 +90,14 @@ void MotorDeJuego::verReportes() {
             case 3:
                 return;
             default:
-                cout << "Opción no válida, intenta de nuevo." << endl;
+                cout << "opcion invalida, intenta de nuevo." << endl;
                 break;
         }
     } while (opcionReporte != 3);
 }
 
-void MotorDeJuego::mostrarMenuReportesPartias() {
+void MotorDeJuego::mostrarMenuReportesPartidas() {
     int opcionReporte;
-
     do {
         cout << "\nSelecciona el reporte que quieres ver:" << endl;
         cout << "1. Ver reportes de partidas completadas" << endl;

@@ -158,7 +158,5 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o: \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Jugador.h \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/LinkedList.h \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Trampa.h \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Pista.h \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Pocima.h \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/BST.h \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/ThreeDimensionalMatrix.h

@@ -5,7 +5,7 @@
 
 Tesoro::Tesoro() {
     this->setRepresentacion('$');
-    valor = 1000;
+    valor = 100;
 }
 
 int Tesoro::getValor() {

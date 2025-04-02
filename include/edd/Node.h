@@ -1,7 +1,6 @@
 #ifndef NODE_H
 #define NODE_H
 
-// Definición de la plantilla de la clase Node
 template<typename T>
 class Node {
 private:
@@ -14,7 +13,7 @@ private:
     Node<T> *right;
 
 public:
-    // Constructor
+    //constructor
     explicit Node(const T data) {
         this->data = data;
         next = nullptr;
@@ -25,12 +24,12 @@ public:
         right = nullptr;
     }
 
-    // Destructor
+    //destructor
     ~Node() {
     }
 
-    // Getters
-    T& getData() {
+    //getters
+    T &getData() {
         return data;
     }
 
@@ -58,7 +57,7 @@ public:
         return right;
     }
 
-    // Setters
+    //setters
     void setData(const T data) {
         this->data = data;
     }
@@ -87,5 +86,4 @@ public:
         this->right = right;
     }
 };
-
 #endif // NODE_H
