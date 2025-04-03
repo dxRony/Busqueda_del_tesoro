@@ -31,13 +31,13 @@ public:
 
     void imprimir() const;
 
+    Node<T> *obtenerPorIndice(int indice);
+
     int obtenerTamano() const;
 
     Node<T> *getCabeza() const;
 
     bool isEmpty() const;
-
-    Node<T> *obtenerPorIndice(int indice);
 };
 
 //constructor
@@ -59,73 +59,90 @@ LinkedList<T>::~LinkedList() {
 
 template<typename T>
 void LinkedList<T>::insertarInicio(const T &data) {
-    Node<T> *nuevoNodo = new Node<T>(data);
-    nuevoNodo->setNext(head);
-    head = nuevoNodo;
-    size++;
+    Node<T> *nuevoNodo = new Node<T>(data);         //1
+    nuevoNodo->setNext(head);                       //1
+    head = nuevoNodo;                               //1
+    size++;                                         //1
 }
 
 template<typename T>
 void LinkedList<T>::insertarFinal(const T &data) {
-    Node<T> *nuevoNodo = new Node<T>(data);
-    if (!head) {
-        head = nuevoNodo;
-    } else {
-        Node<T> *temp = head;
-        while (temp->getNext()) {
-            temp = temp->getNext();
+    Node<T> *nuevoNodo = new Node<T>(data);         //1
+    if (!head) {                                    //1
+        head = nuevoNodo;                           //1
+    } else {                                        //1
+        Node<T> *temp = head;                       //1
+        while (temp->getNext()) {                   //n
+            temp = temp->getNext();                 //n
         }
-        temp->setNext(nuevoNodo);
+        temp->setNext(nuevoNodo);                   //1
     }
-    size++;
+    size++;                                         //1
 }
 
 template<typename T>
 bool LinkedList<T>::eliminar(const T &data) {
-    if (!head) {
-        return false;
+    if (!head) {                                    //1
+        return false;                               //1
     }
-    if (head->getData() == data) {
-        Node<T> *temp = head;
-        head = head->getNext();
-        delete temp;
-        size--;
-        return true;
+    if (head->getData() == data) {                  //1
+        Node<T> *temp = head;                       //1
+        head = head->getNext();                     //1
+        delete temp;                                //1
+        size--;                                     //1
+        return true;                                //1
     }
-    Node<T> *actual = head;
-    while (actual->getNext() && actual->getNext()->getData() != data) {
-        actual = actual->getNext();
+    Node<T> *actual = head;                         //1
+    while (actual->getNext() && actual->getNext()->getData() != data) { //n
+        actual = actual->getNext();                                     //n
     }
-
-    if (!actual->getNext()) {
-        return false;
+    if (!actual->getNext()) {                       //1
+        return false;                               //1
     }
-    Node<T> *temp = actual->getNext();
-    actual->setNext(temp->getNext());
-    delete temp;
-    size--;
-    return true;
+    Node<T> *temp = actual->getNext();              //1
+    actual->setNext(temp->getNext());               //1
+    delete temp;                                    //1
+    size--;                                         //1
+    return true;                                    //1
 }
 
 template<typename T>
 bool LinkedList<T>::buscar(const T &data) const {
-    Node<T> *actual = head;
-    while (actual) {
-        if (actual->getData() == data) return true;
-        actual = actual->getNext();
+    Node<T> *actual = head;                         //1
+    while (actual) {                                //n
+        if (actual->getData() == data) return true; //n
+        actual = actual->getNext();                 //n
     }
-    return false;
+    return false;                                   //1
 }
 
 template<typename T>
 void LinkedList<T>::imprimir() const {
-    Node<T> *actual = head;
-    int i = 0;
-    while (actual) {
-        cout << i << ") " << actual->getData() << " \n";
-        i++;
-        actual = actual->getNext();
+    Node<T> *actual = head;                             //1
+    int i = 0;                                          //1
+    while (actual) {                                    //n
+        cout << i << ") " << actual->getData() << " \n";//n
+        i++;                                            //n
+        actual = actual->getNext();                     //n
     }
+}
+
+template<typename T>
+Node<T> *LinkedList<T>::obtenerPorIndice(int indice) {
+    if (indice < 0) {                                   //1
+        throw out_of_range("indice invalido");          //1
+    }
+    Node<T> *actual = head;                             //1
+    int contador = 0;                                   //1
+
+    while (actual != nullptr) {                         //n
+        if (contador == indice) {                       //n
+            return actual;                              //n
+        }
+        actual = actual->getNext();                     //n
+        contador++;                                     //n
+    }
+    throw out_of_range("indice fuera de rango");        //1
 }
 
 template<typename T>
@@ -141,25 +158,5 @@ Node<T> *LinkedList<T>::getCabeza() const {
 template<typename T>
 bool LinkedList<T>::isEmpty() const {
     return size == 0;
-}
-
-template<typename T>
-Node<T> *LinkedList<T>::obtenerPorIndice(int indice) {
-    if (indice < 0) {
-        throw out_of_range("indice invalido");
-    }
-
-    Node<T> *actual = head;
-    int contador = 0;
-
-    while (actual != nullptr) {
-        if (contador == indice) {
-            return actual;
-        }
-        actual = actual->getNext();
-        contador++;
-    }
-
-    throw out_of_range("indice fuera de rango");
 }
 #endif //LINKEDLIST_H

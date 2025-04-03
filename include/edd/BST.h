@@ -18,156 +18,113 @@ public:
 
     void insertar(const T &data) {
         // si el arbol esta vacio, crear un nuevo nodo como raiz
-        if (raiz == nullptr) {
-            raiz = new Node<T>(data);
-            return;
+        if (raiz == nullptr) {                                                                  //1
+            raiz = new Node<T>(data);                                                           //1
+            return;                                                                             //1
         }
-
-        Node<T> *actual = raiz;
-        while (true) {
-            if (data < actual->getData()) {
+        Node<T> *actual = raiz;                                                                 //1
+        while (true) {                                                                          //n
+            if (data < actual->getData()) {                                                     //n
                 // si el valor es menor, se guarda en el subarbol izq
-                if (actual->getLeft() == nullptr) {
+                if (actual->getLeft() == nullptr) {                                             //n
                     //si se llega al final del arbol se inserta
-                    actual->setLeft(new Node<T>(data));
-                    break;
+                    actual->setLeft(new Node<T>(data));                                         //n
+                    break;                                                                      //n
                 } else {
-                    // si no, se avanza al siguiente nodo izquierdo
-                    actual = actual->getLeft();
+                    // si no, se avanza al siguiente nodo izquierdo                             //n
+                    actual = actual->getLeft();                                                 //n
                 }
-            } else {
+            } else {                                                                            //n
                 // si el valor es mayor, se guarda en el subarbol der
-                if (actual->getRight() == nullptr) {
+                if (actual->getRight() == nullptr) {                                            //n
                     //si se llega al final de arbol se inserta
-                    actual->setRight(new Node<T>(data));
-                    break;
+                    actual->setRight(new Node<T>(data));                                        //n
+                    break;                                                                      //n
                 } else {
                     // si no se avanza al siguiente subarbol derecho
-                    actual = actual->getRight();
+                    actual = actual->getRight();                                                //n
                 }
             }
         }
-    }
-
-    //imprimiendo el arbol de manera ascendente (izquierda, raiz, derecha)
-    void mostrarAscendente() const {
-        mostrarAscendentePrivado(raiz, 0);
-    }
-
-    // imprimiendo el arbol de manera descendente (derecha, raiz, izquierda)
-    void mostrarDescendente() const {
-        mostrarDescendentePrivado(raiz, 0);
     }
 
     bool buscar(const T &data) const {
-        Node<T> *arbol = raiz; // se comienza desde la raiz
-        while (arbol != nullptr) {
-            T valorRaiz = arbol->getData(); // guardando el valor de la raiz del arbol actual
-            if (data == valorRaiz) {
+        // se comienza desde la raiz
+        Node<T> *arbol = raiz;                                                                  //1
+        while (arbol != nullptr) {                                                              //n
+            // guardando el valor de la raiz del arbol actual
+            T valorRaiz = arbol->getData();                                                     //n
+            if (data == valorRaiz) {                                                            //n
                 // devolviendo true si el valor buscado esta en la raiz del arbol
-                return true;
-            } else if (data < valorRaiz) {
+                return true;                                                                    //n
+            } else if (data < valorRaiz) {                                                      //n
                 // si el valor es menor al valor de la raiz, se busca en el subarbol izquierdo
-                arbol = arbol->getLeft();
-            } else {
+                arbol = arbol->getLeft();                                                       //n
+            } else {                                                                            //n
                 // si el valor es mayor al valor de la raiz, se busca en el subarbol derecho
-                arbol = arbol->getRight();
+                arbol = arbol->getRight();                                                      //n
             }
         }
         // si se recorre el BST y no se encuentra el valor, se devuelve false
-        return false;
+        return false;                                                                           //n
     }
 
     // eliminar un valor del BST
-    void eliminar(const T &n) {
-        raiz = eliminarPrivado(raiz, n);
+    void eliminar(const T &data) {
+        raiz = eliminarPrivado(raiz, data);                                                     //1
     }
 
 private:
-    void mostrarAscendentePrivado(Node<T> *arbol, int cont) const {
-        if (arbol == nullptr) {
-            // Si el arbol esta vacio, no se imprime nada
-            return;
-        } else {
-            // recorriendo el subárbol izquierdo (valores menores)
-            mostrarAscendentePrivado(arbol->getLeft(), cont + 1);
-            // imprimiendo el valor del nodo actual
-            for (int i = 0; i < cont; i++) {
-                cout << "   ";
-            }
-            cout << arbol->getData() << endl;
-            // recorriendo el subarbol derecho (valores mayores)
-            mostrarAscendentePrivado(arbol->getRight(), cont + 1);
-        }
-    }
-
-    void mostrarDescendentePrivado(Node<T> *arbol, int cont) const {
-        if (arbol == nullptr) {
-            // Si el arbol está vacio, no se imprime nada
-            return;
-        } else {
-            // recorriendo el subarbol derecho (valores mayores)
-            mostrarDescendentePrivado(arbol->getRight(), cont + 1);
-            // imprimiendo el valor del nodo actual
-            for (int i = 0; i < cont; i++) {
-                cout << "   ";
-            }
-            cout << arbol->getData() << endl;
-            // recorriendo el subarbol izquierdo (valores menores)
-            mostrarDescendentePrivado(arbol->getLeft(), cont + 1);
-        }
-    }
-
     Node<T> *eliminarPrivado(Node<T> *arbol, const T &data) {
-        if (arbol == nullptr) {
+        if (arbol == nullptr) {                                                                 //1
             // si el BST esta vacio, no se puede eliminar nada
-            return nullptr;
+            return nullptr;                                                                     //1
         }
-        if (data < arbol->getData()) {
+        if (data < arbol->getData()) {                                                          //1
             // si el valor es menor que la raaz, se busca en el subarbol izquierdo
-            arbol->setLeft(eliminarPrivado(arbol->getLeft(), data));
-        } else if (data > arbol->getData()) {
+            arbol->setLeft(eliminarPrivado(arbol->getLeft(), data));                       //log n
+        } else if (data > arbol->getData()) {                                                   //1
             // si el valor es mayor que la raiz, se busca en el subarbol derecho
-            arbol->setRight(eliminarPrivado(arbol->getRight(), data));
-        } else {
-            // cuando el valor sea igual al de la raiz, se elimina el nodo dependiendo del escenario
-            if (arbol->getLeft() == nullptr && arbol->getRight() == nullptr) {
+            arbol->setRight(eliminarPrivado(arbol->getRight(), data));                     //log n
+        } else {                                                                                //1
+            // cuando el valor sea igual a la raiz, se elimina el nodo dependiendo del escenario
+            if (arbol->getLeft() == nullptr && arbol->getRight() == nullptr) {                  //1
                 // escenario 1 - nodo sin hijos (solo se borra el nodo)
-                delete arbol;
-                return nullptr;
-            } else if (arbol->getLeft() == nullptr) {
+                delete arbol;                                                                   //1
+                return nullptr;                                                                 //1
+            } else if (arbol->getLeft() == nullptr) {                                           //1
                 // Escenario 2 - nodo solo con hijo derecho
                 // Se guarda el subarbol derecho y se borra el arbol
-                Node<T> *temp = arbol->getRight();
-                delete arbol;
-                return temp;
-            } else if (arbol->getRight() == nullptr) {
+                Node<T> *temp = arbol->getRight();                                              //1
+                delete arbol;                                                                   //1
+                return temp;                                                                    //1
+            } else if (arbol->getRight() == nullptr) {                                          //1
                 // escenario 2 - nodo solo con hijo izquierdo
                 // se guarda el subarbol izquierdo y se borra el arbol
-                Node<T> *temp = arbol->getLeft();
-                delete arbol;
-                return temp;
-            } else {
+                Node<T> *temp = arbol->getLeft();                                               //1
+                delete arbol;                                                                   //1
+                return temp;                                                                    //1
+            } else {                                                                            //1
                 // escenario 3 - nodo con sus dos hijos
                 // se encuentra el minimo del subarbol derecho
-                Node<T> *temp = encontrarMinimoSubarbolDerecho(arbol->getRight());
+                Node<T> *temp = encontrarMinimoSubarbolDerecho(arbol->getRight());         //1
                 // en la raiz del arbol se reemplaza el dato del minimo derecho
-                arbol->setData(temp->getData());
+                arbol->setData(temp->getData());                                                //1
                 // eliminando el minimo de hasta abajo del árbol
-                arbol->setRight(eliminarPrivado(arbol->getRight(), temp->getData()));
+                arbol->setRight(eliminarPrivado(arbol->getRight(), temp->getData())); //1
             }
         }
-        return arbol;
+        return arbol;                                                                           //1
     }
 
     Node<T> *encontrarMinimoSubarbolDerecho(Node<T> *arbol) const {
         // encontrando el minimo del arbol recibido
-        while (arbol->getLeft() != nullptr) {
+        while (arbol->getLeft() != nullptr) {                                                   //n
             // mientras haya un subárbol izquierdo, se obtiene
-            arbol = arbol->getLeft();
+            arbol = arbol->getLeft();                                                           //n
         }
         // retornando el arbol donde ya no haya un subarbol izquierdo
-        return arbol;
+        return arbol;                                                                           //1
     }
 };
 #endif // BST_H
