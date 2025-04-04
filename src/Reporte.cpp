@@ -12,104 +12,104 @@ void Reporte::agregarJugador(const Jugador &jugador) {
 }
 
 void Reporte::mostrarMenuReportesPartidas(int indiceJugador) {
-    Node<Partida> *actual = partidas.obtenerPorIndice(indiceJugador);
-    if (!actual) {
-        cout << "No hay partida con este indice" << endl;
-        return;
+    Node<Partida> *actual = partidas.obtenerPorIndice(indiceJugador);                                             //1
+    if (!actual) {                                                                                                      //1
+        cout << "No hay partida con este indice" << endl;                                                               //1
+        return;                                                                                                         //1
     }
-    int opcionPartida = 0;
+    int opcionPartida = 0;                                                                                              //1
     do {
         cout << "\nSelecciona el reporte que quieres ver del jugador: " << actual->getData().getJugador().getNombre() <<
-                endl;
-        cout << "1. Nombre del jugador, tiempo total, movimientos y puntuacion." << endl;
-        cout << "2. Ubicacion del tesoro y trayectora del jugador." << endl;
-        cout << "3. Pistas encontradas y su distancia al tesoro." << endl;
-        cout << "4. Enemigos enfrentados y tramapas activadas." << endl;
-        cout << "5. Grafico de los arboles de enemigos y trampas." << endl;
-        cout << "6. Regresar al menu de reportes" << endl;
-        cout << "Selecciona una opcion... ";
-        cin >> opcionPartida;
+                endl;                                                                                                   //n
+        cout << "1. Nombre del jugador, tiempo total, movimientos y puntuacion." << endl;                               //n
+        cout << "2. Ubicacion del tesoro y trayectora del jugador." << endl;                                            //n
+        cout << "3. Pistas encontradas y su distancia al tesoro." << endl;                                              //n
+        cout << "4. Enemigos enfrentados y tramapas activadas." << endl;                                                //n
+        cout << "5. Grafico de los arboles de enemigos y trampas." << endl;                                             //n
+        cout << "6. Regresar al menu de reportes" << endl;                                                              //n
+        cout << "Selecciona una opcion... ";                                                                            //n
+        cin >> opcionPartida;                                                                                           //n
 
-        switch (opcionPartida) {
-            case 1: {
-                cout << "\nNombre del jugador: " << actual->getData().getJugador().getNombre() << endl;
-                cout << "Tiempo total: " << actual->getData().getJugador().getTiempoJugado() << " s" << endl;
-                cout << "Movimientos: " << actual->getData().getJugador().getMovimientos() << endl;
-                cout << "Puntuacion: " << actual->getData().getJugador().getPuntos() << endl;
-                break;
+        switch (opcionPartida) {                                                                                        //n
+            case 1: {                                                                                                   //n
+                cout << "\nNombre del jugador: " << actual->getData().getJugador().getNombre() << endl;                 //n
+                cout << "Tiempo total: " << actual->getData().getJugador().getTiempoJugado() << " s" << endl;           //n
+                cout << "Movimientos: " << actual->getData().getJugador().getMovimientos() << endl;                     //n
+                cout << "Puntuacion: " << actual->getData().getJugador().getPuntos() << endl;                           //n
+                break;                                                                                                  //n
             }
-            case 2: {
-                cout << "\nUbicacion del tesoro y trayectoria del jugador:" << endl;
-                actual->getData().getRegistroTrayectoria()->imprimir();
-                break;
+            case 2: {                                                                                                   //n
+                cout << "\nUbicacion del tesoro y trayectoria del jugador:" << endl;                                    //n
+                actual->getData().getRegistroTrayectoria()->imprimir();                                                 //n
+                break;                                                                                                  //n
             }
-            case 3: {
-                cout << "\nPistas encontradas y distancia al tesoro:" << endl;
-                actual->getData().getRegistroPistas()->imprimir();
-                break;
+            case 3: {                                                                                                   //n
+                cout << "\nPistas encontradas y distancia al tesoro:" << endl;                                          //n
+                actual->getData().getRegistroPistas()->imprimir();                                                      //n
+                break;                                                                                                  //n
             }
-            case 4: {
-                cout << "\nEnemigos enfrentados y trampas activadas: " << endl;
-                actual->getData().getRegistroEnemigosYTrampas()->imprimir();
-                break;
+            case 4: {                                                                                                   //n
+                cout << "\nEnemigos enfrentados y trampas activadas: " << endl;                                         //n
+                actual->getData().getRegistroEnemigosYTrampas()->imprimir();                                            //n
+                break;                                                                                                  //n
             }
-            case 5: {
-                cout << "\nGrafico de los arboles de enemigos y trampas:" << endl;
-                cout << "Grafico de arboles de enemigos (nivel alto a nivel bajo)" << endl;
-                cout << "Grafico de arboles de trampas (nivel bajo a nivel alto)" << endl;
-                break;
+            case 5: {                                                                                                   //n
+                cout << "\nGrafico de los arboles de enemigos y trampas:" << endl;                                      //n
+                cout << "Grafico de arboles de enemigos (nivel alto a nivel bajo)" << endl;                             //n
+                cout << "Grafico de arboles de trampas (nivel bajo a nivel alto)" << endl;                              //n
+                break;                                                                                                  //n
             }
-            case 6: {
-                return;
+            case 6: {                                                                                                   //n
+                return;                                                                                                 //n
             }
-            default: {
-                cout << "Opcion no valida." << endl;
-                break;
+            default: {                                                                                                  //n
+                cout << "Opcion no valida." << endl;                                                                    //n
+                break;                                                                                                  //n
             }
         }
-    } while (opcionPartida != 6);
+    } while (opcionPartida != 6);                                                                                       //n
 }
 
 void Reporte::mostrarTablaJugadores() {
-    if (!tablaJugadores.getCabeza()) {
-        cout << "No hay jugadores existentes" << endl;
-        return;
+    if (!tablaJugadores.getCabeza()) {                                                          //1
+        cout << "No hay jugadores existentes" << endl;                                          //1
+        return;                                                                                 //1
     }
-    ordenarTablaJugadores();
-    Node<Jugador> *actual = tablaJugadores.getCabeza();
-    cout << "\n--- Tabla de Jugadores ---\n";
-    int indice = 0;
-    while (actual) {
-        indice++;
-        cout << indice << ") Nombre: " << actual->getData().getNombre() << endl;
-        cout << "   Puntuacion: " << actual->getData().getPuntos() << endl;
-        cout << "   Vida: " << actual->getData().getVida() << endl;
-        cout << "   Movimientos: " << actual->getData().getMovimientos() << endl;
-        cout << "   Tiempo jugado: " << actual->getData().getTiempoJugado() << " s" << endl;
-        cout << "-------------------------\n";
-        actual = actual->getNext();
+    ordenarTablaJugadores();                                                                    //1
+    Node<Jugador> *actual = tablaJugadores.getCabeza();                                         //1
+    cout << "\n--- Tabla de Jugadores ---\n";                                                   //1
+    int indice = 0;                                                                             //1
+    while (actual) {                                                                            //n
+        indice++;                                                                               //n
+        cout << indice << ") Nombre: " << actual->getData().getNombre() << endl;                //n
+        cout << "   Puntuacion: " << actual->getData().getPuntos() << endl;                     //n
+        cout << "   Vida: " << actual->getData().getVida() << endl;                             //n
+        cout << "   Movimientos: " << actual->getData().getMovimientos() << endl;               //n
+        cout << "   Tiempo jugado: " << actual->getData().getTiempoJugado() << " s" << endl;    //n
+        cout << "-------------------------\n";                                                  //n
+        actual = actual->getNext();                                                             //n
     }
 }
 
 void Reporte::ordenarTablaJugadores() {
-    if (!tablaJugadores.getCabeza()) {
-        return;
+    if (!tablaJugadores.getCabeza()) {                                                          //1
+        return;                                                                                 //1
     }
-    bool intercambio;
+    bool intercambio;                                                                           //1
     do {
-        intercambio = false;
-        Node<Jugador> *actual = tablaJugadores.getCabeza();
+        intercambio = false;                                                                    //n
+        Node<Jugador> *actual = tablaJugadores.getCabeza();                                     //n
 
-        while (actual->getNext() != nullptr) {
-            if (actual->getData().getPuntos() < actual->getNext()->getData().getPuntos()) {
-                Jugador temp = actual->getData();
-                actual->setData(actual->getNext()->getData());
-                actual->getNext()->setData(temp);
-                intercambio = true;
+        while (actual->getNext() != nullptr) {                                                  //n^2
+            if (actual->getData().getPuntos() < actual->getNext()->getData().getPuntos()) {     //n^2
+                Jugador temp = actual->getData();                                               //n^2
+                actual->setData(actual->getNext()->getData());                                  //n^2
+                actual->getNext()->setData(temp);                                               //n^2
+                intercambio = true;                                                             //n^2
             }
-            actual = actual->getNext();
+            actual = actual->getNext();                                                         //n
         }
-    } while (intercambio);
+    } while (intercambio);                                                                      //n
 }
 
 LinkedList<Partida> &Reporte::getPartidas() {

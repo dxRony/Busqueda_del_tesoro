@@ -15,8 +15,6 @@ private:
 
     void verReportes();
 
-    void mostrarMenuReportesPartidas();
-
     bool finalizarEjecucion = false;
 
     Reporte reporte;

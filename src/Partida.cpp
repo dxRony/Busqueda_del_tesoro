@@ -31,84 +31,84 @@ Partida::Partida(string nombreJugador, int ancho, int alto, int profundidad): ju
 }
 
 void Partida::iniciarPartida() {
-    tiempoPartida = time(nullptr);
-    while (!jugadorEliminado && !tesoroEncontrado && !partidaAbandonada) {
-        tableroDeJuego->imprimir();
-        realizarTurno(jugador.mostrarOpcionesTurno());
+    tiempoPartida = time(nullptr);                                                     //1
+    while (!jugadorEliminado && !tesoroEncontrado && !partidaAbandonada) {                  //n
+        tableroDeJuego->imprimir();                                                         //n
+        realizarTurno(jugador.mostrarOpcionesTurno());                           //n
     }
-    jugador.setTiempoJugado(time(nullptr) - tiempoPartida);
-    cout << jugador.getNombre() << ", tus estadisticas finales fueron: " << endl;
-    mostrarEstadisticas();
-    cout << "Actualizando reportes..." << endl;
+    jugador.setTiempoJugado(time(nullptr) - tiempoPartida);                            //1
+    cout << jugador.getNombre() << ", tus estadisticas finales fueron: " << endl;           //1
+    mostrarEstadisticas();                                                                  //1
+    cout << "Actualizando reportes..." << endl;                                             //1
 }
 
 void Partida::generarTablero() {
-    tesoroX = rand() % ancho;
-    tesoroY = rand() % alto;
-    tesoroZ = rand() % profundidad;
-    Tesoro tesoro;
-    tesoro.setPosicionX(tesoroX);
-    tesoro.setPosicionY(tesoroY);
-    tesoro.setPosicionZ(tesoroZ);
+    tesoroX = rand() % ancho;                                                                                           //1
+    tesoroY = rand() % alto;                                                                                            //1
+    tesoroZ = rand() % profundidad;                                                                                     //1
+    Tesoro tesoro;                                                                                                      //1
+    tesoro.setPosicionX(tesoroX);                                                                              //1
+    tesoro.setPosicionY(tesoroY);                                                                              //1
+    tesoro.setPosicionZ(tesoroZ);                                                                              //1
     string ubicacionTesoro = "Tesoro ubicado en: (" + to_string(tesoroX) + ", " + to_string(tesoroY) + ", " +
-                             to_string(tesoroZ) + ")";
-    registroTrayectoria->insertarFinal(ubicacionTesoro);
-    tableroDeJuego->insertar(tesoroX, tesoroY, tesoroZ, tesoro);
+                             to_string(tesoroZ) + ")";                                                              //1
+    registroTrayectoria->insertarFinal(ubicacionTesoro);                                                           //1
+    tableroDeJuego->insertar(tesoroX, tesoroY, tesoroZ, tesoro);                                          //1
 
-    int jugadorX, jugadorY, jugadorZ;
+    int jugadorX, jugadorY, jugadorZ;                                                                                   //1
     do {
         //evitando que se coloque al jugador en el mismo lugar que el tesoro
-        jugadorX = rand() % ancho;
-        jugadorY = rand() % alto;
-        jugadorZ = rand() % profundidad;
-    } while (jugadorX == tesoroX && jugadorY == tesoroY && jugadorZ == tesoroZ);
-    jugador.setPosicionX(jugadorX);
-    jugador.setPosicionY(jugadorY);
-    jugador.setPosicionZ(jugadorZ);
-    tableroDeJuego->insertar(jugadorX, jugadorY, jugadorZ, jugador);
+        jugadorX = rand() % ancho;                                                                                      //n
+        jugadorY = rand() % alto;                                                                                       //n
+        jugadorZ = rand() % profundidad;                                                                                //n
+    } while (jugadorX == tesoroX && jugadorY == tesoroY && jugadorZ == tesoroZ);                                        //n
+    jugador.setPosicionX(jugadorX);                                                                            //1
+    jugador.setPosicionY(jugadorY);                                                                            //1
+    jugador.setPosicionZ(jugadorZ);                                                                            //1
+    tableroDeJuego->insertar(jugadorX, jugadorY, jugadorZ, jugador);                                      //1
 
-    for (int z = 0; z < profundidad; z++) {
-        for (int y = 0; y < alto; y++) {
-            for (int x = 0; x < ancho; x++) {
+    for (int z = 0; z < profundidad; z++) {                                                                             //n
+        for (int y = 0; y < alto; y++) {                                                                                //n^2
+            for (int x = 0; x < ancho; x++) {                                                                           //n^3
                 if ((x == tesoroX && y == tesoroY && z == tesoroZ)
-                    || x == jugadorX && y == jugadorY && z == jugadorZ) {
+                    || x == jugadorX && y == jugadorY && z == jugadorZ) {                                               //n^3
                     //ignorando la posicion del tesoro y jugador
-                    continue;
+                    continue;                                                                                           //n^3
                 }
-                int random = rand() % 100;
-                if (random < 15) {
+                int random = rand() % 100;                                                                              //n^3
+                if (random < 15) {                                                                                      //n^3
                     //15% de generacion para enemigos
-                    Enemigo enemigoGenerado;
-                    enemigoGenerado.setPosicionX(x);
-                    enemigoGenerado.setPosicionY(y);
-                    enemigoGenerado.setPosicionZ(z);
-                    enemigoGenerado.setEfecto(enemigoGenerado.getVida());
-                    tableroDeJuego->insertar(x, y, z, enemigoGenerado);
-                    enemigosPartida->insertar(enemigoGenerado);
-                } else if (random < 35) {
+                    Enemigo enemigoGenerado;                                                                            //n^3
+                    enemigoGenerado.setPosicionX(x);                                                           //n^3
+                    enemigoGenerado.setPosicionY(y);                                                           //n^3
+                    enemigoGenerado.setPosicionZ(z);                                                           //n^3
+                    enemigoGenerado.setEfecto(enemigoGenerado.getVida());                                               //n^3
+                    tableroDeJuego->insertar(x, y, z, enemigoGenerado);                                           //n^3
+                    enemigosPartida->insertar(enemigoGenerado);                                                    //n^3
+                } else if (random < 35) {                                                                               //n^3
                     //20% de generacion para trampas
-                    Trampa trampaGenerada;
-                    trampaGenerada.setPosicionX(x);
-                    trampaGenerada.setPosicionY(y);
-                    trampaGenerada.setPosicionZ(z);
-                    trampaGenerada.setEfecto(trampaGenerada.getDano());
-                    tableroDeJuego->insertar(x, y, z, trampaGenerada);
-                    trampasPartida->insertar(trampaGenerada);
-                } else if (random < 60) {
+                    Trampa trampaGenerada;                                                                              //n^3
+                    trampaGenerada.setPosicionX(x);                                                            //n^3
+                    trampaGenerada.setPosicionY(y);                                                            //n^3
+                    trampaGenerada.setPosicionZ(z);                                                            //n^3
+                    trampaGenerada.setEfecto(trampaGenerada.getDano());                                                 //n^3
+                    tableroDeJuego->insertar(x, y, z, trampaGenerada);                                            //n^3
+                    trampasPartida->insertar(trampaGenerada);                                                      //n^3
+                } else if (random < 60) {                                                                               //n^3
                     //25% de generacion para pocimas
-                    Pocima pocimaGenerada;
-                    pocimaGenerada.setPosicionX(x);
-                    pocimaGenerada.setPosicionY(y);
-                    pocimaGenerada.setPosicionZ(z);
-                    pocimaGenerada.setEfecto(pocimaGenerada.getCuracion());
-                    tableroDeJuego->insertar(x, y, z, pocimaGenerada);
+                    Pocima pocimaGenerada;                                                                              //n^3
+                    pocimaGenerada.setPosicionX(x);                                                            //n^3
+                    pocimaGenerada.setPosicionY(y);                                                            //n^3
+                    pocimaGenerada.setPosicionZ(z);                                                            //n^3
+                    pocimaGenerada.setEfecto(pocimaGenerada.getCuracion());                                             //n^3
+                    tableroDeJuego->insertar(x, y, z, pocimaGenerada);                                             //n^3
                 } else {
                     //40% de generacion para pistas
-                    Pista pistaGenerada;
-                    pistaGenerada.setPosicionX(x);
-                    pistaGenerada.setPosicionY(y);
-                    pistaGenerada.setPosicionZ(z);
-                    tableroDeJuego->insertar(x, y, z, pistaGenerada);
+                    Pista pistaGenerada;                                                                                //n^3
+                    pistaGenerada.setPosicionX(x);                                                             //n^3
+                    pistaGenerada.setPosicionY(y);                                                             //n^3
+                    pistaGenerada.setPosicionZ(z);                                                             //n^3
+                    tableroDeJuego->insertar(x, y, z, pistaGenerada);                                              //n^3
                 }
             }
         }
@@ -116,195 +116,195 @@ void Partida::generarTablero() {
 }
 
 void Partida::realizarTurno(int opcionTurno) {
-    switch (opcionTurno) {
-        case 1: {
-            cout << "Ingresa la direccion del movimiento:" << endl;
-            cout << "1. Arriba" << endl;
-            cout << "2. Abajo" << endl;
-            cout << "3. Derecha" << endl;
-            cout << "4. Izquierda" << endl;
-            cout << "5. Adelante" << endl;
-            cout << "6. Atras" << endl;
-            int direccion;
-            cin >> direccion;
-            moverJugador(direccion);
-            break;
+    switch (opcionTurno) {                                                  //1
+        case 1: {                                                           //1
+            cout << "Ingresa la direccion del movimiento:" << endl;         //1
+            cout << "1. Arriba" << endl;                                    //1
+            cout << "2. Abajo" << endl;                                     //1
+            cout << "3. Derecha" << endl;                                   //1
+            cout << "4. Izquierda" << endl;                                 //1
+            cout << "5. Adelante" << endl;                                  //1
+            cout << "6. Atras" << endl;                                     //1
+            int direccion;                                                  //1
+            cin >> direccion;                                               //1
+            moverJugador(direccion);                                        //1
+            break;                                                          //1
         }
-        case 2: {
-            cout << "Tus estadisticas son:" << endl;
-            mostrarEstadisticas();
-            break;
+        case 2: {                                                           //1
+            cout << "Tus estadisticas son:" << endl;                        //1
+            mostrarEstadisticas();                                          //1
+            break;                                                          //1
         }
-        case 3: {
-            cout << "Abandonando la partida..." << endl;
-            partidaAbandonada = true;
-            break;
+        case 3: {                                                           //1
+            cout << "Abandonando la partida..." << endl;                    //1
+            partidaAbandonada = true;                                       //1
+            break;                                                          //1
         }
-        default: {
-            cout << "Ingresa una opcion valida";
-            break;
+        default: {                                                          //1
+            cout << "Ingresa una opcion valida";                            //1
+            break;                                                          //1
         }
     }
 }
 
 void Partida::moverJugador(int direccion) {
-    int nuevoX = jugador.getPosicionX();
-    int nuevoY = jugador.getPosicionY();
-    int nuevoZ = jugador.getPosicionZ();
+    int nuevoX = jugador.getPosicionX();                                                                                    //1
+    int nuevoY = jugador.getPosicionY();                                                                                    //1
+    int nuevoZ = jugador.getPosicionZ();                                                                                    //1
 
-    string direccionMovimiento = "";
-    switch (direccion) {
-        case 1:
+    string direccionMovimiento = "";                                                                                        //1
+    switch (direccion) {                                                                                                    //1
+        case 1:                                                                                                             //1
             //moviendo arriba
-            nuevoY++;
-            direccionMovimiento = "arriba";
-            break;
-        case 2:
+            nuevoY++;                                                                                                       //1
+            direccionMovimiento = "arriba";                                                                                 //1
+            break;                                                                                                          //1
+        case 2:                                                                                                             //1
             //moviendo abajo
-            nuevoY--;
-            direccionMovimiento = "abajo";
-            break;
-        case 3:
+            nuevoY--;                                                                                                       //1
+            direccionMovimiento = "abajo";                                                                                  //1
+            break;                                                                                                          //1
+        case 3:                                                                                                             //1
             //moviendo derecha
-            nuevoX++;
-            direccionMovimiento = "derecha";
-            break;
-        case 4:
+            nuevoX++;                                                                                                       //1
+            direccionMovimiento = "derecha";                                                                                //1
+            break;                                                                                                          //1
+        case 4:                                                                                                             //1
             //moviendo izquierda
-            nuevoX--;
-            direccionMovimiento = "izquierda";
-            break;
-        case 5:
+            nuevoX--;                                                                                                       //1
+            direccionMovimiento = "izquierda";                                                                              //1
+            break;                                                                                                          //1
+        case 5:                                                                                                             //1
             //moviendo adelante
-            nuevoZ++;
-            direccionMovimiento = "adelante";
-            break;
-        case 6:
+            nuevoZ++;                                                                                                       //1
+            direccionMovimiento = "adelante";                                                                               //1
+            break;                                                                                                          //1
+        case 6:                                                                                                             //1
             //moviendo atras
-            nuevoZ--;
-            direccionMovimiento = "atras";
-            break;
-        default: cout << "direccion incorrecta" << endl;
-            return;
+            nuevoZ--;                                                                                                       //1
+            direccionMovimiento = "atras";                                                                                  //1
+            break;                                                                                                          //1
+        default: cout << "direccion incorrecta" << endl;                                                                    //1
+            return;                                                                                                         //1
     }
 
-    if (nuevoX < 0 || nuevoX >= ancho || nuevoY < 0 || nuevoY >= alto || nuevoZ < 0 || nuevoZ >= profundidad) {
-        cout << "Movimiento fuera de los limites del tablero" << endl;
-        return;
+    if (nuevoX < 0 || nuevoX >= ancho || nuevoY < 0 || nuevoY >= alto || nuevoZ < 0 || nuevoZ >= profundidad) {             //1
+        cout << "Movimiento fuera de los limites del tablero" << endl;                                                      //1
+        return;                                                                                                             //1
     }
 
-    Node<Casilla> *nodoDestino = tableroDeJuego->obtenerNodo(nuevoX, nuevoY, nuevoZ);
-    if (!nodoDestino) {
-        cout << "Nodo no encontrado" << endl;
-        return;
+    Node<Casilla> *nodoDestino = tableroDeJuego->obtenerNodo(nuevoX, nuevoY, nuevoZ);                              //1
+    if (!nodoDestino) {                                                                                                     //1
+        cout << "Nodo no encontrado" << endl;                                                                               //1
+        return;                                                                                                             //1
     }
-    Casilla &casillaDestino = nodoDestino->getData();
-    string casillaEncontrada = "";
+    Casilla &casillaDestino = nodoDestino->getData();                                                                       //1
+    string casillaEncontrada = "";                                                                                          //1
 
-    switch (casillaDestino.getRepresentacion()) {
-        case 'E': {
-            jugador.setVida(jugador.getVida() - casillaDestino.getEfecto());
-            jugador.setPuntos(jugador.getPuntos() + 15);
-            cout << "Encontraste un enemigo D:!! pierdes " << casillaDestino.getEfecto() << " puntos de vida." << endl;
+    switch (casillaDestino.getRepresentacion()) {                                                                           //1
+        case 'E': {                                                                                                         //1
+            jugador.setVida(jugador.getVida() - casillaDestino.getEfecto());                                                //1
+            jugador.setPuntos(jugador.getPuntos() + 15);                                                                    //1
+            cout << "Encontraste un enemigo D:!! pierdes " << casillaDestino.getEfecto() << " puntos de vida." << endl;     //1
             string mensaje = "Se ha encontrado un enemigo y ha realizado: " + to_string(casillaDestino.getEfecto()) +
                              " de dano al jugador, en la posicion: (" + to_string(casillaDestino.getPosicionX()) + ", "
                              + to_string(casillaDestino.getPosicionY()) + ", " + to_string(
-                                 casillaDestino.getPosicionZ()) + ")";
-            registroEnemigosYTrampas->insertarFinal(mensaje);
-            break;
+                                 casillaDestino.getPosicionZ()) + ")";                                                  //1
+            registroEnemigosYTrampas->insertarFinal(mensaje);                                                          //1
+            break;                                                                                                          //1
         }
-        case 'T': {
-            jugador.setVida(jugador.getVida() - casillaDestino.getEfecto());
-            jugador.setPuntos(jugador.getPuntos() + 10);
-            cout << "Caiste en una trampa D:!! pierdes " << casillaDestino.getEfecto() << " puntos de vida." << endl;
+        case 'T': {                                                                                                         //1
+            jugador.setVida(jugador.getVida() - casillaDestino.getEfecto());                                                //1
+            jugador.setPuntos(jugador.getPuntos() + 10);                                                                    //1
+            cout << "Caiste en una trampa D:!! pierdes " << casillaDestino.getEfecto() << " puntos de vida." << endl;       //1
             string mensaje = "Se ha encontrado una trampa y ha realizado: " + to_string(casillaDestino.getEfecto()) +
                              " de dano al jugador, en la posicion: (" + to_string(casillaDestino.getPosicionX()) + ", "
                              + to_string(casillaDestino.getPosicionY()) + ", " + to_string(
-                                 casillaDestino.getPosicionZ()) + ")";
-            registroEnemigosYTrampas->insertarFinal(mensaje);
-            break;
+                                 casillaDestino.getPosicionZ()) + ")";                                                  //1
+            registroEnemigosYTrampas->insertarFinal(mensaje);                                                          //1
+            break;                                                                                                          //1
         }
-        case 'P': {
-            jugador.setVida(jugador.getVida() + casillaDestino.getEfecto());
+        case 'P': {                                                                                                         //1
+            jugador.setVida(jugador.getVida() + casillaDestino.getEfecto());                                                //1
             cout << "Encontraste una pocima :D!! recuperas " << casillaDestino.getEfecto() << " puntos de vida." <<
-                    endl;
-            break;
+                    endl;                                                                                                   //1
+            break;                                                                                                          //1
         }
-        case 'C': {
-            int distanciaX = nuevoX - tesoroX;
-            int distanciaY = nuevoY - tesoroY;
-            int distanciaZ = nuevoZ - tesoroZ;
-            //convirtiendo distancia a valores positivos
-            if (distanciaX < 0) {
-                distanciaX *= -1;
+        case 'C': {                                                                                                         //1
+            int distanciaX = nuevoX - tesoroX;                                                                              //1
+            int distanciaY = nuevoY - tesoroY;                                                                              //1
+            int distanciaZ = nuevoZ - tesoroZ;                                                                              //1
+            //convirtiendo distancia a valores positivos                                                                    //1
+            if (distanciaX < 0) {                                                                                           //1
+                distanciaX *= -1;                                                                                           //1
             }
-            if (distanciaY < 0) {
-                distanciaY *= -1;
+            if (distanciaY < 0) {                                                                                           //1
+                distanciaY *= -1;                                                                                           //1
             }
-            if (distanciaZ < 0) {
-                distanciaZ *= -1;
+            if (distanciaZ < 0) {                                                                                           //1
+                distanciaZ *= -1;                                                                                           //1
             }
             //calculando distancia de posicion actual a la del tesoro
-            int distancia = distanciaX + distanciaY + distanciaZ;
+            int distancia = distanciaX + distanciaY + distanciaZ;                                                           //1
 
-            if (distancia > 3) {
-                cout << "Frio, sigue buscando." << endl;
-            } else if (distancia >= 2) {
+            if (distancia > 3) {                                                                                            //1
+                cout << "Frio, sigue buscando." << endl;                                                                    //1
+            } else if (distancia >= 2) {                                                                                    //1
                 // >= 2 cubre 2 y 3
-                cout << "Tibio, estas a las afueras del tesoro." << endl;
-            } else {
-                cout << "Caliente, da un paso mas y encontraras al tesoro." << endl;
+                cout << "Tibio, estas a las afueras del tesoro." << endl;                                                   //1
+            } else {                                                                                                        //1
+                cout << "Caliente, da un paso mas y encontraras al tesoro." << endl;                                        //1
             }
             string mensaje = "Se ha encontrado una pista y ha indicado que el tesoro esta a: " + to_string(distancia) +
                              " pasos de distancia del jugador, en la posicion: (" +
                              to_string(casillaDestino.getPosicionX()) + ", " + to_string(casillaDestino.getPosicionY())
-                             + ", " + to_string(casillaDestino.getPosicionZ()) + ")";
-            registroPistas->insertarFinal(mensaje);
-            break;
+                             + ", " + to_string(casillaDestino.getPosicionZ()) + ")";                                   //1
+            registroPistas->insertarFinal(mensaje);                                                                    //1
+            break;                                                                                                          //1
         }
-        case '$': {
-            tesoroEncontrado = true;
-            jugador.setPuntos(jugador.getPuntos() + 100);
-            cout << "Has encontrado el tesoro, felicidades!!!" << endl;
-            jugador.setMovimientos(jugador.getMovimientos() + 1);
+        case '$': {                                                                                                         //1
+            tesoroEncontrado = true;                                                                                        //1
+            jugador.setPuntos(jugador.getPuntos() + 100);                                                                   //1
+            cout << "Has encontrado el tesoro, felicidades!!!" << endl;                                                     //1
+            jugador.setMovimientos(jugador.getMovimientos() + 1);                                                           //1
             casillaEncontrada = " (" + to_string(casillaDestino.getPosicionX()) + ", " +
                                 to_string(casillaDestino.getPosicionY()) + ", " + to_string(
-                                    casillaDestino.getPosicionZ()) + ")";
+                                    casillaDestino.getPosicionZ()) + ")";                                               //1
             string movimientoFinal = "El tesoro fue encontrado con un movimiento hacia: " + direccionMovimiento +
                                      ", en la posicion" +
-                                     casillaEncontrada + ", otorgandole al jugador: 100 pts!!!";
-            registroTrayectoria->insertarFinal(movimientoFinal);
-            return;
+                                     casillaEncontrada + ", otorgandole al jugador: 100 pts!!!";                            //1
+            registroTrayectoria->insertarFinal(movimientoFinal);                                                       //1
+            return;                                                                                                         //1
         }
-        case '~': {
-            cout << "Estas a salvo en esta casilla, no hay nada." << endl;
-            break;
+        case '~': {                                                                                                         //1
+            cout << "Estas a salvo en esta casilla, no hay nada." << endl;                                                  //1
+            break;                                                                                                          //1
         }
-        default: {
-            cout << "errorrrrrrr .-." << endl;
-            break;
+        default: {                                                                                                          //1
+            cout << "errorrrrrrr .-." << endl;                                                                              //1
+            break;                                                                                                          //1
         }
     }
-    Casilla casillaVacia;
-    tableroDeJuego->insertar(jugador.getPosicionX(), jugador.getPosicionY(), jugador.getPosicionZ(), casillaVacia);
-    jugador.setPosicionX(nuevoX);
-    jugador.setPosicionY(nuevoY);
-    jugador.setPosicionZ(nuevoZ);
-    tableroDeJuego->insertar(nuevoX, nuevoY, nuevoZ, jugador);
-    if (jugador.getVida() <= 0) {
-        jugador.setVida(0);
-        jugadorEliminado = true;
-        cout << "Tu vida ha llegado a 0, has perdido la partida :(" << endl;
-    } else {
-        cout << "Aun sigues con vida, continua explorando..." << endl;
+    Casilla casillaVacia;                                                                                                   //1
+    tableroDeJuego->insertar(jugador.getPosicionX(), jugador.getPosicionY(), jugador.getPosicionZ(), casillaVacia); //1
+    jugador.setPosicionX(nuevoX);                                                                                  //1
+    jugador.setPosicionY(nuevoY);                                                                                  //1
+    jugador.setPosicionZ(nuevoZ);                                                                                  //1
+    tableroDeJuego->insertar(nuevoX, nuevoY, nuevoZ, jugador);                                                //1
+    if (jugador.getVida() <= 0) {                                                                                           //1
+        jugador.setVida(0);                                                                                                 //1
+        jugadorEliminado = true;                                                                                            //1
+        cout << "Tu vida ha llegado a 0, has perdido la partida :(" << endl;                                                //1
+    } else {                                                                                                                //1
+        cout << "Aun sigues con vida, continua explorando..." << endl;                                                      //1
     }
-    jugador.setMovimientos(jugador.getMovimientos() + 1);
+    jugador.setMovimientos(jugador.getMovimientos() + 1);                                                                   //1
 
     string trayectoria = "Movimiento en direccion hacia: " + direccionMovimiento + ", a la posicion: " + "(" +
                          to_string(casillaDestino.getPosicionX()) + ", " +
                          to_string(casillaDestino.getPosicionY()) + ", " + to_string(
-                             casillaDestino.getPosicionZ()) + ")";
-    registroTrayectoria->insertarFinal(trayectoria);
+                             casillaDestino.getPosicionZ()) + ")";                                                      //1
+    registroTrayectoria->insertarFinal(trayectoria);                                                                   //1
 }
 
 void Partida::mostrarEstadisticas() {

@@ -1,4 +1,4 @@
-ToolSet: 1.0 (local)Ninja: 1.12.1@/opt/CLion/CLion-2024.3.3/clion-2024.3.3/bin/ninja/linux/x64/ninja
+ToolSet: 1.0 (local)Ninja: 1.12.1@/app/extra/clion/bin/ninja/linux/x64/ninja
 Options: 
 
 Options:

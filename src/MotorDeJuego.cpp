@@ -96,13 +96,3 @@ void MotorDeJuego::verReportes() {
     } while (opcionReporte != 3);
 }
 
-void MotorDeJuego::mostrarMenuReportesPartidas() {
-    int opcionReporte;
-    do {
-        cout << "\nSelecciona el reporte que quieres ver:" << endl;
-        cout << "1. Ver reportes de partidas completadas" << endl;
-        cout << "2. Ver tabla de jugadores" << endl;
-        cout << "3. Regresar al menu principal" << endl;
-        cout << "Selecciona una opcion: ";
-    } while (opcionReporte != 3);
-}
