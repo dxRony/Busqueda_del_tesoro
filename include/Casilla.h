@@ -15,6 +15,7 @@ private:
     string ubicacion;
     char representacion;
     int efecto;
+    string tipoCasilla;
 
 public:
     Casilla();
@@ -43,6 +44,10 @@ public:
     void setEfecto(int efecto);
 
     int getEfecto() const;
+
+    string getTipoCasilla() const;
+
+    void setTipoCasilla(string tipoCasilla);
 };
 
 // sobrecarga de operador "<<" para imprimir en consola

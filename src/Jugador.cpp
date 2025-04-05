@@ -10,6 +10,7 @@ Jugador::Jugador() {
 
 Jugador::Jugador(string nombre) {
     this->nombre = nombre;
+    this->setTipoCasilla("Jugador");
     this->setRepresentacion('J');
     vida = 100;
     puntos = 0;

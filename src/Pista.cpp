@@ -4,7 +4,8 @@
 #include "../include/Pista.h"
 
 Pista::Pista() {
-    this->setRepresentacion('C');
+    this->setRepresentacion('*');
+    this->setTipoCasilla("Pista");
     distanciaTesoro = 0;
     mensaje = "";
 }

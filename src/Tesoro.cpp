@@ -4,7 +4,8 @@
 #include "../include/Tesoro.h"
 
 Tesoro::Tesoro() {
-    this->setRepresentacion('$');
+    this->setRepresentacion('*');
+    this->setTipoCasilla("Tesoro");
     valor = 100;
 }
 

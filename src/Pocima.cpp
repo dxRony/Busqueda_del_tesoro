@@ -4,9 +4,9 @@
 #include "../include/Pocima.h"
 using namespace std;
 
-
 Pocima::Pocima() {
-    this->setRepresentacion('P');
+    this->setRepresentacion('*');
+    this->setTipoCasilla("Pocima");
     curacion = 15 + rand() % 11;
 }
 

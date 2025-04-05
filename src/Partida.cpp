@@ -201,8 +201,23 @@ void Partida::moverJugador(int direccion) {
     Casilla &casillaDestino = nodoDestino->getData();                                                                       //1
     string casillaEncontrada = "";                                                                                          //1
 
-    switch (casillaDestino.getRepresentacion()) {                                                                           //1
-        case 'E': {                                                                                                         //1
+    string tipoCasilla = casillaDestino.getTipoCasilla();
+    int tipoCasillaInt =0;
+    if (tipoCasilla == "Enemigo"){
+        tipoCasillaInt = 1;
+    } else if (tipoCasilla== "Trampa"){
+        tipoCasillaInt = 2;
+    } else if (tipoCasilla == "Pocima"){
+        tipoCasillaInt = 3;
+    } else if (tipoCasilla == "Pista"){
+        tipoCasillaInt = 4;
+    } else if (tipoCasilla == "Tesoro"){
+        tipoCasillaInt = 5;
+    } else if (tipoCasilla == "Vacia"){
+        tipoCasillaInt = 6;
+    }
+    switch (tipoCasillaInt) {                                                                           //1
+        case 1 :{                                                                                                         //1
             jugador.setVida(jugador.getVida() - casillaDestino.getEfecto());                                                //1
             jugador.setPuntos(jugador.getPuntos() + 15);                                                                    //1
             cout << "Encontraste un enemigo D:!! pierdes " << casillaDestino.getEfecto() << " puntos de vida." << endl;     //1
@@ -213,7 +228,7 @@ void Partida::moverJugador(int direccion) {
             registroEnemigosYTrampas->insertarFinal(mensaje);                                                          //1
             break;                                                                                                          //1
         }
-        case 'T': {                                                                                                         //1
+        case 2: {                                                                                                         //1
             jugador.setVida(jugador.getVida() - casillaDestino.getEfecto());                                                //1
             jugador.setPuntos(jugador.getPuntos() + 10);                                                                    //1
             cout << "Caiste en una trampa D:!! pierdes " << casillaDestino.getEfecto() << " puntos de vida." << endl;       //1
@@ -224,13 +239,13 @@ void Partida::moverJugador(int direccion) {
             registroEnemigosYTrampas->insertarFinal(mensaje);                                                          //1
             break;                                                                                                          //1
         }
-        case 'P': {                                                                                                         //1
+        case 3: {                                                                                                         //1
             jugador.setVida(jugador.getVida() + casillaDestino.getEfecto());                                                //1
             cout << "Encontraste una pocima :D!! recuperas " << casillaDestino.getEfecto() << " puntos de vida." <<
                     endl;                                                                                                   //1
             break;                                                                                                          //1
         }
-        case 'C': {                                                                                                         //1
+        case 4: {                                                                                                         //1
             int distanciaX = nuevoX - tesoroX;                                                                              //1
             int distanciaY = nuevoY - tesoroY;                                                                              //1
             int distanciaZ = nuevoZ - tesoroZ;                                                                              //1
@@ -247,6 +262,7 @@ void Partida::moverJugador(int direccion) {
             //calculando distancia de posicion actual a la del tesoro
             int distancia = distanciaX + distanciaY + distanciaZ;                                                           //1
 
+            cout << "Encontraste una Pista :D, esta dice:" << endl;
             if (distancia > 3) {                                                                                            //1
                 cout << "Frio, sigue buscando." << endl;                                                                    //1
             } else if (distancia >= 2) {                                                                                    //1
@@ -262,7 +278,7 @@ void Partida::moverJugador(int direccion) {
             registroPistas->insertarFinal(mensaje);                                                                    //1
             break;                                                                                                          //1
         }
-        case '$': {                                                                                                         //1
+        case 5: {                                                                                                         //1
             tesoroEncontrado = true;                                                                                        //1
             jugador.setPuntos(jugador.getPuntos() + 100);                                                                   //1
             cout << "Has encontrado el tesoro, felicidades!!!" << endl;                                                     //1
@@ -276,7 +292,7 @@ void Partida::moverJugador(int direccion) {
             registroTrayectoria->insertarFinal(movimientoFinal);                                                       //1
             return;                                                                                                         //1
         }
-        case '~': {                                                                                                         //1
+        case 6: {                                                                                                         //1
             cout << "Estas a salvo en esta casilla, no hay nada." << endl;                                                  //1
             break;                                                                                                          //1
         }
@@ -286,6 +302,7 @@ void Partida::moverJugador(int direccion) {
         }
     }
     Casilla casillaVacia;                                                                                                   //1
+    casillaVacia.setTipoCasilla("Vacia");
     tableroDeJuego->insertar(jugador.getPosicionX(), jugador.getPosicionY(), jugador.getPosicionZ(), casillaVacia); //1
     jugador.setPosicionX(nuevoX);                                                                                  //1
     jugador.setPosicionY(nuevoY);                                                                                  //1

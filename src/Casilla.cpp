@@ -9,6 +9,7 @@ Casilla::Casilla() {
     posicionY = 0;
     posicionZ = 0;
     efecto = 0;
+    tipoCasilla = "";
 }
 
 int Casilla::getPosicionX() const {
@@ -57,6 +58,14 @@ int Casilla::getEfecto() const {
 
 void Casilla::setEfecto(int efecto) {
     this->efecto = efecto;
+}
+
+string Casilla::getTipoCasilla() const {
+    return tipoCasilla;
+}
+
+void Casilla::setTipoCasilla(string tipoCasilla) {
+    this->tipoCasilla = tipoCasilla;
 }
 
 ostream &operator<<(ostream &os, const Casilla &casilla) {

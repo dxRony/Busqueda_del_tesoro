@@ -4,7 +4,8 @@
 #include "../include/Trampa.h"
 
 Trampa::Trampa() {
-    this->setRepresentacion('T');
+    this->setRepresentacion('*');
+    this->setTipoCasilla("Trampa");
     dano = 15 + rand() % 21;
 }
 
