@@ -3,8 +3,9 @@
 //
 #include "../include/MotorDeJuego.h"
 #include <iostream>
-#include "../include/Partida.h"
-#include "../include/Reporte.h"
+#include <fstream>
+#include <sstream>
+#include <vector>
 using namespace std;
 
 void MotorDeJuego::mostrarMenu() {
@@ -14,16 +15,17 @@ void MotorDeJuego::mostrarMenu() {
         cout << "\n*********** Menu Principal ***********" << endl;
         cout << "1. Nueva Partida" << endl;
         cout << "2. Ver Reportes" << endl;
-        cout << "3. Salir Del Juego" << endl;
+        cout << "3. Cargar jugadores con archivo.csv" << endl;
+        cout << "4. Salir del juego" << endl;
         cout << "Selecciona Una Opcion: ";
 
         try {
             cin >> opcion;
             if (cin.fail()) {
-                throw runtime_error("Entrada invalida, debes ingresar un numero entre 1 y 3");
+                throw runtime_error("Entrada invalida, debes ingresar un numero entre 1 y 4");
             }
-            if (opcion < 1 || opcion > 3) {
-                throw out_of_range("Opcion fuera de rango, debes ingresar un numero entre 1 y 3");
+            if (opcion < 1 || opcion > 4) {
+                throw out_of_range("Opcion fuera de rango, debes ingresar un numero entre 1 y 4");
             }
             switch (opcion) {
                 case 1: {
@@ -35,6 +37,10 @@ void MotorDeJuego::mostrarMenu() {
                     break;
                 }
                 case 3: {
+                    cargarJugadores();
+                    break;
+                }
+                case 4: {
                     finalizarEjecucion = true;
                     break;
                 }
@@ -94,5 +100,43 @@ void MotorDeJuego::verReportes() {
                 break;
         }
     } while (opcionReporte != 3);
+}
+
+void MotorDeJuego::cargarJugadores() {
+    string nombreArchivo;                                                                                               //1
+    cout << "\nIngresa el nombre del archivo.csv: ";                                                                    //1
+    cin >> nombreArchivo;                                                                                               //1
+
+    ifstream archivo(nombreArchivo);                                                                                 //1
+
+    if (!archivo.is_open()) {                                                                                           //1
+        cout << "No se pudo abrir el archivo " << nombreArchivo << endl;                                                //1
+        return;                                                                                                         //1
+    }
+    string linea;                                                                                                       //1
+    while (getline(archivo, linea)) {                                                                             //n
+        stringstream ss(linea);                                                                                     //n
+        string nombre;                                                                                                  //n
+        string puntosStr;                                                                                               //n
+        string movimientosStr;                                                                                          //n
+
+        getline(ss, nombre, ',');                                                                           //n
+        getline(ss, puntosStr, ',');                                                                        //n
+        getline(ss, movimientosStr);                                                                              //n
+
+        try {
+            int puntos = stoi(puntosStr);                                                                           //n
+            int movimientos = stoi(movimientosStr);                                                                 //n
+
+            Jugador nuevoJugador(nombre);                                                                               //n
+            nuevoJugador.setPuntos(puntos);                                                                             //n
+            nuevoJugador.setMovimientos(movimientos);                                                                   //n
+            reporte.agregarJugador(nuevoJugador);                                                                //n
+        } catch (const exception& e) {                                                                                  //n
+            cout << "Error al procesar linea: " << linea << " - " << e.what() << endl;                                  //n
+        }
+    }
+    archivo.close();                                                                                                    //1
+    cout << "Se cargo a los jugadores desde el archivo" << endl;                                                        //1
 }
 

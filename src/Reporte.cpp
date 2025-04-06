@@ -29,13 +29,18 @@ void Reporte::mostrarMenuReportesPartidas(int indiceJugador) {
         cout << "6. Regresar al menu de reportes" << endl;                                                              //n
         cout << "Selecciona una opcion... ";                                                                            //n
         cin >> opcionPartida;                                                                                           //n
-
+        cout << "-------------------------------------" << endl;                                                        //n
         switch (opcionPartida) {                                                                                        //n
             case 1: {                                                                                                   //n
                 cout << "\nNombre del jugador: " << actual->getData().getJugador().getNombre() << endl;                 //n
                 cout << "Tiempo total: " << actual->getData().getJugador().getTiempoJugado() << " s" << endl;           //n
                 cout << "Movimientos: " << actual->getData().getJugador().getMovimientos() << endl;                     //n
                 cout << "Puntuacion: " << actual->getData().getJugador().getPuntos() << endl;                           //n
+                if (actual->getData().getJugador().getEncontroTesoro()){                                                //n
+                    cout << "Encontro tesoro: Si"<< endl;                                                               //n
+                } else {                                                                                                //n
+                    cout << "Encontro tesoro: No"<< endl;                                                               //n
+                }
                 break;                                                                                                  //n
             }
             case 2: {                                                                                                   //n
@@ -67,6 +72,7 @@ void Reporte::mostrarMenuReportesPartidas(int indiceJugador) {
                 break;                                                                                                  //n
             }
         }
+        cout << "\n-------------------------------------" << endl;                                                      //n
     } while (opcionPartida != 6);                                                                                       //n
 }
 
@@ -86,6 +92,11 @@ void Reporte::mostrarTablaJugadores() {
         cout << "   Vida: " << actual->getData().getVida() << endl;                             //n
         cout << "   Movimientos: " << actual->getData().getMovimientos() << endl;               //n
         cout << "   Tiempo jugado: " << actual->getData().getTiempoJugado() << " s" << endl;    //n
+        if (actual->getData().getEncontroTesoro()){                                             //n
+            cout << "   Encontro el teosoro: Si" <<endl;                                        //n
+        } else {                                                                                //n
+            cout << "   Encontro el teosoro: No" <<endl;                                        //n
+        }
         cout << "-------------------------\n";                                                  //n
         actual = actual->getNext();                                                             //n
     }

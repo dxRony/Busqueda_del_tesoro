@@ -35,8 +35,9 @@ Mostrando reportes:
 	2. Tabla de posiciones con los mejores jugadores
 
 queda pendiente:
--cargar jugadores mediante archivos csv
 -mostrar grafico de arboles
--mostrar en reporte si se encontro o no el tesoro
--hacer documentacion
 -agregar colaboradores a repositorio
+
+-hacer documentacion
+
+/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/util/jugadores.csv

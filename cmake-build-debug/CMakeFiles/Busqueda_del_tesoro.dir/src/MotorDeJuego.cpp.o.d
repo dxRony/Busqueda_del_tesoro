@@ -166,5 +166,12 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o: \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Trampa.h \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/BST.h \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/ThreeDimensionalMatrix.h \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Partida.h \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Reporte.h
+ /usr/include/c++/14.2.0/fstream /usr/include/c++/14.2.0/bits/codecvt.h \
+ /usr/include/c++/14.2.0/x86_64-unknown-linux-gnu/bits/basic_file.h \
+ /usr/include/c++/14.2.0/x86_64-unknown-linux-gnu/bits/c++io.h \
+ /usr/include/c++/14.2.0/bits/fstream.tcc /usr/include/c++/14.2.0/sstream \
+ /usr/include/c++/14.2.0/bits/sstream.tcc /usr/include/c++/14.2.0/vector \
+ /usr/include/c++/14.2.0/bits/stl_uninitialized.h \
+ /usr/include/c++/14.2.0/bits/stl_vector.h \
+ /usr/include/c++/14.2.0/bits/stl_bvector.h \
+ /usr/include/c++/14.2.0/bits/vector.tcc

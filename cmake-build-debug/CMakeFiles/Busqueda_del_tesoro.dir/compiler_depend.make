@@ -569,6 +569,7 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o: /home/ronyrojas/Docum
   /usr/include/c++/14.2.0/bits/basic_string.tcc \
   /usr/include/c++/14.2.0/bits/char_traits.h \
   /usr/include/c++/14.2.0/bits/charconv.h \
+  /usr/include/c++/14.2.0/bits/codecvt.h \
   /usr/include/c++/14.2.0/bits/concept_check.h \
   /usr/include/c++/14.2.0/bits/cpp_type_traits.h \
   /usr/include/c++/14.2.0/bits/cxxabi_forced.h \
@@ -576,6 +577,7 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o: /home/ronyrojas/Docum
   /usr/include/c++/14.2.0/bits/exception.h \
   /usr/include/c++/14.2.0/bits/exception_defines.h \
   /usr/include/c++/14.2.0/bits/exception_ptr.h \
+  /usr/include/c++/14.2.0/bits/fstream.tcc \
   /usr/include/c++/14.2.0/bits/functexcept.h \
   /usr/include/c++/14.2.0/bits/functional_hash.h \
   /usr/include/c++/14.2.0/bits/hash_bytes.h \
@@ -599,18 +601,23 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o: /home/ronyrojas/Docum
   /usr/include/c++/14.2.0/bits/range_access.h \
   /usr/include/c++/14.2.0/bits/refwrap.h \
   /usr/include/c++/14.2.0/bits/requires_hosted.h \
+  /usr/include/c++/14.2.0/bits/sstream.tcc \
   /usr/include/c++/14.2.0/bits/std_abs.h \
   /usr/include/c++/14.2.0/bits/stl_algobase.h \
+  /usr/include/c++/14.2.0/bits/stl_bvector.h \
   /usr/include/c++/14.2.0/bits/stl_construct.h \
   /usr/include/c++/14.2.0/bits/stl_function.h \
   /usr/include/c++/14.2.0/bits/stl_iterator.h \
   /usr/include/c++/14.2.0/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/14.2.0/bits/stl_iterator_base_types.h \
   /usr/include/c++/14.2.0/bits/stl_pair.h \
+  /usr/include/c++/14.2.0/bits/stl_uninitialized.h \
+  /usr/include/c++/14.2.0/bits/stl_vector.h \
   /usr/include/c++/14.2.0/bits/streambuf.tcc \
   /usr/include/c++/14.2.0/bits/streambuf_iterator.h \
   /usr/include/c++/14.2.0/bits/stringfwd.h \
   /usr/include/c++/14.2.0/bits/utility.h \
+  /usr/include/c++/14.2.0/bits/vector.tcc \
   /usr/include/c++/14.2.0/bits/version.h \
   /usr/include/c++/14.2.0/cctype \
   /usr/include/c++/14.2.0/cerrno \
@@ -627,6 +634,7 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o: /home/ronyrojas/Docum
   /usr/include/c++/14.2.0/ext/numeric_traits.h \
   /usr/include/c++/14.2.0/ext/string_conversions.h \
   /usr/include/c++/14.2.0/ext/type_traits.h \
+  /usr/include/c++/14.2.0/fstream \
   /usr/include/c++/14.2.0/initializer_list \
   /usr/include/c++/14.2.0/ios \
   /usr/include/c++/14.2.0/iosfwd \
@@ -634,15 +642,19 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o: /home/ronyrojas/Docum
   /usr/include/c++/14.2.0/istream \
   /usr/include/c++/14.2.0/new \
   /usr/include/c++/14.2.0/ostream \
+  /usr/include/c++/14.2.0/sstream \
   /usr/include/c++/14.2.0/stdexcept \
   /usr/include/c++/14.2.0/streambuf \
   /usr/include/c++/14.2.0/string \
   /usr/include/c++/14.2.0/system_error \
   /usr/include/c++/14.2.0/type_traits \
   /usr/include/c++/14.2.0/typeinfo \
+  /usr/include/c++/14.2.0/vector \
   /usr/include/c++/14.2.0/x86_64-unknown-linux-gnu/bits/atomic_word.h \
+  /usr/include/c++/14.2.0/x86_64-unknown-linux-gnu/bits/basic_file.h \
   /usr/include/c++/14.2.0/x86_64-unknown-linux-gnu/bits/c++allocator.h \
   /usr/include/c++/14.2.0/x86_64-unknown-linux-gnu/bits/c++config.h \
+  /usr/include/c++/14.2.0/x86_64-unknown-linux-gnu/bits/c++io.h \
   /usr/include/c++/14.2.0/x86_64-unknown-linux-gnu/bits/c++locale.h \
   /usr/include/c++/14.2.0/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
   /usr/include/c++/14.2.0/x86_64-unknown-linux-gnu/bits/ctype_base.h \
@@ -2049,6 +2061,24 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o: /home/ronyrojas/Documentos/Pr
 
 /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Partida.cpp:
 
+/usr/include/c++/14.2.0/x86_64-unknown-linux-gnu/bits/basic_file.h:
+
+/usr/include/c++/14.2.0/sstream:
+
+/usr/include/c++/14.2.0/fstream:
+
+/usr/include/c++/14.2.0/bits/stl_vector.h:
+
+/usr/include/c++/14.2.0/bits/stl_uninitialized.h:
+
+/usr/include/c++/14.2.0/bits/stl_bvector.h:
+
+/usr/include/c++/14.2.0/bits/sstream.tcc:
+
+/usr/include/c++/14.2.0/bits/fstream.tcc:
+
+/usr/include/c++/14.2.0/bits/codecvt.h:
+
 /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/edd/ThreeDimensionalMatrix.h:
 
 /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Trampa.h:
@@ -2154,6 +2184,8 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o: /home/ronyrojas/Documentos/Pr
 /usr/include/c++/14.2.0/backward/binders.h:
 
 /usr/include/c++/14.2.0/bits/locale_facets.tcc:
+
+/usr/include/c++/14.2.0/bits/vector.tcc:
 
 /usr/include/c++/14.2.0/exception:
 
@@ -2339,6 +2371,8 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o: /home/ronyrojas/Documentos/Pr
 
 /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Pista.h:
 
+/usr/include/c++/14.2.0/vector:
+
 /usr/include/time.h:
 
 /usr/include/x86_64-linux-gnu/asm/errno.h:
@@ -2402,6 +2436,8 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o: /home/ronyrojas/Documentos/Pr
 /usr/include/x86_64-linux-gnu/bits/timex.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
+
+/usr/include/c++/14.2.0/x86_64-unknown-linux-gnu/bits/c++io.h:
 
 /usr/include/c++/14.2.0/bits/localefwd.h:
 

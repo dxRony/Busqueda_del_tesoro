@@ -201,23 +201,23 @@ void Partida::moverJugador(int direccion) {
     Casilla &casillaDestino = nodoDestino->getData();                                                                       //1
     string casillaEncontrada = "";                                                                                          //1
 
-    string tipoCasilla = casillaDestino.getTipoCasilla();
-    int tipoCasillaInt =0;
-    if (tipoCasilla == "Enemigo"){
-        tipoCasillaInt = 1;
-    } else if (tipoCasilla== "Trampa"){
-        tipoCasillaInt = 2;
-    } else if (tipoCasilla == "Pocima"){
-        tipoCasillaInt = 3;
-    } else if (tipoCasilla == "Pista"){
-        tipoCasillaInt = 4;
-    } else if (tipoCasilla == "Tesoro"){
-        tipoCasillaInt = 5;
-    } else if (tipoCasilla == "Vacia"){
-        tipoCasillaInt = 6;
+    string tipoCasilla = casillaDestino.getTipoCasilla();                                                                   //1
+    int tipoCasillaInt =0;                                                                                                  //1
+    if (tipoCasilla == "Enemigo"){                                                                                          //1
+        tipoCasillaInt = 1;                                                                                                 //1
+    } else if (tipoCasilla== "Trampa"){                                                                                     //1
+        tipoCasillaInt = 2;                                                                                                 //1
+    } else if (tipoCasilla == "Pocima"){                                                                                    //1
+        tipoCasillaInt = 3;                                                                                                 //1
+    } else if (tipoCasilla == "Pista"){                                                                                     //1
+        tipoCasillaInt = 4;                                                                                                 //1
+    } else if (tipoCasilla == "Tesoro"){                                                                                    //1
+        tipoCasillaInt = 5;                                                                                                 //1
+    } else if (tipoCasilla == "Vacia"){                                                                                     //1
+        tipoCasillaInt = 6;                                                                                                 //1
     }
-    switch (tipoCasillaInt) {                                                                           //1
-        case 1 :{                                                                                                         //1
+    switch (tipoCasillaInt) {                                                                                               //1
+        case 1 :{                                                                                                           //1
             jugador.setVida(jugador.getVida() - casillaDestino.getEfecto());                                                //1
             jugador.setPuntos(jugador.getPuntos() + 15);                                                                    //1
             cout << "Encontraste un enemigo D:!! pierdes " << casillaDestino.getEfecto() << " puntos de vida." << endl;     //1
@@ -228,7 +228,7 @@ void Partida::moverJugador(int direccion) {
             registroEnemigosYTrampas->insertarFinal(mensaje);                                                          //1
             break;                                                                                                          //1
         }
-        case 2: {                                                                                                         //1
+        case 2: {                                                                                                           //1
             jugador.setVida(jugador.getVida() - casillaDestino.getEfecto());                                                //1
             jugador.setPuntos(jugador.getPuntos() + 10);                                                                    //1
             cout << "Caiste en una trampa D:!! pierdes " << casillaDestino.getEfecto() << " puntos de vida." << endl;       //1
@@ -239,13 +239,13 @@ void Partida::moverJugador(int direccion) {
             registroEnemigosYTrampas->insertarFinal(mensaje);                                                          //1
             break;                                                                                                          //1
         }
-        case 3: {                                                                                                         //1
+        case 3: {                                                                                                           //1
             jugador.setVida(jugador.getVida() + casillaDestino.getEfecto());                                                //1
             cout << "Encontraste una pocima :D!! recuperas " << casillaDestino.getEfecto() << " puntos de vida." <<
                     endl;                                                                                                   //1
             break;                                                                                                          //1
         }
-        case 4: {                                                                                                         //1
+        case 4: {                                                                                                           //1
             int distanciaX = nuevoX - tesoroX;                                                                              //1
             int distanciaY = nuevoY - tesoroY;                                                                              //1
             int distanciaZ = nuevoZ - tesoroZ;                                                                              //1
@@ -278,8 +278,9 @@ void Partida::moverJugador(int direccion) {
             registroPistas->insertarFinal(mensaje);                                                                    //1
             break;                                                                                                          //1
         }
-        case 5: {                                                                                                         //1
+        case 5: {                                                                                                           //1
             tesoroEncontrado = true;                                                                                        //1
+            jugador.setEncontroTesoro(true);
             jugador.setPuntos(jugador.getPuntos() + 100);                                                                   //1
             cout << "Has encontrado el tesoro, felicidades!!!" << endl;                                                     //1
             jugador.setMovimientos(jugador.getMovimientos() + 1);                                                           //1
@@ -292,7 +293,7 @@ void Partida::moverJugador(int direccion) {
             registroTrayectoria->insertarFinal(movimientoFinal);                                                       //1
             return;                                                                                                         //1
         }
-        case 6: {                                                                                                         //1
+        case 6: {                                                                                                           //1
             cout << "Estas a salvo en esta casilla, no hay nada." << endl;                                                  //1
             break;                                                                                                          //1
         }
@@ -365,7 +366,13 @@ LinkedList<string> *Partida::getRegistroPistas() {
     return registroPistas;
 }
 
+bool Partida::isTesoroEncontrado() {
+    return tesoroEncontrado;
+}
+
 ostream &operator<<(ostream &os, Partida &partida) {
     os << "Jugador de la partida: " << partida.getJugador().getNombre();
     return os;
 }
+
+

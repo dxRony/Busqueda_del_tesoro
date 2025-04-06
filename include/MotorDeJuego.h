@@ -15,6 +15,8 @@ private:
 
     void verReportes();
 
+    void cargarJugadores();
+
     bool finalizarEjecucion = false;
 
     Reporte reporte;

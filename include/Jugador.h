@@ -16,6 +16,7 @@ private:
     int puntos;
     int movimientos;
     int tiempoJugado;
+    bool encontroTesoro;
 
 public:
     Jugador();
@@ -44,5 +45,9 @@ public:
     int getTiempoJugado() const;
 
     void setTiempoJugado(int tiempoJugado);
+
+    void setEncontroTesoro(bool encontrado);
+
+    bool getEncontroTesoro()const;
 };
 #endif //JUGADOR_H

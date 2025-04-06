@@ -16,6 +16,7 @@ Jugador::Jugador(string nombre) {
     puntos = 0;
     movimientos = 0;
     tiempoJugado = 0;
+    encontroTesoro = false;
 }
 
 int Jugador::mostrarOpcionesTurno() const {
@@ -67,4 +68,12 @@ int Jugador::getTiempoJugado() const {
 
 void Jugador::setTiempoJugado(int tiempo) {
     this->tiempoJugado = tiempo;
+}
+
+void Jugador::setEncontroTesoro(bool encontrado) {
+     this->encontroTesoro = encontrado;
+}
+
+bool Jugador::getEncontroTesoro() const {
+    return encontroTesoro;
 }

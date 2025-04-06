@@ -50,6 +50,9 @@ public:
 
     int getProfundidad();
 
+    bool isTesoroEncontrado();
+
+
     Jugador getJugador();
 
     Partida *getPartida();

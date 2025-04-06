@@ -27,4 +27,5 @@ add_executable(Busqueda_del_tesoro src/main.cpp
         include/Partida.h
         src/Partida.cpp
         include/Reporte.h
-        src/Reporte.cpp)
+        src/Reporte.cpp
+)
