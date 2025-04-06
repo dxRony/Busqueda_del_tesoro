@@ -61,7 +61,9 @@ void Reporte::mostrarMenuReportesPartidas(int indiceJugador) {
             case 5: {                                                                                                   //n
                 cout << "\nGrafico de los arboles de enemigos y trampas:" << endl;                                      //n
                 cout << "Grafico de arboles de enemigos (nivel alto a nivel bajo)" << endl;                             //n
+                actual->getData().getEnemigosPartida()->imprimir();
                 cout << "Grafico de arboles de trampas (nivel bajo a nivel alto)" << endl;                              //n
+                actual->getData().getTrampasPartida()->imprimir();
                 break;                                                                                                  //n
             }
             case 6: {                                                                                                   //n

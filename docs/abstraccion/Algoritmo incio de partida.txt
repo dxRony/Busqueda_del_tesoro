@@ -36,6 +36,18 @@ Mostrando reportes:
 
 queda pendiente:
 -mostrar grafico de arboles
+	*Como se insertan los Enemigos a el arbol?
+		La ubicacion de los enemigos se representara como un numero concatenado a partir de sus coordenadas (un enemigo en (1,5,3) se representara como 153).
+			-Enemigos de nivel bajo estaran en los nodos inferiores del arbol.
+			-Enemigos de nivel alto estaran en la raiz o cerca de ella.
+
+
+	*Como se insertan las trampas en el arbol?
+		La ubicacion de las trampas se representara como un numero concatenado a partir de sus coordenadas invertidas (una trampa en (1,5,3) se representara como 351).
+			-Trampas de nivel bajo estaran en la raiz o cerca de ella.
+			-Trampas de nivel alto estaran en los nodos inferiores del arbol.
+
+
 -agregar colaboradores a repositorio
 
 -hacer documentacion

@@ -12,7 +12,7 @@ private:
     int posicionX;
     int posicionY;
     int posicionZ;
-    string ubicacion;
+    int ubicacion;
     char representacion;
     int efecto;
     string tipoCasilla;
@@ -33,9 +33,9 @@ public:
 
     void setPosicionZ(int posicion_z);
 
-    string getUbicacion() const;
+    int getUbicacion() const;
 
-    void setUbicacion(string ubicacion);
+    void setUbicacion(int ubicacion);
 
     char getRepresentacion() const;
 

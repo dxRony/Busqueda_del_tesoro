@@ -20,8 +20,8 @@ Partida::Partida(string nombreJugador, int ancho, int alto, int profundidad): ju
     tiempoPartida = time(nullptr);
 
     tableroDeJuego = new ThreeDimensionalMatrix<Casilla>(ancho, alto, profundidad);
-    enemigosPartida = new BST<Enemigo>();
-    trampasPartida = new BST<Trampa>();
+    enemigosPartida = new BST<int>();
+    trampasPartida = new BST<int>();
     registroTrayectoria = new LinkedList<string>();
     registroEnemigosYTrampas = new LinkedList<string>();
     registroPistas = new LinkedList<string>();
@@ -81,19 +81,23 @@ void Partida::generarTablero() {
                     Enemigo enemigoGenerado;                                                                            //n^3
                     enemigoGenerado.setPosicionX(x);                                                           //n^3
                     enemigoGenerado.setPosicionY(y);                                                           //n^3
-                    enemigoGenerado.setPosicionZ(z);                                                           //n^3
+                    enemigoGenerado.setPosicionZ(z);                                                          //n^3
+                    string ubicacionEnemigo = to_string(x)+ to_string(y) + to_string(z);                   //n^3
+                    enemigoGenerado.setUbicacion(stoi(ubicacionEnemigo));                                           //n^3
                     enemigoGenerado.setEfecto(enemigoGenerado.getVida());                                               //n^3
                     tableroDeJuego->insertar(x, y, z, enemigoGenerado);                                           //n^3
-                    enemigosPartida->insertar(enemigoGenerado);                                                    //n^3
+                    //enemigosPartida->insertar(enemigoGenerado.getUbicacion());                                     //n^3
                 } else if (random < 35) {                                                                               //n^3
                     //20% de generacion para trampas
                     Trampa trampaGenerada;                                                                              //n^3
                     trampaGenerada.setPosicionX(x);                                                            //n^3
                     trampaGenerada.setPosicionY(y);                                                            //n^3
                     trampaGenerada.setPosicionZ(z);                                                            //n^3
+                    string ubicacionTrampa = to_string(z) + to_string(y) + to_string(x);                   //n^3
+                    trampaGenerada.setUbicacion(stoi(ubicacionTrampa));                                             //n^3
                     trampaGenerada.setEfecto(trampaGenerada.getDano());                                                 //n^3
                     tableroDeJuego->insertar(x, y, z, trampaGenerada);                                            //n^3
-                    trampasPartida->insertar(trampaGenerada);                                                      //n^3
+                    //trampasPartida->insertar(trampaGenerada.getUbicacion());                                       //n^3
                 } else if (random < 60) {                                                                               //n^3
                     //25% de generacion para pocimas
                     Pocima pocimaGenerada;                                                                              //n^3
@@ -221,22 +225,26 @@ void Partida::moverJugador(int direccion) {
             jugador.setVida(jugador.getVida() - casillaDestino.getEfecto());                                                //1
             jugador.setPuntos(jugador.getPuntos() + 15);                                                                    //1
             cout << "Encontraste un enemigo D:!! pierdes " << casillaDestino.getEfecto() << " puntos de vida." << endl;     //1
+            cout << "Y ganas 15 puntos!!!" << endl;                                                                         //1
             string mensaje = "Se ha encontrado un enemigo y ha realizado: " + to_string(casillaDestino.getEfecto()) +
                              " de dano al jugador, en la posicion: (" + to_string(casillaDestino.getPosicionX()) + ", "
                              + to_string(casillaDestino.getPosicionY()) + ", " + to_string(
                                  casillaDestino.getPosicionZ()) + ")";                                                  //1
             registroEnemigosYTrampas->insertarFinal(mensaje);                                                          //1
+            enemigosPartida->insertar(casillaDestino.getUbicacion());                                                  //1
             break;                                                                                                          //1
         }
         case 2: {                                                                                                           //1
             jugador.setVida(jugador.getVida() - casillaDestino.getEfecto());                                                //1
             jugador.setPuntos(jugador.getPuntos() + 10);                                                                    //1
             cout << "Caiste en una trampa D:!! pierdes " << casillaDestino.getEfecto() << " puntos de vida." << endl;       //1
+            cout << "Y ganas 10 puntos!!!" << endl;                                                                         //1
             string mensaje = "Se ha encontrado una trampa y ha realizado: " + to_string(casillaDestino.getEfecto()) +
                              " de dano al jugador, en la posicion: (" + to_string(casillaDestino.getPosicionX()) + ", "
                              + to_string(casillaDestino.getPosicionY()) + ", " + to_string(
                                  casillaDestino.getPosicionZ()) + ")";                                                  //1
             registroEnemigosYTrampas->insertarFinal(mensaje);                                                          //1
+            trampasPartida->insertar(casillaDestino.getUbicacion());                                                   //1
             break;                                                                                                          //1
         }
         case 3: {                                                                                                           //1
@@ -373,6 +381,22 @@ bool Partida::isTesoroEncontrado() {
 ostream &operator<<(ostream &os, Partida &partida) {
     os << "Jugador de la partida: " << partida.getJugador().getNombre();
     return os;
+}
+
+BST<int> *Partida::getTrampasPartida() const {
+    return trampasPartida;
+}
+
+void Partida::setTrampasPartida(BST<int> *trampasPartida) {
+    Partida::trampasPartida = trampasPartida;
+}
+
+BST<int> *Partida::getEnemigosPartida() const {
+    return enemigosPartida;
+}
+
+void Partida::setEnemigosPartida(BST<int> *enemigosPartida) {
+    Partida::enemigosPartida = enemigosPartida;
 }
 
 

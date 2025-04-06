@@ -20,8 +20,8 @@ private:
     bool partidaAbandonada;
     ThreeDimensionalMatrix<Casilla> *tableroDeJuego;
     int ancho, alto, profundidad;
-    BST<Enemigo> *enemigosPartida;
-    BST<Trampa> *trampasPartida;
+    BST<int> *enemigosPartida;
+    BST<int> *trampasPartida;
     LinkedList<string> *registroTrayectoria;
     LinkedList<string> *registroEnemigosYTrampas;
     LinkedList<string> *registroPistas;
@@ -52,7 +52,6 @@ public:
 
     bool isTesoroEncontrado();
 
-
     Jugador getJugador();
 
     Partida *getPartida();
@@ -62,6 +61,14 @@ public:
     LinkedList<string> *getRegistroEnemigosYTrampas();
 
     LinkedList<string> *getRegistroPistas();
+
+    BST<int> *getTrampasPartida() const;
+
+    void setTrampasPartida(BST<int> *trampasPartida);
+
+    BST<int> *getEnemigosPartida() const;
+
+    void setEnemigosPartida(BST<int> *enemigosPartida);
 
     friend ostream &operator<<(ostream &os, Partida &partida);
 };

@@ -4,6 +4,7 @@
 
 #ifndef ENEMIGO_H
 #define ENEMIGO_H
+
 #include "Casilla.h"
 
 class Enemigo : public Casilla {
@@ -24,15 +25,16 @@ public:
 
     // usando sobrecarga para la comparacion de enemigos por vida
     bool operator<(const Enemigo &enemigoACompararar) const {
-        return this->vida < enemigoACompararar.getVida();
+        return this->vida < enemigoACompararar.getUbicacion();
     }
 
     bool operator>(const Enemigo &enemigoACompararar) const {
-        return this->vida > enemigoACompararar.getVida();
+        return this->vida > enemigoACompararar.getUbicacion();
     }
 
     bool operator==(const Enemigo &enemigoACompararar) const {
-        return this->vida == enemigoACompararar.getVida();
+        return this->vida == enemigoACompararar.getUbicacion();
     }
 };
+
 #endif //ENEMIGO_H

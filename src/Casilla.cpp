@@ -36,11 +36,11 @@ void Casilla::setPosicionZ(int posicion_z) {
     this->posicionZ = posicion_z;
 }
 
-string Casilla::getUbicacion() const {
+int Casilla::getUbicacion() const {
     return ubicacion;
 }
 
-void Casilla::setUbicacion(string ubicacion) {
+void Casilla::setUbicacion(int ubicacion) {
     this->ubicacion = ubicacion;
 }
 

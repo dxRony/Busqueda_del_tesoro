@@ -74,6 +74,10 @@ public:
         raiz = eliminarPrivado(raiz, data);                                                     //1
     }
 
+    void imprimir() {
+        imprimirPrivado(raiz, 0);
+    }
+
 private:
     Node<T> *eliminarPrivado(Node<T> *arbol, const T &data) {
         if (arbol == nullptr) {                                                                 //1
@@ -125,6 +129,23 @@ private:
         }
         // retornando el arbol donde ya no haya un subarbol izquierdo
         return arbol;                                                                           //1
+    }
+
+    void imprimirPrivado(Node<T> *nodo, int espacio){
+        if (nodo == nullptr){
+            return;
+        }
+        int sangria = 5;
+        espacio += sangria;
+
+        imprimirPrivado(nodo->getRight(), espacio);
+
+        cout << "\n";
+        for (int i = sangria; i < espacio; i++) {
+            cout << " ";
+        }
+        cout << nodo->getData() << "\n";
+        imprimirPrivado(nodo->getLeft(), espacio);
     }
 };
 #endif // BST_H
