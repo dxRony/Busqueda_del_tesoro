@@ -21,9 +21,7 @@ public:
     // destructor
     ~LinkedList();
 
-    void insertarInicio(const T &data);
-
-    void insertarFinal(const T &data);
+    void insertar(const T &data);
 
     bool eliminar(const T &data);
 
@@ -58,15 +56,7 @@ LinkedList<T>::~LinkedList() {
 }
 
 template<typename T>
-void LinkedList<T>::insertarInicio(const T &data) {
-    Node<T> *nuevoNodo = new Node<T>(data);         //1
-    nuevoNodo->setNext(head);                       //1
-    head = nuevoNodo;                               //1
-    size++;                                         //1
-}
-
-template<typename T>
-void LinkedList<T>::insertarFinal(const T &data) {
+void LinkedList<T>::insertar(const T &data) {
     Node<T> *nuevoNodo = new Node<T>(data);         //1
     if (!head) {                                    //1
         head = nuevoNodo;                           //1

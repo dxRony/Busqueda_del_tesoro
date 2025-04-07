@@ -52,7 +52,7 @@ void Partida::generarTablero() {
     tesoro.setPosicionZ(tesoroZ);                                                                              //1
     string ubicacionTesoro = "Tesoro ubicado en: (" + to_string(tesoroX) + ", " + to_string(tesoroY) + ", " +
                              to_string(tesoroZ) + ")";                                                              //1
-    registroTrayectoria->insertarFinal(ubicacionTesoro);                                                           //1
+    registroTrayectoria->insertar(ubicacionTesoro);                                                           //1
     tableroDeJuego->insertar(tesoroX, tesoroY, tesoroZ, tesoro);                                          //1
 
     int jugadorX, jugadorY, jugadorZ;                                                                                   //1
@@ -230,7 +230,7 @@ void Partida::moverJugador(int direccion) {
                              " de dano al jugador, en la posicion: (" + to_string(casillaDestino.getPosicionX()) + ", "
                              + to_string(casillaDestino.getPosicionY()) + ", " + to_string(
                                  casillaDestino.getPosicionZ()) + ")";                                                  //1
-            registroEnemigosYTrampas->insertarFinal(mensaje);                                                          //1
+            registroEnemigosYTrampas->insertar(mensaje);                                                               //1
             enemigosPartida->insertar(casillaDestino.getUbicacion());                                                  //1
             break;                                                                                                          //1
         }
@@ -243,7 +243,7 @@ void Partida::moverJugador(int direccion) {
                              " de dano al jugador, en la posicion: (" + to_string(casillaDestino.getPosicionX()) + ", "
                              + to_string(casillaDestino.getPosicionY()) + ", " + to_string(
                                  casillaDestino.getPosicionZ()) + ")";                                                  //1
-            registroEnemigosYTrampas->insertarFinal(mensaje);                                                          //1
+            registroEnemigosYTrampas->insertar(mensaje);                                                               //1
             trampasPartida->insertar(casillaDestino.getUbicacion());                                                   //1
             break;                                                                                                          //1
         }
@@ -283,7 +283,7 @@ void Partida::moverJugador(int direccion) {
                              " pasos de distancia del jugador, en la posicion: (" +
                              to_string(casillaDestino.getPosicionX()) + ", " + to_string(casillaDestino.getPosicionY())
                              + ", " + to_string(casillaDestino.getPosicionZ()) + ")";                                   //1
-            registroPistas->insertarFinal(mensaje);                                                                    //1
+            registroPistas->insertar(mensaje);                                                                        //1
             break;                                                                                                          //1
         }
         case 5: {                                                                                                           //1
@@ -298,7 +298,7 @@ void Partida::moverJugador(int direccion) {
             string movimientoFinal = "El tesoro fue encontrado con un movimiento hacia: " + direccionMovimiento +
                                      ", en la posicion" +
                                      casillaEncontrada + ", otorgandole al jugador: 100 pts!!!";                            //1
-            registroTrayectoria->insertarFinal(movimientoFinal);                                                       //1
+            registroTrayectoria->insertar(movimientoFinal);                                                           //1
             return;                                                                                                         //1
         }
         case 6: {                                                                                                           //1
@@ -330,7 +330,7 @@ void Partida::moverJugador(int direccion) {
                          to_string(casillaDestino.getPosicionX()) + ", " +
                          to_string(casillaDestino.getPosicionY()) + ", " + to_string(
                              casillaDestino.getPosicionZ()) + ")";                                                      //1
-    registroTrayectoria->insertarFinal(trayectoria);                                                                   //1
+    registroTrayectoria->insertar(trayectoria);                                                                       //1
 }
 
 void Partida::mostrarEstadisticas() {

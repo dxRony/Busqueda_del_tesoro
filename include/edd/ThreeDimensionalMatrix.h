@@ -27,7 +27,7 @@ public:
         this->alto = alto;                                                              //1
         this->profundidad = profundidad;                                                //1
         // creando nodo cabeza, esta en posicion (0, 0, 0)
-        cabeza = new Node<T>(T());                                                 //1
+        cabeza = new Node<T>(T());                                                      //1
         Node<T> *nodoActual = cabeza;                                                   //1
 
         //recorriendo cada columna, de cada fila, de cada profundidad
@@ -39,7 +39,7 @@ public:
                         continue;                                                       //n³
                     }
                     // creando nuevo nodo en la posicion actual
-                    Node<T> *nuevoNodo = new Node<T>(T());                         //n³
+                    Node<T> *nuevoNodo = new Node<T>(T());                              //n³
 
                     if (x > 0) {                                                        //n³
                         //si x >0, significa que hay un izquierdo
@@ -54,7 +54,7 @@ public:
                     }
                     if (y > 0) {                                                        //n³
                         //si y >0, significa que hay un nodo abajo, se obtiene
-                        Node<T> *nodoAbajo = obtenerNodo(x, y - 1, z);                  //n³
+                        Node<T> *nodoAbajo = obtenerNodo(x, y - 1, z);              //n³
                         //al nuevo nodo se le conecta al de abajo
                         nuevoNodo->setDown(nodoAbajo);                                  //n³
                         //al de abajo se le conecta el arriba
@@ -62,7 +62,7 @@ public:
                     }
                     if (z > 0) {                                                        //n³
                         //si z>0, significa que hay un nodo atras, se obtiene
-                        Node<T> *nodoAtras = obtenerNodo(x, y, z - 1);                  //n³
+                        Node<T> *nodoAtras = obtenerNodo(x, y, z - 1);              //n³
                         //al nuevo nodo se le conecta al de atras
                         nuevoNodo->setPrev(nodoAtras);                                  //n³
                         //al de atras se le conecta el de adelante

@@ -71,11 +71,11 @@ public:
 
     // eliminar un valor del BST
     void eliminar(const T &data) {
-        raiz = eliminarPrivado(raiz, data);                                                     //1
+        raiz = eliminarPrivado(raiz, data);                                               //1
     }
 
     void imprimir() {
-        imprimirPrivado(raiz, 0);
+        imprimirPrivado(raiz, 0);                                                 //1
     }
 
 private:
@@ -132,20 +132,20 @@ private:
     }
 
     void imprimirPrivado(Node<T> *nodo, int espacio){
-        if (nodo == nullptr){
-            return;
+        if (nodo == nullptr){                                                                   //1
+            return;                                                                             //1
         }
-        int sangria = 5;
-        espacio += sangria;
+        int sangria = 5;                                                                        //1
+        espacio += sangria;                                                                     //1
 
-        imprimirPrivado(nodo->getRight(), espacio);
+        imprimirPrivado(nodo->getRight(), espacio);                                       //log n
 
-        cout << "\n";
-        for (int i = sangria; i < espacio; i++) {
-            cout << " ";
+        cout << "\n";                                                                           //1
+        for (int i = sangria; i < espacio; i++) {                                               //n
+            cout << " ";                                                                        //n
         }
-        cout << nodo->getData() << "\n";
-        imprimirPrivado(nodo->getLeft(), espacio);
+        cout << nodo->getData() << "\n";                                                        //1
+        imprimirPrivado(nodo->getLeft(), espacio);                                        //log n
     }
 };
 #endif // BST_H

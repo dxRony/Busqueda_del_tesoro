@@ -4,11 +4,11 @@
 #include "../include/Reporte.h"
 
 void Reporte::agregarPartida(const Partida &partida) {
-    partidas.insertarFinal(partida);
+    partidas.insertar(partida);
 }
 
 void Reporte::agregarJugador(const Jugador &jugador) {
-    tablaJugadores.insertarFinal(jugador);
+    tablaJugadores.insertar(jugador);
 }
 
 void Reporte::mostrarMenuReportesPartidas(int indiceJugador) {
