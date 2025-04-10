@@ -39,7 +39,7 @@ public:
 
     void realizarTurno(int opcionTurno);
 
-    void moverJugador(int direccion);
+    void moverJugador(int tipoMovimiento);
 
     void reemplazarCasillaVacia(int nuevoX, int nuevoY, int nuevoZ);
 

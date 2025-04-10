@@ -150,8 +150,8 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/Reporte.cpp.o: \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Jugador.h \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/LinkedList.h \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/Node.h \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/Trampa.h \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/BST.h \
+ /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/Node.h \
+ /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/LinkedList.h \
  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/ThreeDimensionalMatrix.h

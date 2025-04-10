@@ -6,7 +6,6 @@
 #define JUGADOR_H
 #include "Casilla.h"
 #include <string>
-#include "edd/LinkedList.h"
 using namespace std;
 
 class Jugador : public Casilla {

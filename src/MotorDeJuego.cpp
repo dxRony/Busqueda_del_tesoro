@@ -5,7 +5,6 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <vector>
 using namespace std;
 
 void MotorDeJuego::mostrarMenu() {
@@ -66,6 +65,7 @@ void MotorDeJuego::nuevaPartida() {
     cout << "Ingresa la profundidad del tablero: ";
     cin >> profundidad;
 
+    cout << "nombreJugador: " << nombreJugador << endl;
     Partida nuevaPartida(nombreJugador, ancho, alto, profundidad);
     nuevaPartida.iniciarPartida();
     reporte.agregarPartida(nuevaPartida);

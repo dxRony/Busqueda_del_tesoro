@@ -363,8 +363,6 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/Enemigo.cpp.o: /home/ronyrojas/Documentos
 CMakeFiles/Busqueda_del_tesoro.dir/src/Jugador.cpp.o: /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Jugador.cpp \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Casilla.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Jugador.h \
-  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/edd/LinkedList.h \
-  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/edd/Node.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -544,7 +542,6 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/Jugador.cpp.o: /home/ronyrojas/Documentos
 
 CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o: /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/MotorDeJuego.cpp \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Casilla.h \
-  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Enemigo.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Jugador.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/MotorDeJuego.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Partida.h \
@@ -597,19 +594,15 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o: /home/ronyrojas/Docum
   /usr/include/c++/11/bits/sstream.tcc \
   /usr/include/c++/11/bits/std_abs.h \
   /usr/include/c++/11/bits/stl_algobase.h \
-  /usr/include/c++/11/bits/stl_bvector.h \
   /usr/include/c++/11/bits/stl_construct.h \
   /usr/include/c++/11/bits/stl_function.h \
   /usr/include/c++/11/bits/stl_iterator.h \
   /usr/include/c++/11/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/11/bits/stl_iterator_base_types.h \
   /usr/include/c++/11/bits/stl_pair.h \
-  /usr/include/c++/11/bits/stl_uninitialized.h \
-  /usr/include/c++/11/bits/stl_vector.h \
   /usr/include/c++/11/bits/streambuf.tcc \
   /usr/include/c++/11/bits/streambuf_iterator.h \
   /usr/include/c++/11/bits/stringfwd.h \
-  /usr/include/c++/11/bits/vector.tcc \
   /usr/include/c++/11/cctype \
   /usr/include/c++/11/cerrno \
   /usr/include/c++/11/clocale \
@@ -642,7 +635,6 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o: /home/ronyrojas/Docum
   /usr/include/c++/11/system_error \
   /usr/include/c++/11/type_traits \
   /usr/include/c++/11/typeinfo \
-  /usr/include/c++/11/vector \
   /usr/include/ctype.h \
   /usr/include/endian.h \
   /usr/include/errno.h \
@@ -745,7 +737,6 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o: /home/ronyrojas/Docum
 
 CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.o: /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Partida.cpp \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Casilla.h \
-  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Enemigo.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Jugador.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Partida.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Pista.h \
@@ -1295,7 +1286,6 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/Pocima.cpp.o: /home/ronyrojas/Documentos/
 
 CMakeFiles/Busqueda_del_tesoro.dir/src/Reporte.cpp.o: /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Reporte.cpp \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Casilla.h \
-  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Enemigo.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Jugador.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Partida.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Reporte.h \
@@ -1843,7 +1833,6 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/Trampa.cpp.o: /home/ronyrojas/Documentos/
 
 CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o: /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/main.cpp \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Casilla.h \
-  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Enemigo.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Jugador.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/MotorDeJuego.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Partida.h \
@@ -2056,15 +2045,11 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o: /home/ronyrojas/Documentos/Pr
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h:
 
-/usr/include/c++/11/vector:
-
 /usr/include/c++/11/fstream:
 
-/usr/include/c++/11/bits/vector.tcc:
-
-/usr/include/c++/11/bits/stl_bvector.h:
-
 /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/edd/ThreeDimensionalMatrix.h:
+
+/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/edd/Node.h:
 
 /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Trampa.h:
 
@@ -2073,8 +2058,6 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o: /home/ronyrojas/Documentos/Pr
 /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Partida.h:
 
 /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/MotorDeJuego.h:
-
-/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/edd/Node.h:
 
 /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Enemigo.h:
 
@@ -2127,8 +2110,6 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o: /home/ronyrojas/Documentos/Pr
 /usr/include/c++/11/bits/streambuf_iterator.h:
 
 /usr/include/c++/11/debug/debug.h:
-
-/usr/include/c++/11/bits/stl_uninitialized.h:
 
 /usr/include/c++/11/cwctype:
 
@@ -2183,8 +2164,6 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o: /home/ronyrojas/Documentos/Pr
 /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 
 /usr/include/c++/11/bits/postypes.h:
-
-/usr/include/c++/11/bits/stl_vector.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 

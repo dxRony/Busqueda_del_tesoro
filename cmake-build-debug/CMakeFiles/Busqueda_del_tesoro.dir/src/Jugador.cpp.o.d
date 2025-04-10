@@ -146,6 +146,4 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/Jugador.cpp.o: \
  /usr/include/c++/11/bits/locale_facets.tcc \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
- /usr/include/c++/11/bits/istream.tcc \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/LinkedList.h \
- /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/../include/edd/Node.h
+ /usr/include/c++/11/bits/istream.tcc
