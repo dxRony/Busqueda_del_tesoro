@@ -60,10 +60,10 @@ void Reporte::mostrarMenuReportesPartidas(int indiceJugador) {
             }
             case 5: {                                                                                                   //n
                 cout << "\nGrafico de los arboles de enemigos y trampas:" << endl;                                      //n
-                cout << "Grafico de arboles de enemigos (nivel alto a nivel bajo)" << endl;                             //n
-                actual->getData().getEnemigosPartida()->imprimir();
-                cout << "Grafico de arboles de trampas (nivel bajo a nivel alto)" << endl;                              //n
-                actual->getData().getTrampasPartida()->imprimir();
+                cout << "--------Grafico de arboles de enemigos (nivel alto a nivel bajo)--------" << endl;             //n
+                actual->getData().getEnemigosPartida()->imprimir(1);
+                cout << "--------Grafico de arboles de trampas (nivel bajo a nivel alto)--------" << endl;              //n
+                actual->getData().getTrampasPartida()->imprimir(1);
                 break;                                                                                                  //n
             }
             case 6: {                                                                                                   //n
@@ -78,12 +78,20 @@ void Reporte::mostrarMenuReportesPartidas(int indiceJugador) {
     } while (opcionPartida != 6);                                                                                       //n
 }
 
-void Reporte::mostrarTablaJugadores() {
+void Reporte::mostrarTablaJugadores(int opcionTabla) {
     if (!tablaJugadores.getCabeza()) {                                                          //1
         cout << "No hay jugadores existentes" << endl;                                          //1
         return;                                                                                 //1
     }
-    ordenarTablaJugadores();                                                                    //1
+    if (opcionTabla == 1) {
+        //ordenando tabla de jugadores por nombre
+        ordenarTablaJugadores(1);
+        cout << "Mostrando tabla ordenada por nombre (A-Z):" << endl;
+    } else if (opcionTabla == 2) {
+        //ordenando tabla de jugadores por puntuacion
+        ordenarTablaJugadores(2);
+        cout << "Mostrando tabla ordenada por puntuacion (mayor a menor):" << endl;
+    }
     Node<Jugador> *actual = tablaJugadores.getCabeza();                                         //1
     cout << "\n--- Tabla de Jugadores ---\n";                                                   //1
     int indice = 0;                                                                             //1
@@ -104,7 +112,7 @@ void Reporte::mostrarTablaJugadores() {
     }
 }
 
-void Reporte::ordenarTablaJugadores() {
+void Reporte::ordenarTablaJugadores(int opcionTabla) {
     if (!tablaJugadores.getCabeza()) {                                                          //1
         return;                                                                                 //1
     }
@@ -112,16 +120,28 @@ void Reporte::ordenarTablaJugadores() {
     do {
         intercambio = false;                                                                    //n
         Node<Jugador> *actual = tablaJugadores.getCabeza();                                     //n
-
-        while (actual->getNext() != nullptr) {                                                  //n^2
-            if (actual->getData().getPuntos() < actual->getNext()->getData().getPuntos()) {     //n^2
+        if (opcionTabla==1) {
+            while (actual->getNext() != nullptr) {                                                  //n^2
+                if (actual->getData().getNombre() > actual->getNext()->getData().getNombre()) {     //n^2
+                    Jugador temp = actual->getData();                                               //n^2
+                    actual->setData(actual->getNext()->getData());                                  //n^2
+                    actual->getNext()->setData(temp);                                               //n^2
+                    intercambio = true;                                                             //n^2
+                }
+                actual = actual->getNext();                                                         //n
+            }
+        } else if (opcionTabla==2) {
+            while (actual->getNext() != nullptr) {                                                  //n^2
+                if (actual->getData().getPuntos() < actual->getNext()->getData().getPuntos()) {     //n^2
                 Jugador temp = actual->getData();                                               //n^2
                 actual->setData(actual->getNext()->getData());                                  //n^2
                 actual->getNext()->setData(temp);                                               //n^2
                 intercambio = true;                                                             //n^2
-            }
+                }
             actual = actual->getNext();                                                         //n
+            }
         }
+
     } while (intercambio);                                                                      //n
 }
 

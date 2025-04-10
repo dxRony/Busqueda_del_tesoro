@@ -48,8 +48,4 @@ queda pendiente:
 			-Trampas de nivel alto estaran en los nodos inferiores del arbol.
 
 
--agregar colaboradores a repositorio
-
--hacer documentacion
-
-/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/util/jugadores.csv
+/home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/util/Primer-Proyecto.csv

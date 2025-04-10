@@ -111,7 +111,7 @@ void LinkedList<T>::imprimir() const {
     Node<T> *actual = head;                             //1
     int i = 0;                                          //1
     while (actual) {                                    //n
-        cout << i << ") " << actual->getData() << " \n";//n
+        cout << i << ". " << actual->getData() << " \n";//n
         i++;                                            //n
         actual = actual->getNext();                     //n
     }

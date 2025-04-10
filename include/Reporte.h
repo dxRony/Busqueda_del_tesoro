@@ -19,12 +19,12 @@ public:
 
     void mostrarReportesPartidas();
 
-    void mostrarTablaJugadores();
+    void mostrarTablaJugadores(int opcionTabla);
 
     void mostrarMenuReportesPartidas(int indiceJugador);
 
     LinkedList<Partida> &getPartidas();
 
-    void ordenarTablaJugadores();
+    void ordenarTablaJugadores(int opcionTabla);
 };
 #endif //REPORTE_H

@@ -91,7 +91,13 @@ void MotorDeJuego::verReportes() {
                 reporte.mostrarMenuReportesPartidas(indiceJugador);
                 break;
             case 2:
-                reporte.mostrarTablaJugadores();
+                cout << "\nSelecciona la tabla que deseas ver: " << endl;
+                cout << "1. Tabla ordenada alfabeticamente." << endl;
+                cout << "2. Tabla ordenada por puntuacion." << endl;
+                cout << "Selecciona una opcion... ";
+                int opcionTabla;
+                cin >> opcionTabla;
+                reporte.mostrarTablaJugadores(opcionTabla);
                 break;
             case 3:
                 return;
@@ -118,18 +124,22 @@ void MotorDeJuego::cargarJugadores() {
         stringstream ss(linea);                                                                                     //n
         string nombre;                                                                                                  //n
         string puntosStr;                                                                                               //n
+        string tiempoStr;
         string movimientosStr;                                                                                          //n
 
         getline(ss, nombre, ',');                                                                           //n
         getline(ss, puntosStr, ',');                                                                        //n
+        getline(ss, tiempoStr, ',');
         getline(ss, movimientosStr);                                                                              //n
 
         try {
             int puntos = stoi(puntosStr);                                                                           //n
+            int tiempo = stoi(tiempoStr);
             int movimientos = stoi(movimientosStr);                                                                 //n
 
             Jugador nuevoJugador(nombre);                                                                               //n
             nuevoJugador.setPuntos(puntos);                                                                             //n
+            nuevoJugador.setTiempoJugado(tiempo);
             nuevoJugador.setMovimientos(movimientos);                                                                   //n
             reporte.agregarJugador(nuevoJugador);                                                                //n
         } catch (const exception& e) {                                                                                  //n
