@@ -41,6 +41,10 @@ public:
 
     void moverJugador(int direccion);
 
+    void reemplazarCasillaVacia(int nuevoX, int nuevoY, int nuevoZ);
+
+    int calcularDistanciaPista(int nuevoX, int nuevoY, int nuevoZ);
+
     void mostrarEstadisticas();
 
     //getters

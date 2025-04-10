@@ -86,7 +86,6 @@ void Partida::generarTablero() {
                     enemigoGenerado.setUbicacion(stoi(ubicacionEnemigo));                                           //n^3
                     enemigoGenerado.setEfecto(enemigoGenerado.getVida());                                               //n^3
                     tableroDeJuego->insertar(x, y, z, enemigoGenerado);                                           //n^3
-                    //enemigosPartida->insertar(enemigoGenerado.getUbicacion());                                     //n^3
                 } else if (random < 35) {                                                                               //n^3
                     //20% de generacion para trampas
                     Trampa trampaGenerada;                                                                              //n^3
@@ -97,7 +96,6 @@ void Partida::generarTablero() {
                     trampaGenerada.setUbicacion(stoi(ubicacionTrampa));                                             //n^3
                     trampaGenerada.setEfecto(trampaGenerada.getDano());                                                 //n^3
                     tableroDeJuego->insertar(x, y, z, trampaGenerada);                                            //n^3
-                    //trampasPartida->insertar(trampaGenerada.getUbicacion());                                       //n^3
                 } else if (random < 60) {                                                                               //n^3
                     //25% de generacion para pocimas
                     Pocima pocimaGenerada;                                                                              //n^3
@@ -230,7 +228,7 @@ void Partida::moverJugador(int direccion) {
                              " de dano al jugador, en la posicion: (" + to_string(casillaDestino.getPosicionX()) + ", "
                              + to_string(casillaDestino.getPosicionY()) + ", " + to_string(
                                  casillaDestino.getPosicionZ()) + ")";                                                  //1
-            registroEnemigosYTrampas->insertar(mensaje);                                                               //1
+            registroEnemigosYTrampas->insertar(mensaje);                                                                    //1
             enemigosPartida->insertar(casillaDestino.getUbicacion());                                                  //1
             break;                                                                                                          //1
         }
@@ -243,7 +241,7 @@ void Partida::moverJugador(int direccion) {
                              " de dano al jugador, en la posicion: (" + to_string(casillaDestino.getPosicionX()) + ", "
                              + to_string(casillaDestino.getPosicionY()) + ", " + to_string(
                                  casillaDestino.getPosicionZ()) + ")";                                                  //1
-            registroEnemigosYTrampas->insertar(mensaje);                                                               //1
+            registroEnemigosYTrampas->insertar(mensaje);                                                                    //1
             trampasPartida->insertar(casillaDestino.getUbicacion());                                                   //1
             break;                                                                                                          //1
         }
@@ -254,36 +252,12 @@ void Partida::moverJugador(int direccion) {
             break;                                                                                                          //1
         }
         case 4: {                                                                                                           //1
-            int distanciaX = nuevoX - tesoroX;                                                                              //1
-            int distanciaY = nuevoY - tesoroY;                                                                              //1
-            int distanciaZ = nuevoZ - tesoroZ;                                                                              //1
-            //convirtiendo distancia a valores positivos                                                                    //1
-            if (distanciaX < 0) {                                                                                           //1
-                distanciaX *= -1;                                                                                           //1
-            }
-            if (distanciaY < 0) {                                                                                           //1
-                distanciaY *= -1;                                                                                           //1
-            }
-            if (distanciaZ < 0) {                                                                                           //1
-                distanciaZ *= -1;                                                                                           //1
-            }
-            //calculando distancia de posicion actual a la del tesoro
-            int distancia = distanciaX + distanciaY + distanciaZ;                                                           //1
-
-            cout << "Encontraste una Pista :D, esta dice:" << endl;
-            if (distancia > 3) {                                                                                            //1
-                cout << "Frio, sigue buscando." << endl;                                                                    //1
-            } else if (distancia >= 2) {                                                                                    //1
-                // >= 2 cubre 2 y 3
-                cout << "Tibio, estas a las afueras del tesoro." << endl;                                                   //1
-            } else {                                                                                                        //1
-                cout << "Caliente, da un paso mas y encontraras al tesoro." << endl;                                        //1
-            }
+            int distancia= calcularDistanciaPista(nuevoX, nuevoY, nuevoZ);
             string mensaje = "Se ha encontrado una pista y ha indicado que el tesoro esta a: " + to_string(distancia) +
                              " pasos de distancia del jugador, en la posicion: (" +
                              to_string(casillaDestino.getPosicionX()) + ", " + to_string(casillaDestino.getPosicionY())
                              + ", " + to_string(casillaDestino.getPosicionZ()) + ")";                                   //1
-            registroPistas->insertar(mensaje);                                                                        //1
+            registroPistas->insertar(mensaje);                                                                              //1
             break;                                                                                                          //1
         }
         case 5: {                                                                                                           //1
@@ -298,7 +272,7 @@ void Partida::moverJugador(int direccion) {
             string movimientoFinal = "El tesoro fue encontrado con un movimiento hacia: " + direccionMovimiento +
                                      ", en la posicion" +
                                      casillaEncontrada + ", otorgandole al jugador: 100 pts!!!";                            //1
-            registroTrayectoria->insertar(movimientoFinal);                                                           //1
+            registroTrayectoria->insertar(movimientoFinal);                                                                 //1
             return;                                                                                                         //1
         }
         case 6: {                                                                                                           //1
@@ -310,13 +284,23 @@ void Partida::moverJugador(int direccion) {
             break;                                                                                                          //1
         }
     }
+    reemplazarCasillaVacia(nuevoX, nuevoY, nuevoZ);
+
+    string trayectoria = "Movimiento en direccion hacia: " + direccionMovimiento + ", a la posicion: " + "(" +
+                         to_string(casillaDestino.getPosicionX()) + ", " +
+                         to_string(casillaDestino.getPosicionY()) + ", " + to_string(
+                             casillaDestino.getPosicionZ()) + ")";                                                      //1
+    registroTrayectoria->insertar(trayectoria);                                                                       //1
+}
+
+void Partida::reemplazarCasillaVacia(int nuevoX, int nuevoY, int nuevoZ) {
     Casilla casillaVacia;                                                                                                   //1
     casillaVacia.setTipoCasilla("Vacia");
-    tableroDeJuego->insertar(jugador.getPosicionX(), jugador.getPosicionY(), jugador.getPosicionZ(), casillaVacia); //1
-    jugador.setPosicionX(nuevoX);                                                                                  //1
-    jugador.setPosicionY(nuevoY);                                                                                  //1
-    jugador.setPosicionZ(nuevoZ);                                                                                  //1
-    tableroDeJuego->insertar(nuevoX, nuevoY, nuevoZ, jugador);                                                //1
+    tableroDeJuego->insertar(jugador.getPosicionX(), jugador.getPosicionY(), jugador.getPosicionZ(), casillaVacia);      //1
+    jugador.setPosicionX(nuevoX);                                                                                           //1
+    jugador.setPosicionY(nuevoY);                                                                                           //1
+    jugador.setPosicionZ(nuevoZ);                                                                                           //1
+    tableroDeJuego->insertar(nuevoX, nuevoY, nuevoZ, jugador);                                                           //1
     if (jugador.getVida() <= 0) {                                                                                           //1
         jugador.setVida(0);                                                                                                 //1
         jugadorEliminado = true;                                                                                            //1
@@ -324,13 +308,36 @@ void Partida::moverJugador(int direccion) {
     } else {                                                                                                                //1
         cout << "Aun sigues con vida, continua explorando..." << endl;                                                      //1
     }
-    jugador.setMovimientos(jugador.getMovimientos() + 1);                                                                   //1
+    jugador.setMovimientos(jugador.getMovimientos() + 1);
+}
 
-    string trayectoria = "Movimiento en direccion hacia: " + direccionMovimiento + ", a la posicion: " + "(" +
-                         to_string(casillaDestino.getPosicionX()) + ", " +
-                         to_string(casillaDestino.getPosicionY()) + ", " + to_string(
-                             casillaDestino.getPosicionZ()) + ")";                                                      //1
-    registroTrayectoria->insertar(trayectoria);                                                                       //1
+int Partida::calcularDistanciaPista(int nuevoX, int nuevoY, int nuevoZ) {
+    int distanciaX = nuevoX - tesoroX;                                                                              //1
+    int distanciaY = nuevoY - tesoroY;                                                                              //1
+    int distanciaZ = nuevoZ - tesoroZ;                                                                              //1
+    //convirtiendo distancia a valores positivos                                                                    //1
+    if (distanciaX < 0) {                                                                                           //1
+        distanciaX *= -1;                                                                                           //1
+    }
+    if (distanciaY < 0) {                                                                                           //1
+        distanciaY *= -1;                                                                                           //1
+    }
+    if (distanciaZ < 0) {                                                                                           //1
+        distanciaZ *= -1;                                                                                           //1
+    }
+    //calculando distancia de posicion actual a la del tesoro
+    int distancia = distanciaX + distanciaY + distanciaZ;                                                           //1
+
+    cout << "Encontraste una Pista :D, esta dice:" << endl;
+    if (distancia > 3) {                                                                                            //1
+        cout << "Frio, sigue buscando." << endl;                                                                    //1
+    } else if (distancia >= 2) {                                                                                    //1
+        // >= 2 cubre 2 y 3
+        cout << "Tibio, estas a las afueras del tesoro." << endl;                                                   //1
+    } else {                                                                                                        //1
+        cout << "Caliente, da un paso mas y encontraras al tesoro." << endl;                                        //1
+    }
+    return distancia;
 }
 
 void Partida::mostrarEstadisticas() {
