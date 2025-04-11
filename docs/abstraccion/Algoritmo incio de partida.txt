@@ -49,33 +49,3 @@ queda pendiente:
 
 
 /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/util/Primer-Proyecto.csv
-
-
-agregar a documentacion tecnica:
-	Reporte:
-	- ordenarTablaJugadores
-	- ordenarPorNombre
-	- ordenarPorPunteo
-
-	Partida:
-	- generarTablero
-	- generarTesoro
-	- generarJugador
-	- generarObjetosTablero
-	- generarEnemigo
-	- generarTrampa
-	- generarPocima
-	- generarPista
-	- realizarTurno
-	- moverJugador
-	- calcularPosicionMovimiento
-	- procesarEfectoCasilla
-	- procesarEnemigo
-	- procesarTrampa
-	- procesarPocima
-	- procesarPista
-	- procesarTesoro
-	- registrarMovimiento
-	- actualizarPosicionJugador
-	- reemplazarCasillaVacia
-	- calcularDistanciaPista

@@ -33,6 +33,8 @@ public:
 
     Partida(string nombreJugador, int ancho, int alto, int profundidad);
 
+    ~Partida();
+
     void iniciarPartida();
 
     void generarTablero();

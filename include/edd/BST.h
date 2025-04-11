@@ -16,6 +16,18 @@ public:
         raiz = nullptr;
     }
 
+    ~BST() {
+        destruirArbol(raiz);
+    }
+
+    void destruirArbol(Node<T> *nodo) {
+        if (nodo != nullptr) {
+            destruirArbol(nodo->getLeft());
+            destruirArbol(nodo->getRight());
+            delete nodo;
+        }
+    }
+
     void insertar(const T &data) {
         // si el arbol esta vacio, crear un nuevo nodo como raiz
         if (raiz == nullptr) {                                                                  //1

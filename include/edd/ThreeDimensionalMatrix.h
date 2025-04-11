@@ -73,6 +73,23 @@ public:
         }
     }
 
+    ~ThreeDimensionalMatrix() {
+        destruirMatriz();
+    }
+
+    void destruirMatriz() {
+        for (int z = 0; z < profundidad; ++z) {
+            for (int y = 0; y < alto; ++y) {
+                Node<T> *actual = obtenerNodo(0, y, z);
+                while (actual != nullptr) {
+                    Node<T> *siguiente = actual->getRight();
+                    delete actual;
+                    actual = siguiente;
+                }
+            }
+        }
+    }
+
     Node<T> *obtenerNodo(int x, int y, int z) {
         //verificando limites
         if (x < 0 || y < 0 || z < 0 || x >= ancho || y >= alto || z >= profundidad) {   //1

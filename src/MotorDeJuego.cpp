@@ -143,7 +143,7 @@ void MotorDeJuego::cargarJugadores() {
             nuevoJugador.setMovimientos(movimientos);                                                                   //n
             reporte.agregarJugador(nuevoJugador);                                                                //n
         } catch (const exception& e) {                                                                                  //n
-            cout << "Error al procesar linea: " << linea << " - " << e.what() << endl;                                  //n
+            cout << "Error al leer linea: " << linea << " - " << e.what() << endl;                                  //n
         }
     }
     archivo.close();                                                                                                    //1

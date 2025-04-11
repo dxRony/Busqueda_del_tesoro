@@ -29,6 +29,15 @@ Partida::Partida(string nombreJugador, int ancho, int alto, int profundidad): ju
     cout << "Tablero generado." << endl;
 }
 
+Partida::~Partida() {
+    //delete tableroDeJuego;
+    //delete enemigosPartida;
+    //delete trampasPartida;
+    //delete registroTrayectoria;
+    //delete registroEnemigosYTrampas;
+    //delete registroPistas;
+}
+
 void Partida::iniciarPartida() {
     tiempoPartida = time(nullptr);                                                  //1
     while (!jugadorEliminado && !tesoroEncontrado && !partidaAbandonada) {               //1
@@ -105,6 +114,8 @@ void Partida::generarEnemigo(int x, int y, int z) {
     enemigoGenerado.setPosicionX(x);                            //1
     enemigoGenerado.setPosicionY(y);                            //1
     enemigoGenerado.setPosicionZ(z);                            //1
+    string ubicacionEnemigo = to_string(x)+ to_string(y) + to_string(z);
+    enemigoGenerado.setUbicacion(stoi(ubicacionEnemigo));
     enemigoGenerado.setEfecto(enemigoGenerado.getVida());       //1
     tableroDeJuego->insertar(x, y, z, enemigoGenerado);      //1
 }
@@ -114,6 +125,8 @@ void Partida::generarTrampa(int x, int y, int z) {
     trampaGenerada.setPosicionX(x);                             //1
     trampaGenerada.setPosicionY(y);                             //1
     trampaGenerada.setPosicionZ(z);                             //1
+    string ubicacionTrampa = to_string(z) + to_string(y) + to_string(x);
+    trampaGenerada.setUbicacion(stoi(ubicacionTrampa));
     trampaGenerada.setEfecto(trampaGenerada.getDano());         //1
     tableroDeJuego->insertar(x, y, z, trampaGenerada);       //1
 }
@@ -243,7 +256,7 @@ void Partida::procesarEfectoCasilla(Casilla &casilla, const string &direccion) {
     } else if (tipoCasilla == "Tesoro") {                                   //1
         procesarTesoro(casilla, direccion);                              //1
     } else if (tipoCasilla == "Vacia") {                                    //1
-        cout << "Estás a salvo en esta casilla, no hay nada." << endl;      //1
+        cout << "Estas a salvo en esta casilla, no hay nada." << endl;      //1
     }
     if (tipoCasilla != "Tesoro") {                                          //1
         registrarMovimiento(casilla, direccion);                            //1
@@ -259,7 +272,7 @@ void Partida::procesarEnemigo(Casilla &casilla) {
     cout << "Y ganas 15 puntos!!!" << endl;                                                             //1
 
     string mensaje = "Se ha encontrado un enemigo y ha realizado: " +
-                     to_string(casilla.getEfecto()) + " de daño al jugador, en la posición: (" +
+                     to_string(casilla.getEfecto()) + " de daño al jugador, en la posicion: (" +
                      to_string(casilla.getPosicionX()) + ", " +
                      to_string(casilla.getPosicionY()) + ", " +
                      to_string(casilla.getPosicionZ()) + ")";                                       //1
@@ -271,12 +284,12 @@ void Partida::procesarEnemigo(Casilla &casilla) {
 void Partida::procesarTrampa(Casilla &casilla) {
     jugador.setVida(jugador.getVida() - casilla.getEfecto());                                           //1
     jugador.setPuntos(jugador.getPuntos() + 10);                                                        //1
-    cout << "Caíste en una trampa D:!! pierdes " << casilla.getEfecto()
+    cout << "Caiste en una trampa D:!! pierdes " << casilla.getEfecto()
          << " puntos de vida." << endl;                                                                 //1
     cout << "Y ganas 10 puntos!!!" << endl;                                                             //1
 
     string mensaje = "Se ha encontrado una trampa y ha realizado: " +
-                     to_string(casilla.getEfecto()) + " de daño al jugador, en la posición: (" +
+                     to_string(casilla.getEfecto()) + " de daño al jugador, en la posicion: (" +
                      to_string(casilla.getPosicionX()) + ", " +
                      to_string(casilla.getPosicionY()) + ", " +
                      to_string(casilla.getPosicionZ()) + ")";                                       //1
@@ -287,7 +300,7 @@ void Partida::procesarTrampa(Casilla &casilla) {
 
 void Partida::procesarPocima(Casilla &casilla) {
     jugador.setVida(jugador.getVida() + casilla.getEfecto());                   //1
-    cout << "Encontraste una pócima :D!! recuperas " << casilla.getEfecto()
+    cout << "Encontraste una pocima :D!! recuperas " << casilla.getEfecto()
          << " puntos de vida." << endl;                                         //1
 }
 
