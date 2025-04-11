@@ -542,6 +542,7 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/Jugador.cpp.o: /home/ronyrojas/Documentos
 
 CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o: /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/MotorDeJuego.cpp \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Casilla.h \
+  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Enemigo.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Jugador.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/MotorDeJuego.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Partida.h \
@@ -737,6 +738,7 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/MotorDeJuego.cpp.o: /home/ronyrojas/Docum
 
 CMakeFiles/Busqueda_del_tesoro.dir/src/Partida.cpp.o: /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Partida.cpp \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Casilla.h \
+  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Enemigo.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Jugador.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Partida.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Pista.h \
@@ -1286,6 +1288,7 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/Pocima.cpp.o: /home/ronyrojas/Documentos/
 
 CMakeFiles/Busqueda_del_tesoro.dir/src/Reporte.cpp.o: /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/Reporte.cpp \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Casilla.h \
+  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Enemigo.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Jugador.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Partida.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Reporte.h \
@@ -1833,6 +1836,7 @@ CMakeFiles/Busqueda_del_tesoro.dir/src/Trampa.cpp.o: /home/ronyrojas/Documentos/
 
 CMakeFiles/Busqueda_del_tesoro.dir/src/main.cpp.o: /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/src/main.cpp \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Casilla.h \
+  /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Enemigo.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Jugador.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/MotorDeJuego.h \
   /home/ronyrojas/Documentos/Proyectos/Busqueda_del_tesoro/include/Partida.h \

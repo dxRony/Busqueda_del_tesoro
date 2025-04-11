@@ -37,13 +37,47 @@ public:
 
     void generarTablero();
 
+    void generarTesoro();
+
+    void generarJugador();
+
+    void generarObjetosTablero();
+
+    void generarEnemigo(int x, int y, int z);
+
+    void generarTrampa(int x, int y, int z);
+
+    void generarPocima(int x, int y, int z);
+
+    void generarPista(int x, int y, int z);
+
     void realizarTurno(int opcionTurno);
 
     void moverJugador(int tipoMovimiento);
 
+    void calcularPosicionMovimiento(int tipoMovimiento, int& nuevoX, int& nuevoY, int& nuevoZ, string& direccion);
+
+    void procesarEfectoCasilla(Casilla &casilla, const string& direccion);
+
+    void procesarEnemigo(Casilla& casilla);
+
+    void procesarTrampa(Casilla& casilla);
+
+    void procesarPocima(Casilla& casilla);
+
+    void procesarPista(Casilla& casilla);
+
+    void procesarTesoro(Casilla& casilla, const string& direccion);
+
+    void registrarMovimiento(const Casilla& casilla, const string& direccion);
+
+    void actualizarPosicionJugador(int nuevoX, int nuevoY, int nuevoZ);
+
     void reemplazarCasillaVacia(int nuevoX, int nuevoY, int nuevoZ);
 
     int calcularDistanciaPista(int nuevoX, int nuevoY, int nuevoZ);
+
+    void procesarPista1(int distancia);
 
     void mostrarEstadisticas();
 

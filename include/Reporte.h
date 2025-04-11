@@ -26,5 +26,9 @@ public:
     LinkedList<Partida> &getPartidas();
 
     void ordenarTablaJugadores(int opcionTabla);
+
+    bool ordenarPorNombre(Node<Jugador>* actual);
+
+    bool ordenarPorPunteo(Node<Jugador>* actual);
 };
 #endif //REPORTE_H
